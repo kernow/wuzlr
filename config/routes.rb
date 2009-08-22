@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :leagues, :except => [:index, :destroy] do |league|
     league.resources :invites, :only   => [:new, :create]
+    league.resources :matches, :except => [:index, :destroy]
   end
   
   map.resource  :users, :only => [:new, :create]
