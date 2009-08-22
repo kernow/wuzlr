@@ -4,5 +4,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.root :controller => 'home'
   
-  map.resources :leagues
+  map.resources :leagues, :except => [:index, :destroy]
+  
 end

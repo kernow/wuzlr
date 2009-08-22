@@ -1,14 +1,4 @@
 class LeaguesController < ApplicationController
-  # GET /leagues
-  # GET /leagues.xml
-  def index
-    @leagues = League.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @leagues }
-    end
-  end
 
   # GET /leagues/1
   # GET /leagues/1.xml
@@ -71,15 +61,4 @@ class LeaguesController < ApplicationController
     end
   end
 
-  # DELETE /leagues/1
-  # DELETE /leagues/1.xml
-  def destroy
-    @leagues = League.find(params[:id])
-    @leagues.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(leagues_url) }
-      format.xml  { head :ok }
-    end
-  end
 end
