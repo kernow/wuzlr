@@ -1,0 +1,102 @@
+/*
+970px grid system ~ Core CSS.
+32 columns ~ margin: 10px
+
+Based on the golden grid system - http://code.google.com/p/the-golden-grid/
+by Vladimir Carrer
+
+Created by the Grid System Generator - v1.00
+Learn more ~ http://www.gridsystemgenerator.com/
+*/
+
+/* =Containers
+--------------------------------------------------------------------------------*/
+.wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	width: 970px;
+}
+
+/* =Grid >> Global
+--------------------------------------------------------------------------------*/
+.g1, .g2, .g3, .g4, .g5, .g6, .g7, .g8, .g9, .g10, .g11, .g12, 
+.g13, .g14, .g15, .g16, .g17, .g18, .g19, .g20, .g21, .g22, .g23, .g24, 
+.g25, .g26, .g27, .g28, .g29, .g30, .g31, .g32 {
+	display: inline;
+	float: left;
+	margin-left: 10px;
+}
+
+/* =Grid >> 32 Columns
+--------------------------------------------------------------------------------*/
+.g1{width:20px;}
+.g2{width:50px;}
+.g3{width:80px;}
+.g4{width:110px;}
+.g5{width:140px;}
+.g6{width:170px;}
+.g7{width:200px;}
+.g8{width:230px;}
+.g9{width:260px;}
+.g10{width:290px;}
+.g11{width:320px;}
+.g12{width:350px;}
+.g13{width:380px;}
+.g14{width:410px;}
+.g15{width:440px;}
+.g16{width:470px;}
+.g17{width:500px;}
+.g18{width:530px;}
+.g19{width:560px;}
+.g20{width:590px;}
+.g21{width:620px;}
+.g22{width:650px;}
+.g23{width:680px;}
+.g24{width:710px;}
+.g25{width:740px;}
+.g26{width:770px;}
+.g27{width:800px;}
+.g28{width:830px;}
+.g29{width:860px;}
+.g30{width:890px;}
+.g31{width:920px;}
+.g32{width:950px;}
+
+
+/* =Grid >> 32 Columns - no left margin
+--------------------------------------------------------------------------------*/
+.m1{margin-left:40px;}
+.m2{margin-left:70px;}
+.m3{margin-left:100px;}
+.m4{margin-left:130px;}
+.m5{margin-left:160px;}
+.m6{margin-left:190px;}
+.m7{margin-left:220px;}
+.m8{margin-left:250px;}
+.m9{margin-left:280px;}
+.m10{margin-left:310px;}
+.m11{margin-left:340px;}
+.m12{margin-left:370px;}
+.m13{margin-left:400px;}
+.m14{margin-left:430px;}
+.m15{margin-left:460px;}
+.m16{margin-left:490px;}
+.m17{margin-left:520px;}
+.m18{margin-left:550px;}
+.m19{margin-left:580px;}
+.m20{margin-left:610px;}
+.m21{margin-left:640px;}
+.m22{margin-left:670px;}
+.m23{margin-left:700px;}
+.m24{margin-left:730px;}
+.m25{margin-left:760px;}
+.m26{margin-left:790px;}
+.m27{margin-left:820px;}
+.m28{margin-left:850px;}
+.m29{margin-left:880px;}
+.m30{margin-left:910px;}
+.m31{margin-left:940px;}
+.m32{margin-left:970px;}
+
+
+.inside{margin-left:0;}

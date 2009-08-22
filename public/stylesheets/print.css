@@ -1,0 +1,13 @@
+/* General Print styles */
+
+body {
+   background: white;
+   font-size: 12pt;
+   width: auto;
+   margin: 0 5%;
+   padding: 0;
+   border: 0;
+   color: black;
+}
+
+

@@ -1,0 +1,67 @@
+/* Eric Meyers Reset CSS rules */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dd, dl, dt, li, ol, ul,fieldset, form, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	line-height: 1.4em;
+	font-family: inherit;
+	text-align: left;
+	vertical-align: baseline;
+}
+
+input, label {
+	vertical-align:middle; 
+}
+
+a img, :link img, :visited img {
+	border: 0;
+	outline:none;
+}
+
+/* Global reset-RESET *//* The below restores some sensible defaults */
+
+strong { 
+	font-weight:bold 
+}
+
+em { 
+	font-style:italic 
+}
+
+* a { 
+	position:relative 
+} 
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+
+.clear:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+.clear {
+	display:block;
+}
+
+
+

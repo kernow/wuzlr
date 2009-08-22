@@ -1,0 +1,101 @@
+body {
+	font-family: 'Helvetica Neue Regular', HelveticaNeue-Regular, 'Helvetica Neue', HelveticaNeue, Arial, Helvetica, sans-serif;
+	text-align:right;
+	line-height:20px;
+	font-size:100%;
+	font-weight:normal;
+}
+
+/*****************
+Headings
+*****************/
+
+h1 {
+	letter-spacing: -1px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight:normal;
+	text-align: right;
+}
+
+/*****************
+Links
+*****************/
+
+a {
+	text-decoration:none;
+}
+
+a:hover, a:focus, a:active {
+	
+}
+
+/*****************
+Text
+*****************/
+p {
+	font-size: 13px;
+	color: #333;
+	line-height: 20px;
+	margin-bottom: 13px;
+	text-align: right;
+}
+
+p a {
+	
+}
+
+
+p + p {
+
+}
+
+/*****************
+Global
+*****************/
+
+q, em {
+	font-style:italic;
+}
+
+q:before {
+	content:open-quote;
+}
+
+q:after {
+	content:close-quote;
+}
+
+cite {
+	font-style:normal;
+}
+
+strong {
+	font-weight:600;
+}
+
+blockquote p {
+	font-family: Georgia, Palatino, 'Palatino Linotype', 'Times New Roman', Times, serif;
+	font-style: italic;
+	font-size: 14px;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	padding: 10px;
+	background: #eee;
+
+}
+
+html br {
+	display: none;
+}
+
+.amp {
+	font-family:Baskerville,Palatino,'Palatino Linotype',Georgia,'Times New Roman',Times,serif;
+	font-style: italic;
+}
+
+	
+
+
+

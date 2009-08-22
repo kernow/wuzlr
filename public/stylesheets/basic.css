@@ -1,0 +1,15 @@
+/****************
+These are the main basic styles for older browsers
+****************/
+
+/* These get replaced by layout.css if the browser understands @import */
+/* inspired by hicksdesign.co.uk */
+/* ------------------------------------------------------- */
+
+body {
+	margin: 0;
+	padding: 80px 10% 10% 10%;
+	font-family: Helvetica, Arial, sans-serif;
+	background:url(../images/upgrade.gif) white no-repeat 0 0;
+}
+
