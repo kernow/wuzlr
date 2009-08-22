@@ -45,6 +45,7 @@ class MatchesController < ApplicationController
         flash[:notice] = 'Match was successfully created.'
         format.html { redirect_to league_match_path league, @match }
       else
+        @match.destroy
         format.html { render :action => "new" }
       end
     end

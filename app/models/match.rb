@@ -38,6 +38,11 @@ class Match < ActiveRecord::Base
       validates_inclusion_of :blue_score, :in => 0..10
       validate :scores
     end
+    
+    after_transition :finished => :recorded do |match, transition|
+      match.winners.each {|w| w.add_win  }
+      match.loosers.each {|w| w.add_lost }
+    end
         
   end
   
