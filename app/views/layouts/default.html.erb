@@ -19,7 +19,7 @@
 
 <script type="text/javascript">
 jQuery(document).ready(function($){ 
-	Cufon.replace('#bulk .headit h2, #aside h3, , .headit h4',{
+	Cufon.replace('#bulk .headit h2, #aside h3, , .headit h4, .museo',{
     hover: true
 	});
 });
@@ -53,18 +53,19 @@ jQuery(document).ready(function($){
 							<span class="toggler">Petercolesdc</span>
 						</a>
 						<ul id="nav">
-            	<% if signed_in? %>
-            		<li><%= link_to 'Account', account_path %></li>
-              	<li><%= link_to 'create a league', new_league_path %></li>
-              	<li><%= link_to 'Signout', sign_out_path %></li>
-                <li><%= link_to 'me leagues', user_leagues_path(current_user) %></li>
-              <% else %>
-            		<li><%= link_to 'Sign in',  sign_in_path %></li>
-            		<li><%= link_to 'Sign up',  sign_up_path %></li>
-              <% end %>
-            </ul>
+			            	<% if signed_in? %>
+			            		<li class="account"><%= link_to 'Account', account_path %></li>
+			                <li class="leagues"><%= link_to 'My leagues', user_leagues_path(current_user) %></li>
+			              	<li class="create"><%= link_to 'Add a league', new_league_path %></li>
+			              	<li class="signout"><%= link_to 'Signout', sign_out_path %></li>
+			              <% else %>
+			            		<li class="signin"><%= link_to 'Sign in',  sign_in_path %></li>
+			            		<li class="signup"><%= link_to 'Sign up',  sign_up_path %></li>
+			              <% end %>
+			            </ul>
 					</li>
 				</ul>
+				<a href="#" class="add clear"><span>Create a new league</span></a>
 				<div class="widget clear">
 					<h3 class="iconize">Player roster</h3>
 					<ul class="display_roster clear">

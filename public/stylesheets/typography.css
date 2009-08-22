@@ -19,16 +19,24 @@ h1, h2, h3, h4, h5, h6 {
 	text-align: right;
 }
 
+h2.museo {
+	color: #333;
+	font-size: 22px;
+	line-height: 20px;
+	margin-bottom: 10px;
+} 
+
 /*****************
 Links
 *****************/
 
 a {
 	text-decoration:none;
+	color: #d25c3c;
 }
 
 a:hover, a:focus, a:active {
-	
+	color: #8db726;
 }
 
 /*****************
@@ -49,6 +57,14 @@ p a {
 
 p + p {
 
+}
+
+li {
+	text-align: right;
+}
+
+li label {
+	text-align: left;
 }
 
 /*****************

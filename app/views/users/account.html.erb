@@ -1,12 +1,15 @@
-<h2>Edit Account</h2>
+<div class="clear generic">
+	<% semantic_form_for @user do |form| %>
+	  <%= form.error_messages %>
+	  <%= render :partial => "/users/inputs", :locals => { :form => form } %>
+	  <% form.buttons do %>
+	    <%= form.commit_button "Save" %>
+	  <% end %>
+	<% end %>
+</div>
 
-<% semantic_form_for @user do |form| %>
-  <%= form.error_messages %>
-  <%= render :partial => "/users/inputs", :locals => { :form => form } %>
-  <% form.buttons do %>
-    <%= form.commit_button "Save" %>
-  <% end %>
-<% end %>
-
-<h2>Leagues</h2>
-<%= render :partial => @leagues %>
+<div class="clear generic">
+<hr/>
+	<h2 class="museo">Leagues</h2>
+	<%= render :partial => @leagues %>
+</div>
