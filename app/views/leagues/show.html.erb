@@ -1,18 +1,18 @@
-<h2><%= @league.name %></h2>
 
-<table>
-	<tr>
+<table id="fuckingsweet">
+	<tr class="sickass">
 		<th></th>
-		<th>Played</th>
+		<th>Pld</th>
 		<th>Won</th>
-		<th>Lost</th>
+		<th>Lst</th>
 		<th>Win %</th>
-		<th>Winning Streak</th>
-		<th>Losing Streak</th>
+		<th title="Winning Streak">Wsk</th>
+		<th title="Losing Streak">Lsk</th>
 	</tr>
 	<% @players.each do |p| %>
-		<tr>
-			<td><%= link_to p.name, user_path(p) %></td>
+		<tr class="phatass">
+			<!--<td><%= link_to p.name, user_path(p) %></td>-->
+			<td class="youruglymug"><a href="#"><img src="/images/avatars/1.jpg" alt="avatar"/></a></td>
 			<td><%= p.played                     %></td>
 			<td><%= p.won                        %></td>
 			<td><%= p.lost                       %></td>
@@ -23,7 +23,9 @@
 	<% end %>
 </table>
 
-<%= link_to 'New match', new_league_match_path(@league) %>
-<%= link_to 'Invite Players', new_league_invite_path(@league) if @league.member_of?(current_user) %>
-
-<%= link_to 'Edit', edit_league_path(@league) if @league.owner?(current_user) %>
+<ul class="doitlikebritney">
+<li><hr/></li>
+	<li><%= link_to 'New match', new_league_match_path(@league) %></li>
+	<li><%= link_to 'Invite Players', new_league_invite_path(@league) if @league.member_of?(current_user) %></li>
+	<li><%= link_to 'Edit', edit_league_path(@league) if @league.owner?(current_user) %></li>
+</ul>
