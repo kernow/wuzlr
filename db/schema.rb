@@ -9,7 +9,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090822001026) do
+ActiveRecord::Schema.define(:version => 20090822002908) do
+
+  create_table "league_players", :force => true do |t|
+    t.integer  "league_id"
+    t.integer  "player_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "leagues", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "match_players", :force => true do |t|
+    t.string   "team"
+    t.integer  "position"
+    t.integer  "match_id"
+    t.integer  "player_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "matches", :force => true do |t|
+    t.time     "started_at"
+    t.time     "finished_at"
+    t.integer  "red_score"
+    t.integer  "blue_score"
+    t.integer  "league_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"
