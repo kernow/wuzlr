@@ -30,9 +30,7 @@ Rails::Initializer.run do |config|
   config.gem 'peterpunk-mhash',
     :lib     => 'mhash',
     :source  => 'http://gems.github.com'
-  
-  config.gem 'sqlite3-ruby',
-    :lib     => 'sqlite3'
+
 end
 
 DO_NOT_REPLY = "donotreply@wuzlr.com"

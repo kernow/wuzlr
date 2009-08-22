@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20090822214200) do
   end
 
   create_table "matches", :force => true do |t|
-    t.datetime "started_at"
-    t.datetime "finished_at"
+    t.time     "started_at"
+    t.time     "finished_at"
     t.integer  "red_score"
     t.integer  "blue_score"
     t.integer  "league_id"
