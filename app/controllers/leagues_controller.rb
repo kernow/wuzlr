@@ -2,7 +2,7 @@ class LeaguesController < ApplicationController
   # GET /leagues
   # GET /leagues.xml
   def index
-    @leagues = Leagues.all
+    @leagues = League.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class LeaguesController < ApplicationController
   # GET /leagues/1
   # GET /leagues/1.xml
   def show
-    @leagues = Leagues.find(params[:id])
+    @leagues = League.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +24,7 @@ class LeaguesController < ApplicationController
   # GET /leagues/new
   # GET /leagues/new.xml
   def new
-    @leagues = Leagues.new
+    @leagues = League.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,17 +34,17 @@ class LeaguesController < ApplicationController
 
   # GET /leagues/1/edit
   def edit
-    @leagues = Leagues.find(params[:id])
+    @leagues = League.find(params[:id])
   end
 
   # POST /leagues
   # POST /leagues.xml
   def create
-    @leagues = Leagues.new(params[:leagues])
+    @leagues = League.new(params[:leagues])
 
     respond_to do |format|
       if @leagues.save
-        flash[:notice] = 'Leagues was successfully created.'
+        flash[:notice] = 'League was successfully created.'
         format.html { redirect_to(@leagues) }
         format.xml  { render :xml => @leagues, :status => :created, :location => @leagues }
       else
@@ -57,11 +57,11 @@ class LeaguesController < ApplicationController
   # PUT /leagues/1
   # PUT /leagues/1.xml
   def update
-    @leagues = Leagues.find(params[:id])
+    @leagues = League.find(params[:id])
 
     respond_to do |format|
       if @leagues.update_attributes(params[:leagues])
-        flash[:notice] = 'Leagues was successfully updated.'
+        flash[:notice] = 'League was successfully updated.'
         format.html { redirect_to(@leagues) }
         format.xml  { head :ok }
       else
@@ -74,7 +74,7 @@ class LeaguesController < ApplicationController
   # DELETE /leagues/1
   # DELETE /leagues/1.xml
   def destroy
-    @leagues = Leagues.find(params[:id])
+    @leagues = League.find(params[:id])
     @leagues.destroy
 
     respond_to do |format|
