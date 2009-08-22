@@ -2,6 +2,6 @@
 
 <%= "Congrats #{@match.winners.map(&:email).join(', ')}" %>
 
-<%= "Bad luck #{@match.loosers.map(&:email).join(', ')}" %>
+<%= "Bad luck #{@match.losers.map(&:email).join(', ')}" %>
 
 <%= link_to "Back to the League", league_path(@league) %>
