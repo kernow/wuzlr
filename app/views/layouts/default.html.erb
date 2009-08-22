@@ -4,18 +4,18 @@
 <head profile="http://gmpg.org/xfn/11">
 
 <!--Link basic styling for older browsers-->
-<link href="stylesheets/basic.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/stylesheets/basic.css" rel="stylesheet" type="text/css" media="screen" />
     
 <!--Link before import prevents Flash Of Unstyled Content in ie6pc -->
-<style type="text/css">@import"stylesheets/default.css"/**/;</style>
+<style type="text/css">@import"/stylesheets/default.css"/**/;</style>
 
-<!--[if IE 7]><link rel="stylesheet" type="text/css" href="stylesheets/ie7.css" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/stylesheets/ie7.css" media="screen" /><![endif]-->
 
-<!--[if IE 6]><link rel="stylesheet" type="text/css" href="stylesheets/ie6.css" media="screen" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="/stylesheets/ie6.css" media="screen" /><![endif]-->
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script type="text/javascript" src="javascripts/cufon-yui.js"></script>
-<script type="text/javascript" src="javascripts/museo.js"></script>
+<script type="text/javascript" src="/javascripts/cufon-yui.js"></script>
+<script type="text/javascript" src="/javascripts/museo.js"></script>
 
 <script type="text/javascript">
 jQuery(document).ready(function($){ 
@@ -40,25 +40,8 @@ jQuery(document).ready(function($){
 					<h3>Current standings</h3>
 					<hr/>
 				</div>
-				<div class="headit clear">
-					<h4>Select players</h4>
-				<p>drag and drop team members to the pitch</p>
-				</div>
-				<div class="contain clear">
-					<ul class="display_roster clear">
-						<li><a href="#"><img src="images/avatars/1.jpg" alt="avatar"/></a></li>
-						<li><a href="#"><img src="images/avatars/2.jpg" alt="avatar"/></a></li>
-						<li><a href="#"><img src="images/avatars/3.jpg" alt="avatar"/></a></li>
-						<li><a href="#"><img src="images/avatars/4.jpg" alt="avatar"/></a></li>
-						<li><a href="#"><img src="images/avatars/1.jpg" alt="avatar"/></a></li>
-						<li><a href="#"><img src="images/avatars/2.jpg" alt="avatar"/></a></li>
-						<li><a href="#"><img src="images/avatars/3.jpg" alt="avatar"/></a></li>
-						<li><a href="#"><img src="images/avatars/4.jpg" alt="avatar"/></a></li>
-					</ul>
-				</div>
-				<div id="pitch">
-					<a href="#" class="play_game">Play game</a>
-				</div>
+				<%= render :partial => 'layouts/flashes' %>
+				<%= yield %>
 			</div>
 			
 			<div id="aside" class="g10 m3">
@@ -67,15 +50,26 @@ jQuery(document).ready(function($){
 						<a href="#">
 							<span class="toggler">Petercolesdc</span>
 						</a>
+						<ul id="nav">
+            	<% if signed_in? %>
+            		<li><%= link_to 'Account', account_path %></li>
+              	<li><%= link_to 'create a league', new_league_path %></li>
+              	<li><%= link_to 'Signout', sign_out_path %></li>
+                <li><%= link_to 'me leagues', user_leagues_path(current_user) %></li>
+              <% else %>
+            		<li><%= link_to 'Sign in',  sign_in_path %></li>
+            		<li><%= link_to 'Sign up',  sign_up_path %></li>
+              <% end %>
+            </ul>
 					</li>
 				</ul>
 				<div class="widget clear">
 					<h3 class="iconize">Player roster</h3>
 					<ul class="display_roster clear">
-						<li><a href="#"><img src="images/avatars/1.jpg" alt="avatar"/></a></li>
-						<li><a href="#"><img src="images/avatars/2.jpg" alt="avatar"/></a></li>
-						<li><a href="#"><img src="images/avatars/3.jpg" alt="avatar"/></a></li>
-						<li><a href="#"><img src="images/avatars/4.jpg" alt="avatar"/></a></li>
+						<li><a href="#"><img src="/images/avatars/1.jpg" alt="avatar"/></a></li>
+						<li><a href="#"><img src="/images/avatars/2.jpg" alt="avatar"/></a></li>
+						<li><a href="#"><img src="/images/avatars/3.jpg" alt="avatar"/></a></li>
+						<li><a href="#"><img src="/images/avatars/4.jpg" alt="avatar"/></a></li>
 					</ul>
 					<a href="#" class="more_toggle">More</a>
 				</div>
@@ -95,7 +89,7 @@ jQuery(document).ready(function($){
 
 
 <!--
-<% render :partial => 'layouts/flashes' %>
+<%= render :partial => 'layouts/flashes' %>
 <ul id="nav">
 	<% if signed_in? %>
 		<li><%= link_to 'Account', account_path %></li>
