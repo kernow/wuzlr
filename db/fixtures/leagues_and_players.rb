@@ -9,12 +9,6 @@
   "Andrew Mangan", "James Constable", "Steve Morison", "Charlie Griffin", "Matthew Barnes-Homer", "Jack Midson", "Greg Pearson", "Colin Little", "Justin Richards", "Shaun Harrad", "Jefferson Louis", "Gareth Seddon", "Richard Brodie"
 ]
 }.each{|league, players|
-  League.seed(:name) do |s|
-    s.name = league
-  end
-  
-  l = League.find_by_name league
-  
   players.each do |p|
     User.seed(:name) do |s|
       s.name                  = p
@@ -25,6 +19,13 @@
     end
     
     u = User.find_by_name p
+    
+    League.seed(:name) do |s|
+      s.name = league
+      s.user = u
+    end
+
+    l = League.find_by_name league
     
     l.players << u unless l.players.include?(p)
   end
