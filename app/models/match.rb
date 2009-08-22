@@ -25,6 +25,7 @@ class Match < ActiveRecord::Base
     end
     
     state :playing do
+      validates_presence_of :started_at
       validate :players_on_both_sides
       validate :players_are_unique
     end
@@ -39,9 +40,13 @@ class Match < ActiveRecord::Base
       validate :scores
     end
     
+    before_transition :planning => :playing do |match, transition|
+      match.started_at = Time.now unless match.started_at
+    end
+    
     after_transition :finished => :recorded do |match, transition|
       match.winners.each {|w| w.add_win  match.finished_at }
-      match.loosers.each {|w| w.add_lost match.finished_at }
+      match.losers.each {|w| w.add_lost match.finished_at }
     end
         
   end
@@ -54,7 +59,7 @@ class Match < ActiveRecord::Base
     end
   end
   
-  def looser
+  def loser
     if red_score < blue_score
       "red"
     else
@@ -70,10 +75,48 @@ class Match < ActiveRecord::Base
     end
   end
   
-  def loosers
-    case looser
+  def losers
+    case loser
     when "red" : red_players
     when "blue": blue_players
+    else nil
+    end
+  end
+  
+  def duration
+    Time.at(finished_at - started_at)
+  end
+  
+  def team_with(user)
+    if red_players.include? user
+      "red"
+    elsif blue_players.include? user
+      "blue"
+    else
+      nil
+    end
+  end
+  
+  def team_without(user)
+    case team_with(user)
+    when "red"  : "blue"
+    when "blue" : "red"
+    else nil
+    end
+  end
+  
+  def players_for(team)
+    case team
+    when "red"  : red_players
+    when "blue" : blue_players
+    else nil
+    end
+  end
+  
+  def score_for(team)
+    case team
+    when "red"  : red_score
+    when "blue" : blue_score
     else nil
     end
   end
