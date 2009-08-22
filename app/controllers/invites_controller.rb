@@ -13,6 +13,8 @@ class InvitesController < ApplicationController
         Mailer.deliver_invitation email, @league unless email.blank?
       end
     end
+    flash[:success] = "Invites have been sent"
+    redirect_to league_url(@league)
   end
   
   private

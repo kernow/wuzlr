@@ -6,4 +6,9 @@ module ApplicationHelper
       "#{user.win_loss_percentage_i}%"
     end
   end
+  
+  def gravatar_for_with_default(user, options={})
+    options = { :default => 'wavatar' }.merge options
+    gravatar_for user, options
+  end
 end
