@@ -234,16 +234,16 @@ Aside
 
 }
 
-#nav {
+#nav, #nav-visible {
 	padding: 5px;
 	margin-bottom: 20px;
 }
 
-#nav li {
+#nav li, #nav-visible li {
 	line-height: 12px;
 }
 
-#aside #nav li a {
+#aside #nav li a, #aside #nav-visible li a {
 	color:#eee;
 	text-shadow: 0 -1px 1px #222;
 	font-size: 12px;
@@ -258,23 +258,23 @@ Aside
 
 }
 
-#aside #nav li.create a {
+#aside #nav li.create a, #aside #nav-visible li.create a {
 	background: url(../images/icons/pencil.png) transparent no-repeat 3px center;
 }
 
-#aside #nav li.account a {
+#aside #nav li.account a, #aside #nav-visible li.account a {
 	background: url(../images/icons/user.png) transparent no-repeat 3px center;
 }
 
-#aside #nav li.leagues a {
+#aside #nav li.leagues a, #aside #nav-visible li.leagues a {
 	background: url(../images/icons/leagues.png) transparent no-repeat 3px center;
 }
 
-#aside #nav li.signin a {
+#aside #nav li.signin a, #aside #nav-visible li.signin a {
 	background: url(../images/icons/arrow-right.png) transparent no-repeat 3px center;
 }
 
-#aside #nav li.signout a {
+#aside #nav li.signout a, #aside #nav-visible li.signout a {
 	background: url(../images/icons/rmv.png) transparent no-repeat 3px center;
 }
 

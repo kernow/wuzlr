@@ -5,7 +5,6 @@ class LeaguesController < ApplicationController
   
   # GET /leagues
   def index
-    @leagues = current_user.leagues
   end
   
   # GET /leagues/1
