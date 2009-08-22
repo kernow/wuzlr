@@ -10,6 +10,9 @@
 
 <div class="clear generic">
 <hr/>
-	<h2 class="museo">Leagues</h2>
-	<%= render :partial => @leagues %>
+	<h2 class="museo">My leagues</h2>
+	<ul class="listed">
+      <%= render :partial => @leagues %>
+    </ul>
+	<a href="#" class="add clear"><span>Create a new league</span></a>
 </div>

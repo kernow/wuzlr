@@ -56,6 +56,8 @@ Header
 	width:157px;
 	height: 157px;
 	position: relative;
+	top:9px;
+	z-index: 10;
 }
 
 .logo a {
@@ -174,8 +176,9 @@ Content + Bulk
 
 .listed li {
 	display: block;
-	background: url(../images/gradients/lime.gif) #e6eb11 repeat-x bottom left;
-	border: 1px solid #fff;
+	background: #dedede;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #eee;	
 	margin-bottom: 8px;
 	position: relative;
 }
@@ -186,23 +189,40 @@ Content + Bulk
 	padding: 10px;
 	display: block;
 	color: #333;
-	font-size: 12px;
 	padding-left: 50px;
-	text-shadow: none;
+	font-size: 14px;
 }
 
 .listed li a + a {
-	background: url(../images/icons/pin.png) transparent no-repeat 14px center;
-	padding-left: 5px;
+	background: rgba(0,0,0,0.04);
 	display: block;
-	padding-left: 38px;
-	width: 18px;
-	height: 16px;
+	padding-left: 10%;
 	font-size: 11px;
 }
 
 .listed li a:hover, .listed li a:focus, .listed li a:active {
 	color: #d25c3c;
+}
+
+#aside .listed  {
+	width:90%;
+	margin-top: 10px;
+}
+
+#aside .listed li {
+	background: #dedede;
+	-moz-border-radius: 0;
+	-webkit-border-radius:0;
+	border: 0;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #eee;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+#aside .listed li a {
+	font-size:11px;
+	background-image: url(../images/icons/leagues-16.png);
 }
 
 
@@ -235,6 +255,7 @@ Aside
 	text-transform: lowercase;
 	text-indent: 22px;
 	display: block;
+
 }
 
 #aside #nav li.create a {
@@ -277,8 +298,9 @@ Aside
 }
 
 #aside .logger a {
-	padding:15px;
+	padding:15px 15px 0 15px;
 	display: block;
+	outline: none;
 }
 
 

@@ -3,48 +3,53 @@
 	width: 100%;
 }
 
-.formtastic label {
+
+.formtastic label, .new_league label, .edit_league label  {
 	border: 0;
-	display: block;
 	margin-bottom: 10px;
-	background: #dfdfdf;
-	width:40%;
+	background: url(../images/gradients/chrome.gif) #eee repeat-x bottom left;
+	width:38%;
 	padding: 5px;
-	padding-left: 20px;
+	padding-left: 10px;
 	position: relative;
 	left: -20px;
-	top:14px;
+	top:-6px;
 	z-index: 4;
 	-moz-box-shadow:0 1px 1px #ddd;
 	border: 1px solid #fff;
 	font-size: 14px;
 	color: #666;
+	opacity:0.8;
 }
 
-.formtastic input {
+label[for="league_description"] {
+	top:-100px;
+}
+
+.formtastic input, .new_league input, .new_league textarea, .edit_league input, .edit_league textarea {
 	border: 0;
-	padding: 10px;
+	padding: 10px 10px 10px 20px;
 	margin-bottom: 10px;
-	color: #777;
+	color: #aaa;
 	font-size: 18px;
-	width:300px;
+	width:260px;
 	background: #f1f1f1;
 	border: 3px solid #fff;
 }
 
-.formtastic fieldset {
+.new_league textarea, .edit_league textarea {
+	height: 180px;
+	width: 300px;
+}
+
+.formtastic fieldset, .new_league fieldset, .edit_league fieldset {
 	float: right;
 	clear: both;
 }
 
-.formtastic #user_submit {
-	border: 0;
+.formtastic #user_submit, #league_submit {
 	clear: both;
 	background: url(../images/gradients/red.gif) #e45d0b repeat-x bottom left;
-	-moz-border-radius:16px;
-	-webkit-border-radius:16px;
-	-moz-box-shadow: 0px 3px 3px #333;
-	-webkit-box-shadow: 0px 3px 3px #333;
 	border: 2px solid rgba(220,220,220,0.2);
 	padding: 20px;
 	color: #efefef;
@@ -54,9 +59,14 @@
 	font-size: 18px;
 	cursor: pointer;
 	margin-top: 10px;
+	-moz-border-radius:16px;
+	-webkit-border-radius:16px;
+	-moz-box-shadow: 0px 3px 3px #333;
+	-webkit-box-shadow: 0px 3px 3px #333;
 }
 
-.formtastic #user_submit:hover {
+.formtastic #user_submit:hover, .formtastic #user_submit:focus, .formtastic #user_submit:active, 
+#league_submit:hover, #league_submit:focus, #league_submit:active {
 	cursor: pointer;
 	background-position: 10px 50px;
 	-moz-box-shadow:none;
