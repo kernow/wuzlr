@@ -45,8 +45,9 @@ class UsersController < Clearance::UsersController
         league
         @league.add_player @user
       end
-      ::ClearanceMailer.deliver_confirmation @user
-      flash_notice_after_create
+      @user.confirm_email!
+      sign_in(@user)
+      flash_success_after_create
       redirect_to(url_after_create)
     else
       render :template => 'users/new'
@@ -56,5 +57,11 @@ class UsersController < Clearance::UsersController
 private
   def league
     @league ||= League.find params[:league]
+  end
+  
+  def flash_success_after_create
+    flash[:success] = translate(:confirmed_email,
+      :scope   => [:clearance, :controllers, :confirmations],
+      :default => "Confirmed email and signed in.")
   end
 end
