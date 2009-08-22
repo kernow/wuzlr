@@ -278,6 +278,10 @@ Aside
 	background: url(../images/icons/rmv.png) transparent no-repeat 3px center;
 }
 
+#aside #nav li.signup a {
+	background: url(../images/icons/users.png) transparent no-repeat 3px center;
+}
+
 #aside #nav li a:hover, #aside #nav li a:focus, #aside #nav li a:active {
 	background-color: #333;
 	cursor: pointer;
