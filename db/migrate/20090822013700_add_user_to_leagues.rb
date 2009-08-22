@@ -1,4 +1,4 @@
-class AddUserToLeague < ActiveRecord::Migration
+class AddUserToLeagues < ActiveRecord::Migration
   def self.up
     add_column :leagues, :user_id, :integer
   end
