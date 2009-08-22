@@ -17,6 +17,10 @@ Rails::Initializer.run do |config|
   config.gem "justinfrench-formtastic", 
     :lib     => 'formtastic', 
     :source  => 'http://gems.github.com'
+    
+  config.gem "mbleigh-seed-fu",
+    :lib     => 'seed-fu',
+    :source  => 'http://gems.github.com'
 
 end
 
