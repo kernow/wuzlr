@@ -1,0 +1,31 @@
+/* sorts out dropped floats */
+div {
+	word-wrap:break-word;
+	/*overflow:hidden;*/
+}
+
+
+/************************** 
+IE 6 only. 
+Start with - * html
+**************************/
+
+
+/****************** Helpful Stuff ******************/
+
+/*Element Missing? position:absolute; 
+
+/*Double margin? display:inline;*/
+
+/*Height bug? height:1%;*/
+
+/*Irons out the hasLayout problem: zoom: 1;
+
+/*Alpha loader background: transparent; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader (src='', sizingMethod='crop'); zoom:1;*/
+
+/*Alpha transparency filter:alpha(opacity=50);*/
+
+/*Helps with clairy with css resized images - -ms-interpolation-mode: bicubic;*/
+
+/*padding-bottom:1px; Fix peakaboo bug*/
+
