@@ -86,7 +86,7 @@
 					<p>Player's becoming 'playaz'</p>
 					<ul class="display_form clear">
 					  <% @wup_wup_playaz.each do |playaplaya| %>
-						  <li><%= link_to "#{gravatar_for(playaplaya)} #{win_loss_bar(playaplaya, :class => 'win_loss_bar')}", user_path(playaplaya) %></li>
+						  <li><%= link_to "#{gravatar_for_with_default playaplaya} #{win_loss_bar(playaplaya, :class => 'win_loss_bar')}", user_path(playaplaya) %></li>
 						<% end %>
 					</ul>
 				</div>
