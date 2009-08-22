@@ -10,9 +10,9 @@ class LeaguesController < ApplicationController
   
   # GET /leagues/1
   def show
-    @league  = League.find(params[:id])
+    @league    = League.find(params[:id])
     @subheader = "Current standings"
-    @players = @league.players
+    @players   = @league.players
   end
 
   # GET /leagues/new

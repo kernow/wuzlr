@@ -14,4 +14,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users, :only => [:new, :create] do |user|
     user.resources :leagues, :only => :index
   end
+  
+  map.league_graphs "/leagues/:id/graphs/:action", :controller => :graphs
 end

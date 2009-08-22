@@ -23,6 +23,9 @@
 	<% end %>
 </table>
 
+<h2>Table Bias</h2>
+<%= remote_graph("Table Bias",{ :route => league_graphs_path( :id => @league, :action => :table_bias ), :width => "500px", :height => "300px"}) %>
+
 <%= link_to 'New match', new_league_match_path(@league) %>
 <%= link_to 'Invite Players', new_league_invite_path(@league) if @league.member_of?(current_user) %>
 

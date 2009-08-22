@@ -54,17 +54,27 @@ class Match < ActiveRecord::Base
   def winner
     if red_score > blue_score
       "red"
-    else
+    elsif blue_score > red_score
       "blue"
+    else
+      nil
     end
   end
   
   def loser
-    if red_score < blue_score
-      "red"
-    else
-      "blue"
+    case winner
+    when "red"  : "blue"
+    when "blue" : "red"
+    else nil
     end
+  end
+  
+  def loser_score
+    score_for(loser)
+  end
+  
+  def score_difference
+    (red_score - blue_score).abs
   end
   
   def winners
