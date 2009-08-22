@@ -28,32 +28,24 @@ class User < ActiveRecord::Base
     increment :played
     increment :won
     
-    attributes = {
-      :last_won_at    => time,
-      :last_played_at => time,
-      :played         => self[:played],
-      :won            => self[:won]
-    }
-    current_streak = losing_streak
-    attributes[:longest_winning_streak] = current_streak if current_streak > winning_streak
+    self.last_won_at    = time
+    self.last_played_at = time
     
-    update_attributess attributes
+    current_streak = winning_streak
+    self.longest_winning_streak = current_streak if current_streak > longest_winning_streak
+    self.save!
   end
   
   def add_lost(time = Time.now)
     increment :played
     increment :lost
     
-    attributes = {
-      :last_lost_at   => time,
-      :last_played_at => time,
-      :played         => self[:played],
-      :lost           => self[:lost]
-    }
-    current_streak = losing_streak
-    attributes[:longest_losing_streak] = current_streak if current_streak > longest_losing_streak
+    self.last_lost_at   = time
+    self.last_played_at = time
     
-    update_attributes attributes
+    current_streak = losing_streak
+    self.longest_losing_streak = current_streak if current_streak > longest_losing_streak
+    self.save!
   end
   
   def winning_streak
@@ -75,7 +67,7 @@ class User < ActiveRecord::Base
 private
   
   def matches_since(time)
-    user.matches.find(:all, :conditions => "finished_at > 'time'").count
+    matches.find(:all, :conditions => "finished_at > '#{time}'").count
   end
   
 end

@@ -1,6 +1,6 @@
 User.find(:all).each{|player|
   player.leagues.each{|league|
-    started_playing = (rand(360) + 5).days.ago
+    started_playing = (rand(360) + 5).days.ago + rand(6).hours + rand(50).minutes
     number_matches  = rand(10) + 1
     min_game_time   = 30
     max_game_time   = 15 * 60
@@ -26,8 +26,8 @@ User.find(:all).each{|player|
       }
                     
       game_start     = Time.at(rand(Time.now.to_i - started_playing.to_i) + started_playing.to_i)
-      game_length    = Time.at(rand(max_game_time - min_game_time) + min_game_time)
-      game_finish    = Time.at(game_start.to_i + game_length.to_i)
+      game_length    = rand(max_game_time - min_game_time) + min_game_time
+      game_finish    = Time.at(game_start.to_i + game_length)
       
       match.created_at  = game_start
       raise match.errors.full_messages unless match.kick_off
