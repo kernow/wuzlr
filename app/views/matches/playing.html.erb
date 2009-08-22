@@ -1,4 +1,4 @@
-<h1>Playing!</h1>
+<% @header = "WARNING!! Match in progress" %>
 
 <% form_tag full_time_league_match_path(@league, @match), :method => :put do %>
 	<%= submit_tag "Full time" %>
