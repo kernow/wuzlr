@@ -1,11 +1,3 @@
 <h1>Editing leagues</h1>
 
-<% form_for(@league) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @league %>
+<%= render :partial => "form", :locals => { :button_label => "Update" } %> 

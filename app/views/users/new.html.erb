@@ -3,6 +3,7 @@
 <% semantic_form_for @user do |form| %>
   <%= form.error_messages %>
   <%= render :partial => "/users/inputs", :locals => { :form => form } %>
+  <%= hidden_field_tag :league, @league.id unless @league.blank? %>
   <% form.buttons do %>
     <%= form.commit_button "Sign up" %>
   <% end %>

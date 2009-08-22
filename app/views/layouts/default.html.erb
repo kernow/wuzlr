@@ -4,7 +4,13 @@
 </head>
 <% render :partial => 'layouts/flashes' %>
 <ul id="nav">
-  <li><%= link_to 'create a league', new_league_url %></li>
+  <% if signed_in? %>
+    <li><%= link_to 'create a league', new_league_path %></li>
+    <li><%= link_to 'me profile', user_path(current_user) %></li>
+  <% else %>
+    <li><%= link_to 'sign up', new_user_path %></li>
+    <li><%= link_to 'sign in', new_session_path %></li>
+  <% end %>
 </ul>
 <%= yield %>
 </html>
