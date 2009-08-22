@@ -62,13 +62,15 @@
             </ul>
 					</li>
 				</ul>
-				<%= link_to '<span>Create a new league</span>', new_league_path, :class => "add clear" if signed_in? %>
-				<div class="widget clear">
-					<h3 class="iconize">Your leagues</h3>
-					<ul class="listed clear">
-						 <%= render :partial => @leagues %>
-					</ul>
-				</div>
+				<% if signed_in? %>
+  				<%= link_to '<span>Create a new league</span>', new_league_path, :class => "add clear" if signed_in? %>
+  				<div class="widget clear">
+  					<h3 class="iconize">Your leagues</h3>
+  					<ul class="listed clear">
+  						 <%= render :partial => @leagues %>
+  					</ul>
+  				</div>
+				<% end %>
 				<!--<div class="widget clear">
 					<h3 class="iconize">Player roster</h3>
 					<ul class="display_roster clear">
