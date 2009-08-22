@@ -40,8 +40,8 @@ class Match < ActiveRecord::Base
       validate :scores
     end
     
-    before_transition :planning => :kick_off do |transition|
-      self.started_at = Time.now unless self.started_at
+    before_transition :planning => :playing do |match, transition|
+      match.started_at = Time.now unless match.started_at
     end
     
     after_transition :finished => :recorded do |match, transition|
