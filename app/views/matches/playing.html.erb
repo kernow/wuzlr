@@ -1,5 +1,5 @@
 <h1>Playing!</h1>
 
-<% form_tag edit_league_match(@league, @match), :method => :put %>
+<% form_tag full_time_league_match_path(@league, @match), :method => :put do %>
 	<%= submit_tag "Full time" %>
 <% end %>

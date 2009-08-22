@@ -7,7 +7,8 @@
 </ul>
 
 <% form_tag league_matches_path(@league) do -%>
-
+	<%= @match.errors.full_messages   %>
+	<%= @match.match_players.map{|p| p.errors.full_messages}%>
   <%= label_tag      'red[1]' %>
   <%= text_field_tag 'red[1]' %>
   <%= label_tag      'red[2]' %>
