@@ -1,1 +1,7 @@
 <h1>Enter score</h1>
+
+<% form_for @match do |f| %>
+	<%= f.text_field :blue_score %>
+	<%= f.text_field :red_score  %>
+	<%= f.submit_tag "Save" %>
+<% end %>

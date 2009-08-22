@@ -11,8 +11,9 @@ class MatchesController < ApplicationController
 
   # GET /leagues/1/matches/new
   def new
-    @match = league.matches.new
-
+    @match   = league.matches.new
+    @players = league.players
+    
     respond_to do |format|
       format.html # new.html.erb
     end
@@ -29,7 +30,16 @@ class MatchesController < ApplicationController
 
   # POST /leagues/1/matches
   def create
-    @match = league.matches.new(params[:match])
+    @match = league.matches.create
+    
+    [:red, :blue].each do |t|
+      params[t].each do |pl,po|
+        @match.match_players.create(
+          :player   => league.players.find(pl.to_i),
+          :team     => t, 
+          :position => po.to_i)
+      end
+    end
 
     respond_to do |format|
       if @match.save
@@ -58,7 +68,7 @@ class MatchesController < ApplicationController
 private
 
   def league
-    @league || League.find(params[:league_id])
+    @league ||= League.find(params[:league_id])
   end
 
 end

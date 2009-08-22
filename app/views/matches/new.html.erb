@@ -1,1 +1,27 @@
 <h1>Create Match</h1>
+
+<ul class="players">
+  <% @players.each do |p| %>
+    <li class='player'><%= render :partial => p %></li>
+  <% end %>
+</ul>
+
+<% form_tag league_matches_path(@league) do -%>
+
+  <%= label_tag      'red[1]' %>
+  <%= text_field_tag 'red[1]' %>
+  <%= label_tag      'red[2]' %>
+  <%= text_field_tag 'red[2]' %>
+  <%= label_tag      'red[3]' %>
+  <%= text_field_tag 'red[3]' %>
+
+  <%= label_tag      'blue[1]' %>
+  <%= text_field_tag 'blue[1]' %>
+  <%= label_tag      'blue[2]' %>
+  <%= text_field_tag 'blue[2]' %>
+  <%= label_tag      'blue[3]' %>
+  <%= text_field_tag 'blue[3]' %>
+
+	<%= submit_tag "Kick off" %>
+
+<% end -%>
