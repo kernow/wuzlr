@@ -421,7 +421,6 @@ Roster
 	z-index: 500;
 }
 
-
 .more_toggle {
 	float: right;
 }
@@ -461,6 +460,33 @@ Buttons
 	width: 50%;
 	text-align: center;
 	font-size: 18px;
+}
+
+.newmatchup a {
+	clear: both;
+	float: right;
+	background: url(../images/gradients/red.gif) #e45d0b repeat-x bottom left;
+	-moz-border-radius:16px;
+	-webkit-border-radius:16px;
+	-moz-box-shadow: 0px 3px 3px #333;
+	-webkit-box-shadow: 0px 3px 3px #333;
+	border: 2px solid rgba(220,220,220,0.2);
+	display: block;
+	padding: 10px;
+	color: #efefef;
+	text-transform: uppercase;
+	text-shadow: 0 -1px 1px #333;
+	width: 20%;
+	text-align: center;
+	font-size: 12px;
+}
+
+.play_game:hover, .play_game:focus, .play_game:active, .newmatchup a:hover, .newmatchup a:focus, .newmatchup a:active {
+	cursor: pointer;
+	background-position: 10px 50px;
+	-moz-box-shadow:none;
+	-webit-box-shadow:none;
+	color: #fff;
 }
 
 /***************************************
@@ -536,7 +562,7 @@ Fucking sweet table
 	color: #333;
 }
 
-.youruglymug img {
+.youruglymug img  {
 	position: relative;
 	display: block;
 	top: 20px;

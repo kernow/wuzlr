@@ -26,6 +26,10 @@ Rails::Initializer.run do |config|
     :lib     => 'state_machine',
     :version => '>= 0.7.6',
     :source  => "http://gems.github.com"
+    
+  config.gem 'peterpunk-mhash',
+    :lib     => 'mhash',
+    :source  => 'http://gems.github.com'
 
 end
 
