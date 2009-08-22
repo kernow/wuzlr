@@ -8,10 +8,14 @@ class ApplicationController < ActionController::Base
   
   layout "default"
   
-  before_filter :leagues
+  before_filter :leagues, :wup_wup_playaz
   
   def leagues
     @leagues = current_user.leagues if signed_in?
+  end
+  
+  def wup_wup_playaz
+    @wup_wup_playaz = User.wup_wup_playaz
   end
 
   # Scrub sensitive parameters from your log

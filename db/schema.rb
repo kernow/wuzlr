@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090822120841) do
+ActiveRecord::Schema.define(:version => 20090822214200) do
 
   create_table "league_players", :force => true do |t|
     t.integer  "league_id"
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20090822120841) do
   end
 
   create_table "matches", :force => true do |t|
-    t.datetime "started_at"
-    t.datetime "finished_at"
+    t.time     "started_at"
+    t.time     "finished_at"
     t.integer  "red_score"
     t.integer  "blue_score"
     t.integer  "league_id"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20090822120841) do
     t.datetime "last_lost_at"
     t.integer  "longest_winning_streak",                :default => 0
     t.integer  "longest_losing_streak",                 :default => 0
+    t.float    "win_loss_percentage",                   :default => 0.0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
