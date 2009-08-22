@@ -6,6 +6,10 @@ body {
 	font-weight:normal;
 }
 
+textarea {
+	font-family: 'Helvetica Neue Regular', HelveticaNeue-Regular, 'Helvetica Neue', HelveticaNeue, Arial, Helvetica, sans-serif;
+}
+
 /*****************
 Headings
 *****************/

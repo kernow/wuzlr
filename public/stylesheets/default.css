@@ -56,6 +56,8 @@ Header
 	width:157px;
 	height: 157px;
 	position: relative;
+	top:9px;
+	z-index: 10;
 }
 
 .logo a {
@@ -84,6 +86,9 @@ Content + Bulk
 #bulk .headit h2, #bulk .headit h3 {
 	text-align: right;
 	line-height: 24px;
+	width:70%;
+	position: relative;
+	right: -155px;
 }
 
 #bulk .headit h2 {
@@ -160,6 +165,66 @@ Content + Bulk
 	margin-bottom: 30px;
 }
 
+.listed {
+	display: block;
+	float: right;
+	clear: both;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 80%;
+}
+
+.listed li {
+	display: block;
+	background: #dedede;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #eee;	
+	margin-bottom: 8px;
+	position: relative;
+}
+
+.listed li a {
+	background: url(../images/icons/big/leagues.png) transparent no-repeat 10px center;
+	text-align: right;
+	padding: 10px;
+	display: block;
+	color: #333;
+	padding-left: 50px;
+	font-size: 14px;
+}
+
+.listed li a + a {
+	background: rgba(0,0,0,0.04);
+	display: block;
+	padding-left: 10%;
+	font-size: 11px;
+}
+
+.listed li a:hover, .listed li a:focus, .listed li a:active {
+	color: #d25c3c;
+}
+
+#aside .listed  {
+	width:90%;
+	margin-top: 10px;
+}
+
+#aside .listed li {
+	background: #dedede;
+	-moz-border-radius: 0;
+	-webkit-border-radius:0;
+	border: 0;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #eee;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+#aside .listed li a {
+	font-size:11px;
+	background-image: url(../images/icons/leagues-16.png);
+}
+
 
 /***************************************
 Aside
@@ -190,6 +255,7 @@ Aside
 	text-transform: lowercase;
 	text-indent: 22px;
 	display: block;
+
 }
 
 #aside #nav li.create a, #aside #nav-visible li.create a {
@@ -232,8 +298,9 @@ Aside
 }
 
 #aside .logger a {
-	padding:15px;
+	padding:15px 15px 0 15px;
 	display: block;
+	outline: none;
 }
 
 
