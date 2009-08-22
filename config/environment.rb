@@ -14,6 +14,10 @@ Rails::Initializer.run do |config|
     :source  => 'http://gems.github.com',
     :version => '0.7.0'
 
+  config.gem "justinfrench-formtastic", 
+    :lib     => 'formtastic', 
+    :source  => 'http://gems.github.com'
+
 end
 
 DO_NOT_REPLY = "donotreply@wuzlr.com"
