@@ -1,0 +1,12 @@
+<h1>Editing leagues</h1>
+
+<% form_for(@leagues) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @leagues %> |
+<%= link_to 'Back', leagues_path %>

@@ -2,5 +2,9 @@
 <head>
   <title>Wuzlr BABY!!!</title>
 </head>
+<% render :partial => 'layouts/flashes' %>
+<ul id="nav">
+  <li><%= link_to 'create a league', new_league_url %></li>
+</ul>
 <%= yield %>
 </html>
