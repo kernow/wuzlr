@@ -36,8 +36,10 @@ jQuery(document).ready(function($){
 		<div id="content" class="clear">
 			<div id="bulk" class="g18">
 				<div class="headit clear">
-					<h2>Jiva league</h2>
-					<h3>Current standings</h3>
+					<h2><%= @header    || @user.try(:name) || @league.try(:name) || "Header" %></h2>
+					<% if @subheader %>
+					  <h3><%= @subheader %></h3>
+					<% end %>
 					<hr/>
 				</div>
 				<%= render :partial => 'layouts/flashes' %>

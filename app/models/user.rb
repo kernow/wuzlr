@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   has_many :match_players, :foreign_key => "player_id"
   has_many :matches, :through => :match_players
   
+  validates_presence_of :name
+  attr_accessible :name
+  
   def win_p
     if played > 0
       ((won / played.to_f) * 100).to_i

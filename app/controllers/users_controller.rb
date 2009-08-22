@@ -11,6 +11,8 @@ class UsersController < Clearance::UsersController
 
   def account
     @user    = current_user
+    @subheader = "Edit account"
+
     @leagues = @user.leagues
     respond_to do |format|
       format.html
