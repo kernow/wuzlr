@@ -12,13 +12,13 @@
 	</tr>
 	<% @players.each do |p| %>
 		<tr>
-			<td><%= p.name                   %></td>
-			<td><%= p.played                 %></td>
-			<td><%= p.won                    %></td>
-			<td><%= p.lost                   %></td>
-			<td><%= p.win_p.to_s + "%"       %></td>
-			<td><%= p.longest_winning_streak %></td>
-			<td><%= p.longest_losing_streak  %></td>
+			<td><%= link_to p.name, user_path(p) %></td>
+			<td><%= p.played                     %></td>
+			<td><%= p.won                        %></td>
+			<td><%= p.lost                       %></td>
+			<td><%= p.win_p.to_s + "%"           %></td>
+			<td><%= p.longest_winning_streak     %></td>
+			<td><%= p.longest_losing_streak      %></td>
 		</tr>
 	<% end %>
 </table>
