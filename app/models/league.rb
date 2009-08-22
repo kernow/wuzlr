@@ -13,4 +13,11 @@ class League < ActiveRecord::Base
     league_players.create(:player_id => user.id) unless players.include?(user)
   end
   
+  def owner?(user)
+    self.user == user
+  end
+  
+  def member_of?(user)
+    self.players.include?(user)
+  end
 end
