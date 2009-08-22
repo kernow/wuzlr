@@ -11,8 +11,7 @@
 	</tr>
 	<% @players.each do |p| %>
 		<tr class="phatass">
-			<!--<td><%= link_to p.name, user_path(p) %></td>-->
-			<td class="youruglymug"><a href="#"><img src="/images/avatars/1.jpg" alt="avatar"/></a></td>
+			<td class="youruglymug"><%= link_to gravatar_for(p), user_path(p) %></td>
 			<td><%= p.played                     %></td>
 			<td><%= p.won                        %></td>
 			<td><%= p.lost                       %></td>
@@ -23,9 +22,10 @@
 	<% end %>
 </table>
 
+<span class="newmatchup"><%= link_to 'New match', new_league_match_path(@league) %></span>
+
 <ul class="doitlikebritney">
 <li><hr/></li>
-	<li><%= link_to 'New match', new_league_match_path(@league) %></li>
 	<li><%= link_to 'Invite Players', new_league_invite_path(@league) if @league.member_of?(current_user) %></li>
 	<li><%= link_to 'Edit', edit_league_path(@league) if @league.owner?(current_user) %></li>
 </ul>
