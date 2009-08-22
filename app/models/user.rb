@@ -8,6 +8,22 @@ class User < ActiveRecord::Base
   has_many :match_players, :foreign_key => "player_id"
   has_many :matches, :through => :match_players
   
+  def win_p
+    if played > 0
+      ((won / played.to_f) * 100).to_i
+    else
+      0
+    end
+  end
+  
+  def lose_p
+    if played > 0
+      ((lost / played.to_f) * 100).to_i
+    else
+      0
+    end
+  end
+  
   def add_win(time = Time.now)
     increment :played
     increment :won
