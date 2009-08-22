@@ -136,6 +136,14 @@ Content + Bulk
 	-webkit-box-shadow:0 3px 3px #ddd;
 }
 
+#pitch #top {
+  height: 50%;
+}
+
+#pitch #bottom {
+  height: 50%;
+}
+
 #pitch .play_game {
 	position: absolute;
 	left: 45px;
@@ -226,6 +234,11 @@ Roster
 .display_roster li img {
 	margin-bottom: 5px;
 }
+
+.display_roster .draggable_player {
+	z-index: 500;
+}
+
 
 .more_toggle {
 	float: right;

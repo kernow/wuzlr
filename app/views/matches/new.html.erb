@@ -1,28 +1,30 @@
 <h1>Create Match</h1>
 
-<ul class="players">
-  <% @players.each do |p| %>
-    <li class='player'><%= render :partial => p %></li>
-  <% end %>
-</ul>
+<div class="headit clear">
+	<h4>Select players</h4>
+<p>drag and drop team members to the pitch</p>
+</div>
+<div class="contain clear">
+	<ul class="display_roster clear">
+	  <% @players.each do |p| %>
+		  <li><a href="javascript:;" class="draggable_player" id="player-<%= p.id%>"><img src="/images/avatars/<%= p.id%>.jpg" alt="avatar"/></a></li>
+		<% end %>
+	</ul>
+</div>
 
-<% form_tag league_matches_path(@league) do -%>
+<div id="pitch">
+  <div id="top" class="droppable"></div>
+  <div id="bottom" class="droppable"></div>
+	<a href="javascript:;" class="play_game">Play game</a>
+</div>
+
+<% form_tag league_matches_path(@league), :id => 'players_form' do -%>
 	<%= @match.errors.full_messages   %>
 	<%= @match.match_players.map{|p| p.errors.full_messages}%>
-  <%= label_tag      'red[1]' %>
-  <%= text_field_tag 'red[1]' %>
-  <%= label_tag      'red[2]' %>
-  <%= text_field_tag 'red[2]' %>
-  <%= label_tag      'red[3]' %>
-  <%= text_field_tag 'red[3]' %>
+  <%= hidden_field_tag 'red[1]' %>
+  <%= hidden_field_tag 'red[2]' %>
 
-  <%= label_tag      'blue[1]' %>
-  <%= text_field_tag 'blue[1]' %>
-  <%= label_tag      'blue[2]' %>
-  <%= text_field_tag 'blue[2]' %>
-  <%= label_tag      'blue[3]' %>
-  <%= text_field_tag 'blue[3]' %>
-
-	<%= submit_tag "Kick off" %>
+  <%= hidden_field_tag 'blue[1]' %>
+  <%= hidden_field_tag 'blue[2]' %>
 
 <% end -%>
