@@ -84,6 +84,9 @@ Content + Bulk
 #bulk .headit h2, #bulk .headit h3 {
 	text-align: right;
 	line-height: 24px;
+	width:70%;
+	position: relative;
+	right: -155px;
 }
 
 #bulk .headit h2 {
@@ -150,6 +153,48 @@ Content + Bulk
 
 .generic hr {
 	margin-bottom: 30px;
+}
+
+.listed {
+	display: block;
+	float: right;
+	clear: both;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 80%;
+}
+
+.listed li {
+	display: block;
+	background: url(../images/gradients/lime.gif) #e6eb11 repeat-x bottom left;
+	border: 1px solid #fff;
+	margin-bottom: 8px;
+	position: relative;
+}
+
+.listed li a {
+	background: url(../images/icons/big/leagues.png) transparent no-repeat 10px center;
+	text-align: right;
+	padding: 10px;
+	display: block;
+	color: #333;
+	font-size: 12px;
+	padding-left: 50px;
+	text-shadow: none;
+}
+
+.listed li a + a {
+	background: url(../images/icons/pin.png) transparent no-repeat 14px center;
+	padding-left: 5px;
+	display: block;
+	padding-left: 38px;
+	width: 18px;
+	height: 16px;
+	font-size: 11px;
+}
+
+.listed li a:hover, .listed li a:focus, .listed li a:active {
+	color: #d25c3c;
 }
 
 
