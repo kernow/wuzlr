@@ -278,11 +278,12 @@ Aside
 	background: url(../images/icons/rmv.png) transparent no-repeat 3px center;
 }
 
-#aside #nav li.signup a {
+#aside #nav li.signup a, #aside #nav-visible li.signup a {
 	background: url(../images/icons/users.png) transparent no-repeat 3px center;
 }
 
-#aside #nav li a:hover, #aside #nav li a:focus, #aside #nav li a:active {
+#aside #nav li a:hover, #aside #nav li a:focus, #aside #nav li a:active,
+#aside #nav-visible li a:hover, #aside #nav-visible li a:focus, #aside #nav-visible li a:active  {
 	background-color: #333;
 	cursor: pointer;
 }
@@ -299,6 +300,7 @@ Aside
 	margin-bottom: 30px;
 	position: relative;
 	right: -2px;
+	min-width: 140px;
 }
 
 #aside .logger a {
@@ -450,6 +452,20 @@ Buttons
 	width: 50%;
 	text-align: center;
 	font-size: 18px;
+}
+
+/***************************************
+Flashes
+****************************************/
+
+#flash {
+	position: absolute;
+	top:88px;
+	z-index: 220;
+	left: 50px;
+	display: block;
+	background: rgba(0,0,0,0.8);
+	color: #ddd;
 }
 
 /***************************************
