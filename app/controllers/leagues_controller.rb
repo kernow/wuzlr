@@ -1,24 +1,24 @@
 class LeaguesController < ApplicationController
-
+  
+  before_filter :authenticate, :only => [:new, :create]
+  # before_filter :is_owner?, :only => [:edit, :update]
+  
+  # GET /leagues
+  def index
+    @leagues = current_user.leagues
+  end
+  
   # GET /leagues/1
-  # GET /leagues/1.xml
   def show
     @league = League.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @league }
-    end
   end
 
   # GET /leagues/new
-  # GET /leagues/new.xml
   def new
     @league = League.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @league }
     end
   end
 
@@ -28,24 +28,22 @@ class LeaguesController < ApplicationController
   end
 
   # POST /leagues
-  # POST /leagues.xml
   def create
-    @league = League.new(params[:league])
-
+    @league       = League.new(params[:league])
+    @league.user  = current_user
+    
     respond_to do |format|
       if @league.save
+        @league.add_player current_user
         flash[:notice] = 'League was successfully created.'
         format.html { redirect_to(@league) }
-        format.xml  { render :xml => @league, :status => :created, :location => @league }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @league.errors, :status => :unprocessable_entity }
       end
     end
   end
 
   # PUT /leagues/1
-  # PUT /leagues/1.xml
   def update
     @league = League.find(params[:id])
 
@@ -53,10 +51,8 @@ class LeaguesController < ApplicationController
       if @league.update_attributes(params[:league])
         flash[:notice] = 'League was successfully updated.'
         format.html { redirect_to(@league) }
-        format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @league.errors, :status => :unprocessable_entity }
       end
     end
   end

@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20090822035927) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "match_players", :force => true do |t|
