@@ -60,16 +60,4 @@ class LeaguesController < ApplicationController
       end
     end
   end
-
-  # DELETE /leagues/1
-  # DELETE /leagues/1.xml
-  def destroy
-    @league = League.find(params[:id])
-    @league.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(leagues_url) }
-      format.xml  { head :ok }
-    end
-  end
 end
