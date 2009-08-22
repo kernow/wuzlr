@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   validates_presence_of :name
   attr_accessible :name
   
+  before_update :calculate_win_loss_percentage
+  
   def win_p
     if played > 0
       ((won / played.to_f) * 100).to_i
@@ -65,6 +67,18 @@ class User < ActiveRecord::Base
     else
       0
     end
+  end
+  
+  def calculate_win_loss_percentage
+    self.win_loss_percentage = (won / (won.to_f + lost.to_f)) * 100
+  end
+  
+  def win_loss_percentage_i
+    win_loss_percentage.to_i
+  end
+  
+  def self.wup_wup_playaz # AKA the players with the best win/loss percentage
+    User.find :all, :limit => 5, :order => "win_loss_percentage DESC"
   end
   
 private

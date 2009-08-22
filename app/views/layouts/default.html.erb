@@ -13,13 +13,12 @@
 <!--[if IE 7]><link rel="stylesheet" type="text/css" href="/stylesheets/ie7.css" media="screen" /><![endif]-->
 
 <!--[if IE 6]><link rel="stylesheet" type="text/css" href="/stylesheets/ie6.css" media="screen" /><![endif]-->
-
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.3/mootools-yui-compressed.js"></script>
 <script type="text/javascript" src="/javascripts/mootools-1.2.3.1-more.js"></script>
 <script type="text/javascript" src="/javascripts/application.js"></script>
+<script type="text/javascript" src="/javascripts/swfobject.js"></script>
 <script type="text/javascript" src="/javascripts/cufon-yui.js"></script>
 <script type="text/javascript" src="/javascripts/museo.js"></script>
-
 
 </head>
 
@@ -86,7 +85,9 @@
 					<h3>S'all 'bout form baby</h3>
 					<p>Player's becoming 'playaz'</p>
 					<ul class="display_form clear">
-						<li><a href="#"></li>
+					  <% @wup_wup_playaz.each do |playaplaya| %>
+						  <li><%= link_to "#{gravatar_for(playaplaya)} #{win_loss_bar(playaplaya, :class => 'win_loss_bar')}", user_path(playaplaya) %></li>
+						<% end %>
 					</ul>
 				</div>
 			</div>

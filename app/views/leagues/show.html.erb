@@ -22,6 +22,9 @@
 	<% end %>
 </table>
 
+<h2>Table Bias</h2>
+<%= remote_graph("Table Bias",{ :route => league_graphs_path( :id => @league, :action => :table_bias ), :width => "500px", :height => "300px"}) %>
+
 <span class="newmatchup"><%= link_to 'New match', new_league_match_path(@league) %></span>
 
 <ul class="doitlikebritney">
