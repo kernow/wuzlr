@@ -4,7 +4,7 @@
 }
 
 
-.formtastic label, .new_league label, .edit_league label  {
+.user label, .new_league label, .edit_league label, .session label  {
 	border: 0;
 	margin-bottom: 10px;
 	background: url(../images/gradients/chrome.gif) #eee repeat-x bottom left;
@@ -26,7 +26,8 @@ label[for="league_description"] {
 	top:-100px;
 }
 
-.formtastic input, .new_league input, .new_league textarea, .edit_league input, .edit_league textarea {
+.user input, .new_league input, .new_league textarea, .edit_league input, 
+.edit_league textarea, .session textarea, .session input {
 	border: 0;
 	padding: 10px 10px 10px 20px;
 	margin-bottom: 10px;
@@ -37,17 +38,17 @@ label[for="league_description"] {
 	border: 3px solid #fff;
 }
 
-.new_league textarea, .edit_league textarea {
+.user textarea, .new_league textarea, .edit_league textarea, .session textarea {
 	height: 180px;
 	width: 300px;
 }
 
-.formtastic fieldset, .new_league fieldset, .edit_league fieldset {
+.user .fieldset, .new_league fieldset, .edit_league fieldset , .session fieldset {
 	float: right;
 	clear: both;
 }
 
-.formtastic #user_submit, #league_submit {
+#user_submit, #league_submit, #session_submit {
 	clear: both;
 	background: url(../images/gradients/red.gif) #e45d0b repeat-x bottom left;
 	border: 2px solid rgba(220,220,220,0.2);
@@ -65,10 +66,62 @@ label[for="league_description"] {
 	-webkit-box-shadow: 0px 3px 3px #333;
 }
 
+#session_submit {
+	margin-top: -10px;
+	position: relative;
+	padding: 10px;
+}
+
 .formtastic #user_submit:hover, .formtastic #user_submit:focus, .formtastic #user_submit:active, 
-#league_submit:hover, #league_submit:focus, #league_submit:active {
+#league_submit:hover, #league_submit:focus, #league_submit:active, 
+#session_submit:hover, #session_submit:active, #session_submit:focus {
 	cursor: pointer;
 	background-position: 10px 50px;
 	-moz-box-shadow:none;
 	-webit-box-shadow:none;
 }
+
+li#session_remember_me_input label {
+	background: none;
+	border: 0;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+	text-align: right;
+	display: block;
+	position: relative;
+	left:220px;
+	color: #333;
+	font-size: 11px;
+	vertical-align: middle;
+}
+
+li#session_remember_me_input input {
+	background: none;
+	border: 0;
+	width:16px;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+}
+
+.doitlikebritney {
+	clear: both;
+	float: right;
+}
+
+.doitlikebritney li {
+	display: inline;
+	font-size: 12px;
+	margin-left: 12px;
+	border-left: 0;
+}
+
+.doitlikebritney li:last-child {
+	border-left: 1px solid #ccc;
+	padding-left:12px;
+}
+
+.doitlikebritney li a {
+	opacity:0.7;
+}
+
+
