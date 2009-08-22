@@ -1,3 +1,29 @@
-<%= link_to 'Invite Players', new_league_invite_path(@league) %>
+<h2><%= @league.name %></h2>
 
-<%= link_to 'Edit', edit_league_path(@league) %>
+<table>
+	<tr>
+		<th></th>
+		<th>Played</th>
+		<th>Won</th>
+		<th>Lost</th>
+		<th>Win %</th>
+		<th>Winning Streak</th>
+		<th>Losing Streak</th>
+	</tr>
+	<% @players.each do |p| %>
+		<tr>
+			<td><%= link_to p.name, user_path(p) %></td>
+			<td><%= p.played                     %></td>
+			<td><%= p.won                        %></td>
+			<td><%= p.lost                       %></td>
+			<td><%= p.win_p.to_s + "%"           %></td>
+			<td><%= p.longest_winning_streak     %></td>
+			<td><%= p.longest_losing_streak      %></td>
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to 'New match', new_league_match_path(@league) %>
+<%= link_to 'Invite Players', new_league_invite_path(@league) if @league.member_of?(current_user) %>
+
+<%= link_to 'Edit', edit_league_path(@league) if @league.owner?(current_user) %>

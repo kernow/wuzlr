@@ -1,1 +1,10 @@
 <h1>Enter score</h1>
+
+<% form_for [@league, @match] do |f| %>
+	<%= @match.errors.full_messages %>
+	<%= f.label :blue_score %>
+	<%= f.text_field :blue_score %>
+	<%= f.label :red_score %>
+	<%= f.text_field :red_score  %>
+	<%= f.submit "Save" %>
+<% end %>

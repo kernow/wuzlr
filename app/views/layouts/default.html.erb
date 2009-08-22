@@ -94,15 +94,17 @@ jQuery(document).ready(function($){
 
 
 
-
-<!--<% render :partial => 'layouts/flashes' %>
-<ul id="!--  -->nav">
-  <% if signed_in? %>
-    <li><%= link_to 'create a league', new_league_path %></li>
-    <li><%= link_to 'me profile', user_path(current_user) %></li>
+<!--
+<% render :partial => 'layouts/flashes' %>
+<ul id="nav">
+	<% if signed_in? %>
+		<li><%= link_to 'Account', account_path %></li>
+  	<li><%= link_to 'create a league', new_league_path %></li>
+  	<li><%= link_to 'Signout', sign_out_path %></li>
+    <li><%= link_to 'me leagues', user_leagues_path(current_user) %></li>
   <% else %>
-    <li><%= link_to 'sign up', new_user_path %></li>
-    <li><%= link_to 'sign in', new_session_path %></li>
+		<li><%= link_to 'Sign in',  sign_in_path %></li>
+		<li><%= link_to 'Sign up',  sign_up_path %></li>
   <% end %>
 </ul>
 <%= yield %>-->
