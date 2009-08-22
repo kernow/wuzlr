@@ -56,14 +56,14 @@ ActiveRecord::Schema.define(:version => 20090822120841) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.integer  "played"
-    t.integer  "won"
-    t.integer  "lost"
+    t.integer  "played",                                :default => 0
+    t.integer  "won",                                   :default => 0
+    t.integer  "lost",                                  :default => 0
     t.datetime "last_played_at"
     t.datetime "last_won_at"
     t.datetime "last_lost_at"
-    t.integer  "longest_winning_streak"
-    t.integer  "longest_losing_streak"
+    t.integer  "longest_winning_streak",                :default => 0
+    t.integer  "longest_losing_streak",                 :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
