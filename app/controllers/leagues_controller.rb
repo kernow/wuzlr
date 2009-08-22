@@ -3,13 +3,14 @@ class LeaguesController < ApplicationController
   before_filter :authenticate, :only => [:new, :create]
   # before_filter :is_owner?, :only => [:edit, :update]
   
+  # GET /leagues
+  def index
+    @leagues = current_user.leagues
+  end
+  
   # GET /leagues/1
   def show
     @league = League.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-    end
   end
 
   # GET /leagues/new
@@ -33,6 +34,7 @@ class LeaguesController < ApplicationController
     
     respond_to do |format|
       if @league.save
+        @league.add_player current_user
         flash[:notice] = 'League was successfully created.'
         format.html { redirect_to(@league) }
       else
