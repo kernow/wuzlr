@@ -25,6 +25,7 @@ class Match < ActiveRecord::Base
     end
     
     state :playing do
+      validates_presence_of :started_at
       validate :players_on_both_sides
       validate :players_are_unique
     end
@@ -37,6 +38,10 @@ class Match < ActiveRecord::Base
       validates_inclusion_of :red_score,  :in => 0..10
       validates_inclusion_of :blue_score, :in => 0..10
       validate :scores
+    end
+    
+    before_transition :planning => :kick_off do |transition|
+      self.started_at = Time.now unless self.started_at
     end
     
     after_transition :finished => :recorded do |match, transition|
