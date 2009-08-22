@@ -386,14 +386,46 @@ Aside
 	display: block;
 }
 
+
 /***************************************
 Win Loss
 ****************************************/
 
 .win_loss_bar {
-  height: 30px;
-  background: url(../images/gradients/red.gif) transparent repeat-x;
+    height: 25px;
+    padding-top: 5px;
+    background: url(../images/gradients/mustard.gif) transparent repeat-x bottom right; 
+    position: relative;
+    float: right;
+    margin-right: 50px;
 }
+
+.display_form {
+	display: block;
+	margin-top: 30px;
+	margin-left: 30px;
+}
+
+.display_form li {
+	position: relative;
+	height: 70px;
+	text-indent: 40px;
+	font-size: 14px;
+}
+
+.display_form li a {
+	display: block;
+	color: #333;
+}
+
+.display_form li img {
+	display: block;
+	position: absolute;
+	right: -10px;
+	top:-10px;
+	z-index: 10;
+}
+
 
 /***************************************
 Roster
@@ -570,6 +602,15 @@ Fucking sweet table
 	-moz-box-shadow:0 3px 3px #ddd;
 }
 
+/***************************************
+Flashy
+****************************************/
+
+.charter {
+	clear: both;
+	float: right;
+	margin-top: 40px;
+}
 
 /***************************************
 Useful tit-bits
