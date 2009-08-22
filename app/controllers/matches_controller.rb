@@ -17,18 +17,13 @@ class MatchesController < ApplicationController
       format.html # new.html.erb
     end
   end
-  
-  # GET /leagues/1/matches/play
-  def play
-    @match = league.matches.find(params[:id])
-
-    respond_to do |format|
-      format.html # new.html.erb
-    end
-  end
 
   # GET /leagues/1/matches/1/edit
   def edit
+    @match = league.matches.find(params[:id])
+    @match.finished_at = Time.now unless @match.finished_at
+    @match.save
+    
     @match = league.matches.find(params[:id])
   end
 
@@ -39,7 +34,7 @@ class MatchesController < ApplicationController
     respond_to do |format|
       if @match.save
         flash[:notice] = 'Match was successfully created.'
-        format.html { redirect_to(@match) }
+        format.html { render :template => "playing" }
       else
         format.html { render :action => "new" }
       end
