@@ -2,6 +2,7 @@
 @import url(reset.css);
 @import url(typography.css);
 @import url(970_32_10.css);
+@import url(forms.css);
 
 html, body {
 	margin:0;
@@ -150,6 +151,15 @@ Content + Bulk
 	top:168px;
 }
 
+.generic {
+	text-align: right;
+	margin-bottom: 40px;
+}
+
+.generic hr {
+	margin-bottom: 30px;
+}
+
 
 /***************************************
 Aside
@@ -157,6 +167,54 @@ Aside
 
 #aside {
 
+}
+
+#nav {
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
+#nav li {
+	line-height: 12px;
+}
+
+#aside #nav li a {
+	color:#eee;
+	text-shadow: 0 -1px 1px #222;
+	font-size: 12px;
+	padding: 5px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	border-top: 1px solid #555;
+	border-bottom: 1px solid #777;
+	text-transform: lowercase;
+	text-indent: 22px;
+	display: block;
+}
+
+#aside #nav li.create a {
+	background: url(../images/icons/pencil.png) transparent no-repeat 3px center;
+}
+
+#aside #nav li.account a {
+	background: url(../images/icons/user.png) transparent no-repeat 3px center;
+}
+
+#aside #nav li.leagues a {
+	background: url(../images/icons/leagues.png) transparent no-repeat 3px center;
+}
+
+#aside #nav li.signin a {
+	background: url(../images/icons/arrow-right.png) transparent no-repeat 3px center;
+}
+
+#aside #nav li.signout a {
+	background: url(../images/icons/rmv.png) transparent no-repeat 3px center;
+}
+
+#aside #nav li a:hover, #aside #nav li a:focus, #aside #nav li a:active {
+	background-color: #333;
+	cursor: pointer;
 }
 
 #aside .logger {
@@ -168,7 +226,7 @@ Aside
 	-moz-box-shadow: 0px 3px 3px #888;
 	-webkit-box-shadow: 0px 3px 3px #888;
 	border: 2px solid rgba(220,220,220,0.2);
-	margin-bottom: 40px;
+	margin-bottom: 30px;
 	position: relative;
 	right: -2px;
 }
@@ -213,6 +271,48 @@ Aside
 	top:-13px;
 }
 
+.add {
+	background: url(../images/gradients/chrome.gif) #dedede repeat-x 0 0;
+	clear: both;
+	display: block;
+	text-align: right;
+	float: right;
+	font-size:12px;
+	color: #444;
+	text-indent: 22px;
+	margin-bottom: 40px;
+	padding: 8px;
+	-moz-border-radius:22px;
+	-webkit-border-radius:22px;
+	-moz-box-shadow: 0px 1px 1px #888;
+}
+
+.add span {
+	background: url(../images/icons/add.png) transparent no-repeat 0 0;
+	display: block;
+}
+
+.remove {
+	background: url(../images/gradients/chrome.gif) #dedede repeat-x 0 0;
+	clear: both;
+	display: block;
+	text-align: right;
+	float: right;
+	font-size:12px;
+	color: #444;
+	text-indent: 22px;
+	margin-bottom: 30px;
+	padding: 8px;
+	-moz-border-radius:22px;
+	-webkit-border-radius:22px;
+	-moz-box-shadow: 0px 1px 1px #888;
+}
+
+.remove span {
+	background: url(../images/icons/rmv.png) transparent no-repeat 0 0;
+	display: block;
+}
+
 /***************************************
 Roster
 ****************************************/
@@ -251,11 +351,16 @@ Buttons
 
 .more_toggle {
 	display: block;
-	background: url(../images/arrows/more-arrow.png) transparent no-repeat 0 0;
-	height: 23px;
-	width: 77px;
 	clear: both;
-	text-indent: -999em;
+	font-size:11px;
+	color: #444;
+	padding: 4px 8px;
+	-moz-border-radius:22px;
+	-webkit-border-radius:22px;
+	-moz-box-shadow: 0px 1px 1px #888;
+	background: url(../images/gradients/chrome.gif) #dedede repeat-x 0 0;
+	text-transform: lowercase;
+	text-align: center;
 }
 
 .play_game {

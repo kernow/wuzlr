@@ -4,6 +4,7 @@ class UsersController < Clearance::UsersController
 
   def show
     @user = User.find(params[:id])
+    @matches = @user.matches.find(:all, :conditions => {:state => "recorded"})
     respond_to do |format|
       format.html
     end
@@ -11,6 +12,8 @@ class UsersController < Clearance::UsersController
 
   def account
     @user    = current_user
+    @subheader = "Edit account"
+
     @leagues = @user.leagues
     respond_to do |format|
       format.html
