@@ -9,9 +9,37 @@ class Match < ActiveRecord::Base
   has_many :blue_players, :through => :match_players, :conditions => 'match_players.team = "blue"', :source => :player
   
   validates_presence_of :league
-  validates_inclusion_of :red_score,  :in => 0..10
-  validates_inclusion_of :blue_score, :in => 0..10
-  validate :scores
+  
+  state_machine :state, :initial => :planning do
+    
+    event :kick_off do
+      transition :planning => :playing
+    end
+    
+    event :full_time do
+      transition :playing  => :finished
+    end
+    
+    event :record do
+      transition :finished => :recorded
+    end
+    
+    state :playing do
+      validate :players_on_both_sides
+      validate :players_are_unique
+    end
+        
+    state :finished do
+      validates_presence_of :finished_at
+    end
+    
+    state :recorded do
+      validates_inclusion_of :red_score,  :in => 0..10
+      validates_inclusion_of :blue_score, :in => 0..10
+      validate :scores
+    end
+        
+  end
   
   def winner
     if red_score > blue_score
@@ -46,6 +74,19 @@ class Match < ActiveRecord::Base
   end
   
 private
+
+  def players_on_both_sides
+    errors.add_to_base "Need at lease one blue player" if blue_players.empty?
+    errors.add_to_base "Need at least one red player"  if red_players.empty?
+  end
+  
+  def players_are_unique
+    if players != players.uniq
+      (players - players.uniq).each {|p|
+        errors.add_to_base "#{p.name} can only play in one position"
+      }
+    end
+  end
   
   def scores
     unless (red_score == 10) ^ (blue_score == 10)

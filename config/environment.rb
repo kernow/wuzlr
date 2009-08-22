@@ -21,6 +21,11 @@ Rails::Initializer.run do |config|
   config.gem "mbleigh-seed-fu",
     :lib     => 'seed-fu',
     :source  => 'http://gems.github.com'
+  
+  config.gem 'pluginaweek-state_machine',
+    :lib     => 'state_machine',
+    :version => '>= 0.7.6',
+    :source  => "http://gems.github.com"
 
 end
 
