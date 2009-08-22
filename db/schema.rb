@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090822002908) do
+ActiveRecord::Schema.define(:version => 20090822030522) do
 
   create_table "league_players", :force => true do |t|
     t.integer  "league_id"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20090822002908) do
     t.boolean  "email_confirmed",                   :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
