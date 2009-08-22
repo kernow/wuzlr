@@ -54,6 +54,29 @@ window.addEvent('domready', function() {
   });
 });
 
+
+// fonts
+
+// window.addEvent('domready', function() {
+//  Cufon.replace('#bulk .headit h2, #aside h3, , .headit h4, .museo',{
+//     hover: true
+//  });
+// });
+
+
+// navigation
+
+window.addEvent('domready', function() {
+  
+  var mySlide = new Fx.Slide('nav');
+  mySlide.hide();
+  $('nav_toggler').addEvent('click', function(e){
+    e = new Event(e);
+    mySlide.toggle();
+    e.stop();
+  });
+});
+
 function set_player_positions(elm){
   elms = elm.getElements('a');
   y_pos = elm.id == 'top' ? 44 : 104;

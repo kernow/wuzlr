@@ -1,4 +1,4 @@
-<h1>Create Match</h1>
+<% @header = "Create Match" %>
 
 <div class="headit clear">
 	<h4>Select players</h4>
@@ -7,7 +7,7 @@
 <div class="contain clear">
 	<ul class="display_roster clear">
 	  <% @players.each do |p| %>
-		  <li><a href="javascript:;" class="draggable_player" id="player-<%= p.id%>"><img src="/images/avatars/<%= p.id%>.jpg" alt="avatar"/></a></li>
+		  <li><a href="javascript:;" class="draggable_player" id="player-<%= p.id%>"><%= gravatar_for p, :size => 48 %></a></li>
 		<% end %>
 	</ul>
 </div>

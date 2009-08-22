@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-gb">
 
+<title>Wuzlr, get wuzlin' baby</title>
 <head profile="http://gmpg.org/xfn/11">
 
 <!--Link basic styling for older browsers-->
@@ -16,17 +17,8 @@
 <script type="text/javascript" src="/javascripts/mootools-1.2.3.1-more.js"></script>
 <script type="text/javascript" src="/javascripts/application.js"></script>
 <script type="text/javascript" src="/javascripts/swfobject.js"></script>
-<!--<script type="text/javascript" src="/javascripts/cufon-yui.js"></script>
-<script type="text/javascript" src="/javascripts/museo.js"></script>-->
-
-<!--<script type="text/javascript">
-jQuery(document).ready(function($){ 
-	Cufon.replace('#bulk .headit h2, #aside h3, , .headit h4, .museo',{
-    hover: true
-	});
-});
-</script>-->
-
+<script type="text/javascript" src="/javascripts/cufon-yui.js"></script>
+<script type="text/javascript" src="/javascripts/museo.js"></script>
 
 </head>
 
@@ -38,7 +30,7 @@ jQuery(document).ready(function($){
 		<div id="content" class="clear">
 			<div id="bulk" class="g18">
 				<div class="headit clear">
-					<h2><%= @header    || @user.try(:name) || @league.try(:name) || "Header" %></h2>
+					<h2><%= @header || @user.try(:name) || @league.try(:name) || "Wuzlr, get wuzlin' baby" %></h2>
 					<% if @subheader %>
 					  <h3><%= @subheader %></h3>
 					<% end %>
@@ -51,24 +43,35 @@ jQuery(document).ready(function($){
 			<div id="aside" class="g10 m3">
 				<ul class="logger clear">
 					<li>
-						<a href="#">
-							<span class="toggler">Petercolesdc</span>
+						<a href="javascript:;" id="nav_toggler">
+							<span class="toggler"><%= signed_in? ? current_user.name : 'Join in the fun!'%></span>
 						</a>
-						<ul id="nav">
             	<% if signed_in? %>
-            		<li class="account"><%= link_to 'Account', account_path %></li>
-                <li class="leagues"><%= link_to 'My leagues', user_leagues_path(current_user) %></li>
-              	<li class="create"><%= link_to 'Add a league', new_league_path %></li>
-              	<li class="signout"><%= link_to 'Signout', sign_out_path %></li>
+              	<ul id="nav">
+              		<li class="account"><%= link_to 'Account', account_path %></li>
+                  <li class="leagues"><%= link_to 'My leagues', user_leagues_path(current_user) %></li>
+                	<li class="create"><%= link_to 'Add a league', new_league_path %></li>
+                	<li class="signout"><%= link_to 'Signout', sign_out_path %></li>
+                </ul>
               <% else %>
-            		<li class="signin"><%= link_to 'Sign in',  sign_in_path %></li>
-            		<li class="signup"><%= link_to 'Sign up',  sign_up_path %></li>
+                <ul id="nav-visible">
+            		  <li class="signin"><%= link_to 'Sign in',  sign_in_path %></li>
+            		  <li class="signup"><%= link_to 'Sign up',  sign_up_path %></li>
+            		</ul>
               <% end %>
             </ul>
 					</li>
 				</ul>
-				<a href="#" class="add clear"><span>Create a new league</span></a>
-				<div class="widget clear">
+				<% if signed_in? %>
+  				<%= link_to '<span>Create a new league</span>', new_league_path, :class => "add clear" if signed_in? %>
+  				<div class="widget clear">
+  					<h3 class="iconize">Your leagues</h3>
+  					<ul class="listed clear">
+  						 <%= render :partial => @leagues %>
+  					</ul>
+  				</div>
+				<% end %>
+				<!--<div class="widget clear">
 					<h3 class="iconize">Player roster</h3>
 					<ul class="display_roster clear">
 						<li><a href="#"><img src="/images/avatars/1.jpg" alt="avatar"/></a></li>
@@ -77,12 +80,14 @@ jQuery(document).ready(function($){
 						<li><a href="#"><img src="/images/avatars/4.jpg" alt="avatar"/></a></li>
 					</ul>
 					<a href="#" class="more_toggle">More</a>
-				</div>
+				</div>-->
 				<div class="widget clear">
-					<h3>S'all 'bout form</h3>
+					<h3>S'all 'bout form baby</h3>
 					<p>Player's becoming 'playaz'</p>
 					<ul class="display_form clear">
-						<li><a href="#"></li>
+					  <% @wup_wup_playaz.each do |playaplaya| %>
+						  <li><%= link_to "#{gravatar_for(playaplaya)} #{win_loss_bar(playaplaya, :class => 'win_loss_bar')}", user_path(playaplaya) %></li>
+						<% end %>
 					</ul>
 				</div>
 			</div>

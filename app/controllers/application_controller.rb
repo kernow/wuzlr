@@ -7,6 +7,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
   layout "default"
+  
+  before_filter :leagues, :wup_wup_playaz
+  
+  def leagues
+    @leagues = current_user.leagues if signed_in?
+  end
+  
+  def wup_wup_playaz
+    @wup_wup_playaz = User.wup_wup_playaz
+  end
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password

@@ -56,6 +56,8 @@ Header
 	width:157px;
 	height: 157px;
 	position: relative;
+	top:9px;
+	z-index: 10;
 }
 
 .logo a {
@@ -84,6 +86,9 @@ Content + Bulk
 #bulk .headit h2, #bulk .headit h3 {
 	text-align: right;
 	line-height: 24px;
+	width:70%;
+	position: relative;
+	right: -155px;
 }
 
 #bulk .headit h2 {
@@ -160,6 +165,66 @@ Content + Bulk
 	margin-bottom: 30px;
 }
 
+.listed {
+	display: block;
+	float: right;
+	clear: both;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 80%;
+}
+
+.listed li {
+	display: block;
+	background: #dedede;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #eee;	
+	margin-bottom: 8px;
+	position: relative;
+}
+
+.listed li a {
+	background: url(../images/icons/big/leagues.png) transparent no-repeat 10px center;
+	text-align: right;
+	padding: 10px;
+	display: block;
+	color: #333;
+	padding-left: 50px;
+	font-size: 14px;
+}
+
+.listed li a + a {
+	background: rgba(0,0,0,0.04);
+	display: block;
+	padding-left: 10%;
+	font-size: 11px;
+}
+
+.listed li a:hover, .listed li a:focus, .listed li a:active {
+	color: #d25c3c;
+}
+
+#aside .listed  {
+	width:90%;
+	margin-top: 10px;
+}
+
+#aside .listed li {
+	background: #dedede;
+	-moz-border-radius: 0;
+	-webkit-border-radius:0;
+	border: 0;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #eee;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+#aside .listed li a {
+	font-size:11px;
+	background-image: url(../images/icons/leagues-16.png);
+}
+
 
 /***************************************
 Aside
@@ -169,16 +234,16 @@ Aside
 
 }
 
-#nav {
+#nav, #nav-visible {
 	padding: 5px;
 	margin-bottom: 20px;
 }
 
-#nav li {
+#nav li, #nav-visible li {
 	line-height: 12px;
 }
 
-#aside #nav li a {
+#aside #nav li a, #aside #nav-visible li a {
 	color:#eee;
 	text-shadow: 0 -1px 1px #222;
 	font-size: 12px;
@@ -190,29 +255,35 @@ Aside
 	text-transform: lowercase;
 	text-indent: 22px;
 	display: block;
+
 }
 
-#aside #nav li.create a {
+#aside #nav li.create a, #aside #nav-visible li.create a {
 	background: url(../images/icons/pencil.png) transparent no-repeat 3px center;
 }
 
-#aside #nav li.account a {
+#aside #nav li.account a, #aside #nav-visible li.account a {
 	background: url(../images/icons/user.png) transparent no-repeat 3px center;
 }
 
-#aside #nav li.leagues a {
+#aside #nav li.leagues a, #aside #nav-visible li.leagues a {
 	background: url(../images/icons/leagues.png) transparent no-repeat 3px center;
 }
 
-#aside #nav li.signin a {
+#aside #nav li.signin a, #aside #nav-visible li.signin a {
 	background: url(../images/icons/arrow-right.png) transparent no-repeat 3px center;
 }
 
-#aside #nav li.signout a {
+#aside #nav li.signout a, #aside #nav-visible li.signout a {
 	background: url(../images/icons/rmv.png) transparent no-repeat 3px center;
 }
 
-#aside #nav li a:hover, #aside #nav li a:focus, #aside #nav li a:active {
+#aside #nav li.signup a, #aside #nav-visible li.signup a {
+	background: url(../images/icons/users.png) transparent no-repeat 3px center;
+}
+
+#aside #nav li a:hover, #aside #nav li a:focus, #aside #nav li a:active,
+#aside #nav-visible li a:hover, #aside #nav-visible li a:focus, #aside #nav-visible li a:active  {
 	background-color: #333;
 	cursor: pointer;
 }
@@ -229,11 +300,13 @@ Aside
 	margin-bottom: 30px;
 	position: relative;
 	right: -2px;
+	min-width: 140px;
 }
 
 #aside .logger a {
-	padding:15px;
+	padding:15px 15px 0 15px;
 	display: block;
+	outline: none;
 }
 
 
@@ -314,6 +387,15 @@ Aside
 }
 
 /***************************************
+Win Loss
+****************************************/
+
+.win_loss_bar {
+  height: 30px;
+  background: url(../images/gradients/red.gif) transparent repeat-x;
+}
+
+/***************************************
 Roster
 ****************************************/
 
@@ -380,6 +462,88 @@ Buttons
 	text-align: center;
 	font-size: 18px;
 }
+
+/***************************************
+Flashes
+****************************************/
+
+#flash {
+	position: relative;
+	left: 120px;
+	display: block;
+	width: 440px;
+	margin-bottom: 20px;
+	text-shadow: none;
+}
+
+#flash_error {
+	color: #eee;
+	padding: 5px;
+	background: #bb3406;
+}
+
+#flash_notice {
+	color: #eee;
+	padding: 5px;
+	background: #caaa09;
+}
+
+#flash_success {
+	color: #eee;
+	padding: 5px;
+	background: #bcc909;
+}
+
+/***************************************
+Fucking sweet table
+****************************************/
+
+#fuckingsweet {
+	display: block;
+	float: right;
+	clear: both;
+	font-size: 13px;
+	width: 500px;
+	margin-bottom: 20px;
+}
+
+#fuckingsweet tr {
+
+}
+
+#fuckingsweet th {
+	width:100px;
+}
+
+#fuckingsweet td {
+
+}
+
+.sickass {
+	background: #333;
+	color: #eee;
+	text-shadow: none;
+}
+
+.sickass th {
+	padding: 5px 0;
+}
+
+.phatass {
+	border-bottom: 1px solid #ddd;
+	height: 90px;
+	font-size: 14px;
+	color: #333;
+}
+
+.youruglymug img {
+	position: relative;
+	display: block;
+	top: 20px;
+	border: 1px solid #fff;
+	-moz-box-shadow:0 3px 3px #ddd;
+}
+
 
 /***************************************
 Useful tit-bits
