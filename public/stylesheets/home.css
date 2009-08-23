@@ -1,0 +1,79 @@
+body.homer {
+	background: #eee;
+}
+
+.pre_header .wrapper {
+	position: relative;
+}
+
+.pre_header div.p {
+	position: absolute;
+	top:0px;
+	right: 80px;
+	background: rgba(250,250,250,0.7);
+	font-size: 12px;
+	padding: 6px 10px 10px 10px;
+}
+
+.pre_header div.p a {
+	color: #333;
+}
+
+.pre_header div.p a:hover {
+	color: #666;
+}
+
+
+#header_home {
+	background:url(../images/grass-loop.jpg) #eee repeat center -40px;
+	padding-top: 20px;
+	padding-bottom: 120px;
+	border-top: 1px solid #333;
+}
+
+#header_home h1.logo_home {
+	background: url(../images/home-logo.png) transparent no-repeat 0 0;
+	height: 271px;
+	width: 284px;
+}
+
+#header_home h2 {
+	background: url(../images/texty.png) transparent no-repeat 0 0;
+	height: 220px;
+	margin-top: 50px;
+}
+
+#header_home h1.logo_home span, #header_home h2 span {
+	display: block;
+	text-indent: -999em;
+}
+
+.hairylee {
+	display: block;
+	width: 200px;
+	float: right;
+	clear: both;
+}
+
+#shiznee {
+	background: url(../images/gash.png) #111 repeat 0 0;
+	padding: 1px;
+}
+
+#shiznee h3 {
+	text-align: left;
+}
+
+#shiznee .g10 {
+	width: 268px;
+	border: 1px solid #fff;
+	padding: 10px;
+	background: rgba(250,250,250,0.86);
+	position: relative;
+	top:-60px;
+	min-height: 200px;
+	-moz-box-shadow:0 3px 8px #000;
+	-webkit-box-shadow:0 3px 8px #000;
+}
+
+
