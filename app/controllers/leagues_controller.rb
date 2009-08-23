@@ -14,8 +14,13 @@ class LeaguesController < ApplicationController
     @players   = @league.players.find(:all, :order => "users.win_loss_percentage DESC")
     
     fifa_teams = FifaTeam.find(:all, :order => "goals_for DESC")
-    inc = fifa_teams.size / (@players.size - 1)
-    @equivalent_teams = Array.new(@players.size){|i| i * inc}.map{|i| fifa_teams[i] } if inc > 0
+    @equivalent_teams = case @players.size
+    when 0 : nil
+    when 1 : [fifa_teams.first]
+    else 
+      inc = fifa_teams.size / (@players.size - 1)
+      Array.new(@players.size){|i| i * inc}.map{|i| fifa_teams[i] } if inc > 0
+    end
   end
 
   # GET /leagues/new
