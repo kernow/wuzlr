@@ -48,12 +48,27 @@
 	<div class="wrapper clear">
 		<div class="g10">
 			<h3>New players</h3>
+			<ul>
+				<% @users.each do |user| %>
+					<li><%= link_to gravatar_for_with_default(user), user_path(user), :title => user.name %></li>
+				<% end %>
+			</ul>
 		</div>
 		<div class="g10 m1">
 			<h3>New leagues</h3>
+			<ul>
+				<% @leagues.each do |league| %>
+					<li><%= link_to league.name, league_path(league) %></li>
+				<% end %>
+			</ul>
 		</div>
 		<div class="g10 m1">
-			<h3>On form</h3>
+			<h3>Dedicated</h3>
+			<ul>
+				<% @dedicated.each do |user| %>
+					<li><%= link_to gravatar_for_with_default(user), user_path(user), :title => user.name %><span class='games'><%= user.played %></span></li>
+				<% end %>
+			</ul>
 		</div>
 	</div>
 </div>
