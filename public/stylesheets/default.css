@@ -677,10 +677,19 @@ Flashes
 	text-shadow: none;
 }
 
-#flash_error, .errorExplanation, #flash_failure {
+#flash_error, #errorExplanation, .errorExplanation, #flash_failure {
 	color: #eee;
 	padding: 5px;
 	background: #bb3406;
+}
+
+#edit_match .errorExplanation {
+	margin-bottom: 50px;
+	clear: both;
+}
+
+#errorExplanation {
+	text-shadow: 0 -1px 0 #333;
 }
 
 #flash_notice {
@@ -693,6 +702,10 @@ Flashes
 	color: #eee;
 	padding: 5px;
 	background: #bcc909;
+}
+
+#errorExplanation p {
+	color: #fff;
 }
 
 /***************************************
@@ -889,6 +902,10 @@ hr {
 	border-top: 2px solid #ddd;
 	border-bottom: 1px solid #fff;
 	clear: both;
+}
+
+.subsub.nudge {
+	margin-bottom: 60px;
 }
 
 /***************************************

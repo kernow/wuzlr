@@ -1,3 +1,5 @@
+  <%= error_messages_for 'match' %>  
+
 <% @header = "Enter score" %>
 <div class="gumph">
 	<h3>Enter your score</h3>
@@ -5,7 +7,6 @@
 	<p>If you've been Beckham'esque &amp; given someone a royal thrashing, now might be a good time to rub-it-in. </p>
 </div>
 <% form_for [@league, @match], :html => {:id => 'edit_match'} do |f| %>
-  <%= error_messages_for 'match' %>  
   <div id="pitch" class="pitchedit">
     <div id="top" class="results_top">
     	<div class="wee">
