@@ -1,23 +1,37 @@
+<div class="heed">
+	<h3 class="subsub">Who's kicking who's arse?</h3>
+	<p>Below are your head&ndash;to&ndash;head match-ups. Don't stand for getting whipped you big jessy, if your stats are down, pull you socks up matey.</p>
+</div>
 
-<%= gravatar_for_with_default @you, :size => 100 %> VS <%= gravatar_for_with_default @them, :size => 100 %>
+<div class="clear"></div>
 
-<ol id="compare-labels">
-  <li>Win %</li>
-  <li>Loss %</li>
-  <li>Matches played</li>
-  <li>Dedication</li>
-</ol>
+<div class="cop clear">
 
-<ol id="compare-you">
-  <li class="wins"><%= @you.win_p %></li>
-  <li class="losses"><%= @you.lose_p %></li>
-  <li class="played" rel="percentize"><%= @you.played %></li>
-  <li class="dedication" rel="percentize"><%= @you.time_playing %></li>
-</ol>
+	<div class="compare_grav clear">
+	<%= gravatar_for_with_default @you, :size => 100 %> VS <%= gravatar_for_with_default @them, :size => 100 %>
+	</div>
+	
+	<div class="cwrap">
+		<ol id="compare-labels">
+		  <li>Win %</li>
+		  <li>Loss %</li>
+		  <li>Matches played</li>
+		  <li>Dedication</li>
+		</ol>
+		
+		<ol id="compare-you" class="g8 m1">
+		  <li class="wins"><%= @you.win_p %></li>
+		  <li class="losses"><%= @you.lose_p %></li>
+		  <li class="played" rel="percentize"><%= @you.played %></li>
+		  <li class="dedication" rel="percentize"><%= @you.time_playing %></li>
+		</ol>
+		
+		<ol id="compare-them" class="g8 m1 inside">
+		  <li class="wins"><%= @them.win_p %></li>
+		  <li class="losses"><%= @them.lose_p %></li>
+		  <li class="played" rel="percentize"><%= @them.played %></li>
+		  <li class="dedication" rel="percentize"><%= @them.time_playing %></li>
+		</ol>
+	</div>
 
-<ol id="compare-them">
-  <li class="wins"><%= @them.win_p %></li>
-  <li class="losses"><%= @them.lose_p %></li>
-  <li class="played" rel="percentize"><%= @them.played %></li>
-  <li class="dedication" rel="percentize"><%= @them.time_playing %></li>
-</ol>
+</div>
