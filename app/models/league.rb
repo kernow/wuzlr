@@ -8,6 +8,7 @@ class League < ActiveRecord::Base
   
   has_many :league_players
   has_many :players, :through => :league_players
+  has_many :stats, :class_name => "LeagueStat"  
   
   def add_player(user)
     league_players.create(:player_id => user.id) unless players.include?(user)
