@@ -52,8 +52,6 @@
             	<% if signed_in? %>
               	<ul id="nav">
               		<li class="account"><%= link_to 'Account', account_path %></li>
-                  <li class="leagues"><%= link_to 'My leagues', user_leagues_path(current_user) %></li>
-                	<li class="create"><%= link_to 'Add a league', new_league_path %></li>
                 	<li class="signout"><%= link_to 'Signout', sign_out_path %></li>
                 </ul>
               <% else %>
@@ -69,27 +67,15 @@
   				<div class="widget clear">
   					<h3 class="iconize">Your leagues</h3>
   					<div class="listed clear">
-	  					<ul class="clear">
 	  						 <%= render :partial => @leagues %>
-	  					</ul>
 		  				<%= link_to '<span>Create a new league</span>', new_league_path, :class => "add clear" if signed_in? %>
 					</div>
 					
   				</div>
 				<% end %>
-				<!--<div class="widget clear">
-					<h3 class="iconize">Player roster</h3>
-					<ul class="display_roster clear">
-						<li><a href="#"><img src="/images/avatars/1.jpg" alt="avatar"/></a></li>
-						<li><a href="#"><img src="/images/avatars/2.jpg" alt="avatar"/></a></li>
-						<li><a href="#"><img src="/images/avatars/3.jpg" alt="avatar"/></a></li>
-						<li><a href="#"><img src="/images/avatars/4.jpg" alt="avatar"/></a></li>
-					</ul>
-					<a href="#" class="more_toggle">More</a>
-				</div>-->
 				<div class="widget clear">
 					<h3>S'all 'bout form baby</h3>
-					<p>Player's becoming 'playaz'</p>
+					<p>Players with beastly recent form</p>
 					<ul class="display_form clear">
 					  <% @wup_wup_playaz.each do |playaplaya| %>
 						  <li><%= link_to "#{gravatar_for_with_default playaplaya} #{win_loss_bar(playaplaya, :class => 'win_loss_bar')}", user_path(playaplaya) %></li>
