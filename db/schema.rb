@@ -9,7 +9,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090822214200) do
+ActiveRecord::Schema.define(:version => 20090823101348) do
+
+  create_table "fifa_teams", :force => true do |t|
+    t.string  "name"
+    t.string  "flag"
+    t.integer "goals_for"
+    t.integer "goals_against"
+    t.integer "penalty_goal"
+    t.integer "goals_for_average"
+    t.integer "yellow_cards"
+    t.integer "second_yellow_cards"
+    t.integer "red_cards"
+    t.integer "matches_played"
+    t.integer "won"
+    t.integer "draw"
+    t.integer "lost"
+  end
 
   create_table "league_players", :force => true do |t|
     t.integer  "league_id"
