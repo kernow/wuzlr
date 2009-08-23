@@ -47,8 +47,14 @@ class Match < ActiveRecord::Base
     end
     
     after_transition :finished => :recorded do |match, transition|
-      match.winners.each {|w| w.add_win  match.finished_at }
-      match.losers.each {|w| w.add_lost match.finished_at }
+      match.winners.each {|w| 
+        w.add_win  match.finished_at
+        match.stats.create(:user => w, :won => true,  :by => match.score_difference )
+      }
+      match.losers.each {|w|
+        w.add_lost match.finished_at
+        match.stats.create(:user => w, :won => false, :by => match.score_difference )
+      }
     end
         
   end
