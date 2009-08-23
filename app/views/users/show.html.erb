@@ -4,7 +4,9 @@
 
 	<div class="ava g9 m4">
 		<p>Pics provided by gravatar. Need one? Go <a href="http://gravatar.com">here</a> &amp; sign up with your account email</p>
-		<span class="rmv"><%= link_to '<span>Compare yourself with this dude</span>', compare_user_path(@user) if signed_in? %></span>
+		<% if signed_in? && @user != current_user %>
+		  <span class="rmv"><%= link_to '<span>Compare yourself with this dude</span>', compare_user_path(@user) %></span>
+		<% end %>
 	</div>
 	
 	<div class="ava g3 m1">
