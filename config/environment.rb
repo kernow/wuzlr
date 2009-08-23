@@ -30,6 +30,10 @@ Rails::Initializer.run do |config|
   config.gem 'peterpunk-mhash',
     :lib     => 'mhash',
     :source  => 'http://gems.github.com'
+    
+  config.gem 'rubaidh-google_analytics',
+    :lib => 'rubaidh/google_analytics',
+    :source => 'http://gems.github.com'
 
 end
 
@@ -39,3 +43,4 @@ def log_to(stream=$stdout)
 end
 
 DO_NOT_REPLY = "donotreply@wuzlr.com"
+Rubaidh::GoogleAnalytics.tracker_id = 'UA-10354116-1'
