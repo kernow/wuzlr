@@ -84,10 +84,10 @@ window.addEvent('domready', function() {
 
 // match results
 
-window.addEvent('domready', function() {
-  if($$('.results_top')) set_player_positions($$('.results_top'));
-  if($$('.results_bottom')) set_player_positions($$('.results_bottom'));
-});
+// window.addEvent('domready', function() {
+//   if($$('.results_top')) set_player_positions($$('.results_top'));
+//   if($$('.results_bottom')) set_player_positions($$('.results_bottom'));
+// });
 
 
 function set_player_positions(elm){
