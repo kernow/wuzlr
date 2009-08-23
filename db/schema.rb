@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090823123606) do
+ActiveRecord::Schema.define(:version => 20090823180308) do
 
   create_table "fifa_teams", :force => true do |t|
     t.string  "name"
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(:version => 20090823123606) do
     t.integer "user_id"
     t.integer "other_user_id"
     t.string  "relation"
-    t.integer "match"
+    t.integer "match_id"
     t.boolean "won"
     t.integer "by"
   end

@@ -79,6 +79,12 @@ class User < ActiveRecord::Base
     end
   end
   
+  def time_playing
+    time = 0
+    matches.collect {|m| time = time + m.duration_in_seconds }
+    time
+  end
+  
   def calculate_win_loss_percentage
     self.win_loss_percentage = (won / (won.to_f + lost.to_f)) * 100
   end
@@ -92,27 +98,27 @@ class User < ActiveRecord::Base
   end
   
   def number_matches_against(user)
-    stats.opponents.find(:all, :conditions => {:other_user_id => user}).count
+    stats.opponents.find(:all, :conditions => {:other_user_id => user}).size
   end 
   
   def number_matches_with(user)
-    stats.allies.find(:all, :conditions => {:other_user_id => user}).count
+    stats.allies.find(:all, :conditions => {:other_user_id => user}).size
   end
   
   def nemesis(limit = 1)
-    stats.opponents.lost.count(:all, :group => :other_user, :order => "count_all DESC", :limit => limit)
+    stats.opponents.lost.count(:all, :group => :other_user, :order => "count_all DESC", :limit => limit).to_a
   end
   
   def walkovers(limit = 1)
-    stats.opponents.won.count(:all, :group => :other_user, :order => "count_all DESC", :limit => limit)
+    stats.opponents.won.count(:all, :group => :other_user, :order => "count_all DESC", :limit => limit).to_a
   end
   
   def dream_team(limit = 1)
-    stats.allies.won.count(:all, :group => :other_user, :order => "count_all DESC", :limit => limit)  
+    stats.allies.won.count(:all, :group => :other_user, :order => "count_all DESC", :limit => limit).to_a
   end
   
   def useless_team(limit = 1)
-    stats.allies.lost.count(:all, :group => :other_user, :order => "count_all DESC", :limit => limit)  
+    stats.allies.lost.count(:all, :group => :other_user, :order => "count_all DESC", :limit => limit).to_a
   end
   
 private

@@ -331,8 +331,8 @@ Aside
 	background: url(../images/icons/user.png) transparent no-repeat 3px center;
 }
 
-#aside #nav li.leagues a, #aside #nav-visible li.leagues a {
-	background: url(../images/icons/leagues.png) transparent no-repeat 3px center;
+#aside #nav li.profile a, #aside #nav-visible li.profile a {
+	background: url(../images/icons/cog.png) transparent no-repeat 3px center;
 }
 
 #aside #nav li.signin a, #aside #nav-visible li.signin a {
@@ -757,6 +757,14 @@ Fucking sweet table
 div.slapmabitchup {
 	margin-bottom: 40px;
 	clear: both;
+}
+
+/***************************************
+compare graph
+****************************************/
+
+.compare-you {
+  
 }
 
 /***************************************

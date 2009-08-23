@@ -4,7 +4,9 @@
 
 	<div class="ava g9 m4">
 		<p>Pics provided by gravatar. Need one? Go <a href="http://gravatar.com">here</a> &amp; sign up with your account email</p>
-		<span class="rmv"><%= link_to '<span>Compare yourself with this dude</span>', compare_user_path(@user) if signed_in? %></span>
+		<% if signed_in? && @user != current_user %>
+		  <span class="rmv"><%= link_to '<span>Compare yourself with this dude</span>', compare_user_path(@user) %></span>
+		<% end %>
 	</div>
 	
 	<div class="ava g3 m1">
@@ -21,7 +23,7 @@
 	
 		<div class="g4 nemesis">
 			<h2>Nemesis</h2>
-			<%= link_to gravatar_for_with_default( @nemesis[:user] ), :title => @nemesis[:user].name %>
+			<%= link_to gravatar_for_with_default( @nemesis[:user] ), user_path(@nemesis[:user]), :title => @nemesis[:user].name %>
 			<dl>
 				<dt>Matches Played</dt>
 				<dd><%= @nemesis[:played] %></dd>
@@ -31,7 +33,7 @@
 		</div>
 		<div class="g4 walkover">
 			<h2>Walkover</h2>
-			<%= link_to gravatar_for_with_default( @walkover[:user] ), :title => @walkover[:user].name %>
+			<%= link_to gravatar_for_with_default( @walkover[:user] ), user_path(@walkover[:user]), :title => @walkover[:user].name %>
 			<dt>Matches Played</dt>
 			<dd><%= @walkover[:played] %></dd>
 			<dt>Matches Won</dt>
@@ -39,7 +41,7 @@
 		</div>
 		<div class="g4 dreamteam">
 			<h2>Dream Team</h2>
-			<%= link_to gravatar_for_with_default( @dream_team[:user] ), :title => @dream_team[:user].name %>
+			<%= link_to gravatar_for_with_default( @dream_team[:user] ), user_path(@dream_team[:user]), :title => @dream_team[:user].name %>
 			<dt>Matches Played</dt>
 			<dd><%= @dream_team[:played] %></dd>
 			<dt>Matches Won</dt>
@@ -47,7 +49,7 @@
 		</div>
 		<div class="g4 useless">
 			<h2>Useless</h2>
-			<%= link_to gravatar_for_with_default( @useless[:user] ), :title => @useless[:user].name %>
+			<%= link_to gravatar_for_with_default( @useless[:user] ), user_path(@useless[:user]), :title => @useless[:user].name %>
 			<dt>Matches Played</dt>
 			<dd><%= @useless[:played] %></dd>
 			<dt>Matches Lost</dt>

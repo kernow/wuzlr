@@ -69,7 +69,10 @@ class UsersController < Clearance::UsersController
   end
   
   def compare
-    
+    @them           = User.find(params[:id])
+    @their_matches  = @them.matches.find(:all, :conditions => {:state => "recorded"})
+    @you            = current_user
+    @your_matches   = @you.matches.find(:all, :conditions => {:state => "recorded"})
   end
   
 private

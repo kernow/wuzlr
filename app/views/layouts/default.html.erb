@@ -52,6 +52,7 @@
             	<% if signed_in? %>
               	<ul id="nav">
               		<li class="account"><%= link_to 'Account', account_path %></li>
+              		<li class="profile"><%= link_to 'My profile', user_path(current_user) %></li>
                 	<li class="signout"><%= link_to 'Signout', sign_out_path %></li>
                 </ul>
               <% else %>
@@ -91,7 +92,7 @@
 			<p>Built on caffine, sushi &amp; minimal kip within two english days, for railsrumble 2009. Lovingly rushed together by <a href="http://twitter.com/fatelvis">fat</a><a href="http://twitter.com/kernowsoul">ker</a><a href="http://twitter.com/theozaurus">sarus</a></p>
 		</div>
 		<div class="g25 m1">
-			<img src="images/banner.jpg" alt="vote"/>
+			<a href="http://r09.railsrumble.com/teams"><img src="images/banner.jpg" alt="vote for wuzlr, we'll hug you"/></a>
 		</div>
 	</div>
 </div>
