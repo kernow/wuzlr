@@ -4,7 +4,7 @@
 }
 
 
-.user label, .new_league label, .edit_league label, .session label  {
+.user label, .new_league label, .edit_league label, .session label, .invi label, .password label  {
 	border: 0;
 	margin-bottom: 10px;
 	background: url(../images/gradients/chrome.gif) #eee repeat-x bottom left;
@@ -27,7 +27,7 @@ label[for="league_description"] {
 }
 
 .user input, .new_league input, .new_league textarea, .edit_league input, 
-.edit_league textarea, .session textarea, .session input {
+.edit_league textarea, .session textarea, .session input, .invi input, .password input {
 	border: 0;
 	padding: 10px 10px 10px 20px;
 	margin-bottom: 10px;
@@ -48,7 +48,7 @@ label[for="league_description"] {
 	clear: both;
 }
 
-#user_submit, #league_submit, #session_submit {
+#user_submit, #league_submit, #session_submit, .invi input[value="Send invites"], #password_submit {
 	clear: both;
 	background: url(../images/gradients/red.gif) #e45d0b repeat-x bottom left;
 	border: 2px solid rgba(220,220,220,0.2);
@@ -66,6 +66,11 @@ label[for="league_description"] {
 	-webkit-box-shadow: 0px 3px 3px #333;
 }
 
+.invi input[value="Send invites"] {
+	float: right;
+	clear: both;
+}
+
 #session_submit {
 	margin-top: -10px;
 	position: relative;
@@ -73,8 +78,9 @@ label[for="league_description"] {
 }
 
 .formtastic #user_submit:hover, .formtastic #user_submit:focus, .formtastic #user_submit:active, 
-#league_submit:hover, #league_submit:focus, #league_submit:active, 
-#session_submit:hover, #session_submit:active, #session_submit:focus {
+#league_submit:hover, #league_submit:focus, #league_submit:active, #session_submit:hover, #session_submit:active, #session_submit:focus,
+.invi input[value="Send invites"]:hover, .invi input[value="Send invites"]:active, .invi input[value="Send invites"]:focus,
+#password_submit:hover, #password_submit:focus, #password_submit:active {
 	cursor: pointer;
 	background-position: 10px 50px;
 	-moz-box-shadow:none;

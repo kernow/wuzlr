@@ -1,5 +1,6 @@
 <% @header = "Invite peep's to #{@league.name}" %>
 
+<div class="invi">
 <% form_tag league_invites_path(@league) do %>
   <% 5.times do |n| %>
   <p>
@@ -10,3 +11,4 @@
   
   <%= submit_tag 'Send invites' %>
 <% end %>
+</div>
