@@ -43,4 +43,7 @@ def log_to(stream=$stdout)
 end
 
 DO_NOT_REPLY = "donotreply@wuzlr.com"
-Rubaidh::GoogleAnalytics.tracker_id = 'UA-10354116-1'
+begin
+  Rubaidh::GoogleAnalytics.tracker_id = 'UA-10354116-1'
+rescue 
+end
