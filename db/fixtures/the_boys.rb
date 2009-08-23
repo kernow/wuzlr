@@ -1,4 +1,4 @@
-User.seed(:name) do |s|
+User.seed(:email) do |s|
   s.name                  = "Theo"
   s.email                 = "theo@jivatechnology.com"
   s.password              = "foofoo"
@@ -17,7 +17,7 @@ end
 l = League.find_by_name "Jiva!"
 
 {"Jamie" => "jamie@jivatechnology.com", "Peter" => "petercolesdc@gmail.com", "Nic" => "nicolas.alpi@gmail.com", "Theo" => "theo.cushion@jivatechnology.com", "Jamie" => "jamie.dyer@jivatechnology.com", "Peter" => "sayhello@petercolesdc.com"}.each{|name,email|
-  User.seed(:name) do |s|
+  User.seed(:email) do |s|
     s.name                  = name
     s.email                 = email
     s.password              = "foofoo"
