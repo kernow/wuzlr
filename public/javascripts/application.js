@@ -73,16 +73,16 @@ window.addEvent('domready', function() {
 
 // navigation
 
-window.addEvent('domready', function() {
-  
-  var mySlide = new Fx.Slide('nav');
-  mySlide.hide();
-  $('nav_toggler').addEvent('click', function(e){
-    e = new Event(e);
-    mySlide.toggle();
-    e.stop();
-  });
-});
+// window.addEvent('domready', function() {
+//   
+//   var mySlide = new Fx.Slide('nav');
+//   mySlide.hide();
+//   $('nav_toggler').addEvent('click', function(e){
+//     e = new Event(e);
+//     mySlide.toggle();
+//     e.stop();
+//   });
+// });
 
 
 // sortable tables
