@@ -6,60 +6,81 @@ team_form["blue_number"]  = 1;
 team_form["red_number"]   = 1;
 
 window.addEvent('domready', function() {
-  $$("a.play_game").addEvent('click', function(){
-    $('players_form').submit();
-  });
+  
+  if($("play_game")){
+    $("play_game").addEvent('click', function(){
+      SqueezeBox.initialize({
+          size: { x: 350,
+                  y: 150, },
+          ajaxOptions: {  method: 'post',
+                          data: { authenticity_token: $('players_form').authenticity_token.value,
+                                  blue: {1: $('players_form').blue_1.value, 2: $('players_form').blue_2.value},
+                                  red: {1: $('players_form').red_1.value, 2: $('players_form').red_2.value}}
+      }});
+      SqueezeBox.open($('players_form').getProperty('action'));
+    });
+  }
+  
+  if($("submit_score")){
+    $("submit_score").addEvent('click', function(){
+      $('edit_match').submit();
+    });
+  }
   
   // reset the form on page load for refresh
-  $$('#players_form input').each(function(elm){
-    if(elm.name != 'authenticity_token'){
-      elm.value = '';
-    }
-  });
+  if($$('#players_form input')){
+    $$('#players_form input').each(function(elm){
+      if(elm.name != 'authenticity_token'){
+        elm.value = '';
+      }
+    });
+  }
   
-  add_tool_tips($$("li a.draggable_player"));
+  if($$("li a.draggable_player")){
+    add_tool_tips($$("li a.draggable_player"));
   
-  $$("li a.draggable_player").each(function(drag) {
+    $$("li a.draggable_player").each(function(drag) {
 
-  	new Drag.Move(drag, {
-  	  droppables: $$('.droppable'),
-  	  onStart: function(elm){
-  	    // console.log(elm);
-  	    elm.setStyle('z-index', '999999');
-  	  },
-  	  onDrop: function(elm, droppable, event){
-        if (!droppable){
-          // console.log(elm, ' dropped on nothing');
-          elm.setPosition({x: 0, y: 0});
-        }
-        else{
-          player_id = elm.id;
-          player_id = player_id.substr(7, player_id.length);
-          
-          if(droppable.id == "top"){
-            team = "red";
-          }
-          else{
-            team = "blue";
-          }
-          
-          if(team_form[team+"_number"] > 2){
+    	new Drag.Move(drag, {
+    	  droppables: $$('.droppable'),
+    	  onStart: function(elm){
+    	    // console.log(elm);
+    	    elm.setStyle('z-index', '999999');
+    	  },
+    	  onDrop: function(elm, droppable, event){
+          if (!droppable){
+            // console.log(elm, ' dropped on nothing');
             elm.setPosition({x: 0, y: 0});
           }
           else{
-            $(team + '_' + team_form[team+"_number"]).value = player_id;
-            team_form[team+"_number"] = team_form[team+"_number"] + 1;
-            // snap player to position
-            new_elm = elm.clone().inject(droppable);
-            set_player_positions(droppable);
-            elm.dispose();
+            player_id = elm.id;
+            player_id = player_id.substr(7, player_id.length);
+          
+            if(droppable.id == "top"){
+              team = "red";
+            }
+            else{
+              team = "blue";
+            }
+          
+            if(team_form[team+"_number"] > 2){
+              elm.setPosition({x: 0, y: 0});
+            }
+            else{
+              $(team + '_' + team_form[team+"_number"]).value = player_id;
+              team_form[team+"_number"] = team_form[team+"_number"] + 1;
+              // snap player to position
+              new_elm = elm.clone().inject(droppable);
+              set_player_positions(droppable);
+              elm.dispose();
+            }
           }
+          // re-enable tool tips
+          add_tool_tips($$("li a.draggable_player"));
         }
-        // re-enable tool tips
-        add_tool_tips($$("li a.draggable_player"));
-      }
-  	});
-  });
+    	});
+    });
+  }
 });
 
 
@@ -138,7 +159,6 @@ window.addEvent('domready', function() {
     });
   }
 });
-
 
 function get_percentages(val1, val2){
   // console.log('val 1: '+val1+", val 2: "+val2);

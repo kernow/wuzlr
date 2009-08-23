@@ -8,7 +8,7 @@ class MatchesController < ApplicationController
     respond_to do |format|
       format.html {
         case @match.state
-        when "playing"  : render :template => "matches/playing"
+        when "playing"  : render :template => "matches/playing", :layout => false
         else render :template => "matches/result"
         end
       }# show.html.erb
