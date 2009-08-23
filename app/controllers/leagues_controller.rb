@@ -11,7 +11,11 @@ class LeaguesController < ApplicationController
   def show
     @league    = League.find(params[:id])
     @subheader = "Current standings"
-    @players   = @league.players
+    @players   = @league.players.find(:all, :order => "users.win_loss_percentage DESC")
+    
+    fifa_teams = FifaTeam.find(:all, :order => "goals_for DESC")
+    inc = fifa_teams.size / (@players.size - 1)
+    @equivalent_teams = Array.new(@players.size){|i| i * inc}.map{|i| fifa_teams[i] } if inc > 0
   end
 
   # GET /leagues/new
