@@ -1198,3 +1198,36 @@ Footer
 	color: #ddd;
 	font-size: 11px;
 }
+
+/***************************************
+404
+****************************************/
+
+body.ohfour {
+	background: url(../images/sil.gif) transparent repeat 0 0;
+}
+
+body.ohfour h1 {
+	background: #333;
+	padding: 30px;
+	color: #fff;
+	margin-top: 60px;
+}
+
+body.ohfour blink {
+	text-align: right;
+	display: block;
+	padding: 0 30px;
+}
+
+body.ohfour .logo {
+	background: url(../images/home-logo.png) transparent no-repeat 0 0;
+	height: 271px;
+	width: 284px;
+	position: absolute;
+	top:-40px;
+}
+
+body.fire {
+	background-image: url(../images/fire.gif);
+}

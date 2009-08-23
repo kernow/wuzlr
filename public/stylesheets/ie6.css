@@ -2,6 +2,7 @@
 div {
 	word-wrap:break-word;
 	/*overflow:hidden;*/
+	padding-bottom: 1px;
 }
 
 

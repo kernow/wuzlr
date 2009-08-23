@@ -10,6 +10,7 @@ body.homer {
 	position: absolute;
 	top:0px;
 	right: 80px;
+	background: #eee;
 	background: rgba(250,250,250,0.8);
 	font-size: 16px;
 	padding: 6px 10px 10px 10px;
@@ -69,6 +70,7 @@ body.homer {
 	height: 200px;
 	border: 1px solid #fff;
 	padding: 10px;
+	background: #eee;
 	background: rgba(250,250,250,0.86);
 	position: relative;
 	top:-60px;
