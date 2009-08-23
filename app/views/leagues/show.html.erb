@@ -5,15 +5,15 @@
 
 <table id="fuckingsweet">
 	<thead class="sickass">
-		<th></th>
-		<th>Pld &#9660;</th>
-		<th>Won &#9660;</th>
-		<th>Lost &#9660;</th>
-		<th>Win % &#9660;</th>
-		<th title="Winning Streak">Wsk &#9660;</th>
-		<th title="Losing Streak">Lsk &#9660;</th>
+		<th class="nosort"></th>
+		<th>Pld</th>
+		<th>Won</th>
+		<th>Lost</th>
+		<th>Win %</th>
+		<th title="Winning Streak">Wsk</th>
+		<th title="Losing Streak">Lsk</th>
 		<% if @equivalent_teams %>
-			<th title="Equivalent Fifa Team">Rank</th>
+			<th title="Equivalent Fifa Team" class="nosort">Rank</th>
 		<% end %>
 	</thead>
 	<% @players.each do |p| %>
@@ -31,6 +31,7 @@
 		</tr>
 	<% end %>
 </table>
+<ul id="sort_table_pagination"></ul>
 
 <ul class="doitlikebritney clear">
 <li><hr/></li>
