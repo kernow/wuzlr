@@ -48,7 +48,7 @@
 	<div class="wrapper clear">
 		<div class="g10">
 			<h3>New players</h3>
-			<ul>
+			<ul class="playaz">
 				<% @users.each do |user| %>
 					<li><%= link_to gravatar_for_with_default(user), user_path(user), :title => user.name %></li>
 				<% end %>
@@ -56,7 +56,7 @@
 		</div>
 		<div class="g10 m1">
 			<h3>New leagues</h3>
-			<ul>
+			<ul class="laleagua">
 				<% @leagues.each do |league| %>
 					<li><%= link_to league.name, league_path(league) %></li>
 				<% end %>
