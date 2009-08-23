@@ -502,7 +502,7 @@ Flashes
 	text-shadow: none;
 }
 
-#flash_error {
+#flash_error, .errorExplanation {
 	color: #eee;
 	padding: 5px;
 	background: #bb3406;

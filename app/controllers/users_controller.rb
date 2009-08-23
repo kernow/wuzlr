@@ -43,11 +43,13 @@ class UsersController < Clearance::UsersController
       if params[:league]
         league
         @league.add_player @user
+        redirect_url = league_url @league
+        flash_msg = "Your account has been created and you are signed in."
       end
       @user.confirm_email!
       sign_in(@user)
-      flash_success_after_create
-      redirect_to(url_after_create)
+      flash[:success] = flash_msg ? flash_msg : "Your account has been created and you are signed in. You can now create a league and invite people to play in it."
+      redirect_to redirect_url ? redirect_url : new_league_url
     else
       render :template => 'users/new'
     end
