@@ -41,7 +41,11 @@
 			<div class="g22">
 				<h2 class="clear"><span>What is wuzler? Wuzler tracks your table football shiznee. Create leagues, track stats &amp; arrange matches
 		wuzler does it all, with a cheeky smile</span></h2>
-		  <%= link_to "Sign me up guv", sign_up_path, :class => 'hairylee' %>
+		  <% if signed_in? %>
+		    <%= link_to "My profile", user_path(current_user), :class => 'hairylee' %>
+		  <% else %>
+		    <%= link_to "Sign me up guv", sign_up_path, :class => 'hairylee' %>
+		  <% end %>
 			</div>
 	</div>
 </div>
@@ -81,7 +85,7 @@
 			<p>Built on caffine, sushi &amp; minimal kip within two english days, for railsrumble 2009. Lovingly rushed together by <a href="http://twitter.com/fatelvis">fat</a><a href="http://twitter.com/kernowsoul">ker</a><a href="http://twitter.com/theozaurus">sarus</a></p>
 		</div>
 		<div class="g25 m1">
-			<a href="http://r09.railsrumble.com/teams"><img src="/images/banner.jpg" alt="vote for wuzlr, we'll hug you"/></a>
+			<a href="http://r09.railsrumble.com/teams/the-wuzels"><img src="/images/banner.jpg" alt="vote for wuzlr, we'll hug you"/></a>
 		</div>
 	</div>
 </div>
