@@ -17,6 +17,18 @@
 
 <hr/>
 
+<% unless @user_leagues.empty? %>
+<div class="clear leagues">
+	<h3 class="subsub">Leagues</h3>
+	<ul class="laleagua">
+		<% @user_leagues.each do |league| %>
+			<li><%= link_to league.name, league_path(league) %></li>
+		<% end %>
+	</ul>
+</div>
+<hr/>
+<% end %>
+
 <% if (@nemesis && @walkover) || (@dream_team && @useless) %>
 	<div class="clear comparisons">
 		<h3 class="subsub">Player roundup</h3>
