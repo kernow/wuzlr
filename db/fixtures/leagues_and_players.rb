@@ -10,7 +10,7 @@
 ]
 }.each{|league, players|
   players.each do |p|
-    User.seed(:name) do |s|
+    User.seed(:email) do |s|
       s.name                  = p
       s.email                 = p.gsub(" ",".").downcase + "@jivatechnology.com"
       s.password              = "foofoo"

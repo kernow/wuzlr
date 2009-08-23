@@ -77,6 +77,7 @@ body.homer {
 	-webkit-box-shadow:0 3px 8px #000;
 }
 
+
 .playaz, .laleagua {
 	margin-top: 13px;
 }
@@ -100,4 +101,6 @@ body.homer {
 	font-size: 13px;
 }
 
-
+#dedicated-graphs li div{
+  text-indent: -999em;
+}

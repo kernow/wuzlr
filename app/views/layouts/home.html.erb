@@ -28,9 +28,11 @@
 <body class="homer">
 <div class="pre_header">
 	<div class="wrapper clear">
-		<div class="p">
-			<span><a href="#">Sign in</a> | <a href="#">Sign up</a> | <a href="#">Forgotten password</a></span>
-		</div>
+	  <% unless signed_in? %>
+		  <div class="p">
+			  <span><%= link_to "Sign in", sign_in_path %> | <%= link_to "Sign up", sign_up_path %> | <%= link_to "Forgot password?", new_password_path %></span>
+		  </div>
+		<% end %>
 	</div>
 </div>
 <div id="header_home" class="clear">
@@ -39,7 +41,7 @@
 			<div class="g22">
 				<h2 class="clear"><span>What is wuzler? Wuzler tracks your table football shiznee. Create leagues, track stats &amp; arrange matches
 		wuzler does it all, with a cheeky smile</span></h2>
-			<a href="#" class="hairylee">Sign me up guv</a>
+		  <%= link_to "Sign me up guv", sign_up_path, :class => 'hairylee' %>
 			</div>
 	</div>
 </div>
@@ -64,9 +66,9 @@
 		</div>
 		<div class="g10 m1">
 			<h3>Dedicated</h3>
-			<ul>
+			<ul id="dedicated-graphs">
 				<% @dedicated.each do |user| %>
-					<li><%= link_to gravatar_for_with_default(user), user_path(user), :title => user.name %><span class='games'><%= user.played %></span></li>
+					<li><%= link_to "#{gravatar_for_with_default(user)} #{user.name}", user_path(user), :title => user.name %><div class='games'><%= user.played %></div></li>
 				<% end %>
 			</ul>
 		</div>
