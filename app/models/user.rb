@@ -75,6 +75,12 @@ class User < ActiveRecord::Base
     end
   end
   
+  def time_playing
+    time = 0
+    matches.collect {|m| time = time + m.duration_in_seconds }
+    time
+  end
+  
   def calculate_win_loss_percentage
     self.win_loss_percentage = (won / (won.to_f + lost.to_f)) * 100
   end

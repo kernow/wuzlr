@@ -95,6 +95,70 @@ window.addEvent('domready', function() {
 });
 
 
+// compare tables
+window.addEvent('domready', function() {
+  if($('compare-you') && $('compare-them')){
+    $('compare-you').getElements('li').each(function(you_elm){
+      // console.log(you_elm.innerHTML);
+      console.log('PROPERTY: '+you_elm.className);
+      var them_elm = $('compare-them').getElement('li.'+you_elm.className);
+      // console.log(them_elm);
+      // console.log('you: ' + you_elm.innerHTML.toInt() + ', them: ' + them_elm.innerHTML.toInt());
+      if(you_elm.innerHTML.toInt() > them_elm.innerHTML.toInt()){
+        // console.log("you are winner");
+        var win_elm = you_elm;
+        var lose_elm = them_elm;
+      }
+      else{
+        // console.log("them are winner");
+        var win_elm = them_elm;
+        var lose_elm = you_elm;
+      }
+      // console.log(win_elm.getProperty('rel'));
+      if(win_elm.getProperty('rel') == 'percentize'){
+        var p = get_percentages(win_elm.innerHTML.toInt(), lose_elm.innerHTML.toInt());
+        var win_val = p[0];
+        var lose_val = p[1];
+        
+        console.log('win val: '+win_val);
+        console.log('lose val: '+lose_val);
+      }
+      else{
+        var win_val = win_elm.innerHTML;
+        var lose_val = lose_elm.innerHTML;
+      }
+      
+      win_elm.setStyle('background', 'url(/images/rouge.png)');
+      lose_elm.setStyle('background', 'url(/images/blu.png)');
+      var winFx = new Fx.Tween(win_elm, {unit: '%'});
+      winFx.start('width', '0', win_val+'%');
+      
+      var loseFx = new Fx.Tween(lose_elm, {unit: '%'});  
+      loseFx.start('width', '0', lose_val+'%');
+    });
+  }
+});
+
+
+function get_percentages(val1, val2){
+  console.log('val 1: '+val1+", val 2: "+val2);
+  if(val1 > val2){
+    var p = (val2/val1)*100;
+    console.log("(val1 > val2) p: "+p);
+    return [100,p];
+  }
+  else if(val1 < val2){
+    var p = (val2/val1)*100;
+    console.log("(val1 < val2) p: "+p);
+    return [p,100];
+  }
+  else{
+    console.log("same!!");
+    return [50,50];
+  }
+};
+
+
 
 
 function set_player_positions(elm){

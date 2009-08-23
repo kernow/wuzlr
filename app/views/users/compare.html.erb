@@ -1,5 +1,23 @@
-<ul>
-  <% 300.times do %>
-    <li>Jamie is AWESOME, Theo is SHIT!</li>
-  <% end %>
-</ul>
+
+<%= gravatar_for_with_default @you, :size => 100 %> VS <%= gravatar_for_with_default @them, :size => 100 %>
+
+<ol id="compare-labels">
+  <li>Win %</li>
+  <li>Loss %</li>
+  <li>Matches played</li>
+  <li>Dedication</li>
+</ol>
+
+<ol id="compare-you">
+  <li class="wins"><%= @you.win_p %></li>
+  <li class="losses"><%= @you.lose_p %></li>
+  <li class="played" rel="percentize"><%= @you.played %></li>
+  <li class="dedication" rel="percentize"><%= @you.time_playing %></li>
+</ol>
+
+<ol id="compare-them">
+  <li class="wins"><%= @them.win_p %></li>
+  <li class="losses"><%= @them.lose_p %></li>
+  <li class="played" rel="percentize"><%= @them.played %></li>
+  <li class="dedication" rel="percentize"><%= @them.time_playing %></li>
+</ol>

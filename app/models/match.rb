@@ -107,6 +107,10 @@ class Match < ActiveRecord::Base
     Time.at(finished_at - started_at)
   end
   
+  def duration_in_seconds
+    (duration.min * 60) + duration.sec
+  end
+  
   def team_with(user)
     if red_players.include? user
       "red"
