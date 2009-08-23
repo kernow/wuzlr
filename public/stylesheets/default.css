@@ -445,7 +445,7 @@ Aside
 	margin-top: 5px;
 	padding: 8px;
 	-moz-border-radius:22px;
-	-webkit-border-radius:22px;
+	-webkit-border-radius:16px;
 	-moz-box-shadow: 0px 1px 1px #888;
 }
 
@@ -763,8 +763,76 @@ div.slapmabitchup {
 compare graph
 ****************************************/
 
-.compare-you {
-  
+.heed {
+	width:320px;
+	float: right;
+	clear: both;
+	position: relative;
+	top: -20px;
+}
+
+.cop {
+	background: #efefef;
+	padding: 10px;
+	border: 3px solid #fff;
+	-moz-box-shadow:0 3px 3px #ddd;
+	-webkit-box-shadow:0 3px 3px #ddd;
+	position: relative;
+	right: -40px;
+}
+
+.compare_grav {
+	margin-bottom: 20px;
+	position: relative;
+	top:-40px;
+	font-size: 11px;
+	left: 160px;
+}
+
+.compare_grav img {
+	position: relative;
+	top:40px;
+}
+
+.cwrap {
+	clear: both;
+	position: relative;
+}
+
+
+#compare-labels {
+	position: absolute;
+	left:200px;
+	background: #eee;
+	opacity:0.2;
+}
+
+#compare-labels li {
+	margin-bottom: 3px;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 0 5px;
+}
+
+#compare-you li {
+	display: block;
+	margin-bottom: 3px;
+	float: right;
+	clear: both;
+	text-align: left;
+	color: #eee;
+	text-shadow: 0 -1px 0 #333;
+	padding-left: 6px;
+}
+
+#compare-them li {
+	display: block;
+	margin-bottom: 3px;
+	float: left;
+	clear: both;
+	color: #eee;
+	text-shadow: 0 -1px 0 #333;
+	padding-right: 6px;
 }
 
 /***************************************
@@ -815,6 +883,44 @@ hr {
 	border-top: 2px solid #ddd;
 	border-bottom: 1px solid #fff;
 	clear: both;
+}
+
+/***************************************
+Compares
+****************************************/
+
+.comparisons {
+	margin-bottom: 30px;
+	float: right;
+	clear: both;
+}
+
+.comparisons h2 {
+	text-align: left;
+	margin-bottom: 13px;
+	text-transform: uppercase;
+}
+
+.comparisons .g8 {
+	background: url(../images/gradients/chrome.gif ) #eee repeat-x bottom left;
+	padding: 5px;
+	width: 218px;
+	border: 1px solid #fff;
+	-moz-box-shadow:0 3px 3px #ddd;
+	-webkit-box-shadow:0 3px 3px #ddd;
+}
+
+.comparisons dl {
+	display: block;
+	float: left;
+	margin-left: 10px;
+	font-size: 13px;
+	color: #666;
+}
+
+.comparisons img {
+	display: block;
+	float: left;
 }
 
 /***************************************
@@ -935,6 +1041,16 @@ h3.subsub {
 .matchups .right .score {
 	right:140px;
 
+}
+
+.winner .winningisgood {
+	height: 60px;
+	width: 180px;
+	background: url(../images/winner.png) transparent no-repeat 0 0;
+	display: block;
+	position: absolute;
+	top:-40px;
+	left: -15px;
 }
 
 .vs {

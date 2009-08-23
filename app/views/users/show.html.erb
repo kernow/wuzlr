@@ -29,39 +29,39 @@
 	<div class="clear comparisons">
 		<h3 class="subsub">Player roundup</h3>
 	
-		<div class="g4 nemesis">
+		<div class="g8 nemesis">
 			<h2>Nemesis</h2>
 			<%= link_to gravatar_for_with_default( @nemesis[:user] ), user_path(@nemesis[:user]), :title => @nemesis[:user].name %>
 			<dl>
-				<dt>Matches Played</dt>
-				<dd><%= @nemesis[:played] %></dd>
-				<dt>Matches Lost</dt>
-				<dd><%= @nemesis[:lost] %></dd>
+				<dt>Matches Played: <%= @walkover[:played] %></dt>
+			<dt>Matches Won: <%= @walkover[:won] %></dt>
 			</dl>
 		</div>
-		<div class="g4 walkover">
+		<div class="g8 m1 walkover">
 			<h2>Walkover</h2>
 			<%= link_to gravatar_for_with_default( @walkover[:user] ), user_path(@walkover[:user]), :title => @walkover[:user].name %>
-			<dt>Matches Played</dt>
-			<dd><%= @walkover[:played] %></dd>
-			<dt>Matches Won</dt>
-			<dd><%= @walkover[:won] %></dd>
+			<dl>
+			<dt>Matches Played: <%= @walkover[:played] %></dt>
+			<dt>Matches Won: <%= @walkover[:won] %></dt>
+			</dl>
 		</div>
-		<div class="g4 dreamteam">
+	</div>
+	<div class="clear comparisons">
+		<div class="g8 dreamteam">
 			<h2>Dream Team</h2>
 			<%= link_to gravatar_for_with_default( @dream_team[:user] ), user_path(@dream_team[:user]), :title => @dream_team[:user].name %>
-			<dt>Matches Played</dt>
-			<dd><%= @dream_team[:played] %></dd>
-			<dt>Matches Won</dt>
-			<dd><%= @dream_team[:won] %></dd>
+			<dl>
+			<dt>Matches Played: <%= @walkover[:played] %></dt>
+			<dt>Matches Won: <%= @walkover[:won] %></dt>
+			</dl>
 		</div>
-		<div class="g4 useless">
+		<div class="g8 m1 useless">
 			<h2>Useless</h2>
 			<%= link_to gravatar_for_with_default( @useless[:user] ), user_path(@useless[:user]), :title => @useless[:user].name %>
-			<dt>Matches Played</dt>
-			<dd><%= @useless[:played] %></dd>
-			<dt>Matches Lost</dt>
-			<dd><%= @useless[:lost] %></dd>
+			<dl>
+			<dt>Matches Played: <%= @walkover[:played] %></dt>
+			<dt>Matches Won: <%= @walkover[:won] %></dt>
+			</dl>
 		</div>
 	</div>
 
