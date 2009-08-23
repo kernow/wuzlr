@@ -4,7 +4,7 @@
 </div>
 
 <table id="fuckingsweet">
-	<tr class="sickass">
+	<thead class="sickass">
 		<th></th>
 		<th>Pld</th>
 		<th>Won</th>
@@ -12,7 +12,7 @@
 		<th>Win %</th>
 		<th title="Winning Streak">Wsk</th>
 		<th title="Losing Streak">Lsk</th>
-	</tr>
+	</thead>
 	<% @players.each do |p| %>
 		<tr class="phatass">
 			<td class="youruglymug"><%= link_to gravatar_for_with_default(p), user_path(p) %></td>
