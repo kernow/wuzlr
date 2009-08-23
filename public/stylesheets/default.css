@@ -16,7 +16,7 @@ html {
 
 
 body {
-	background:url(../images/grass-loop.jpg) #eee repeat-x 0 -30px;
+	background:url(../images/grass-loop.jpg) #eee repeat-x 0 -40px;
 }
 
 img  { 
@@ -48,7 +48,7 @@ Header
 ****************************************/
 
 #header {
-	margin-top: 60px;
+	margin-top: 50px;
 	position: relative;
 }
 
