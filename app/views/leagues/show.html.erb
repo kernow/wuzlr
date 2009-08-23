@@ -9,24 +9,25 @@
 		<th title="Played matches">Pld</th>
 		<th title="Won matches">Won</th>
 		<th title="Lost matches">Lst</th>
-		<th title="Percentage of Wins">Win %</th>
+		<th title="Percentage of Wins" class="reverse_sort">Win %</th>
 		<th title="Winning Streak">Wsk</th>
 		<th title="Losing Streak">Lsk</th>
 		<% if @equivalent_teams %>
 			<th title="Equivalent Fifa Team" class="nosort">Rank</th>
 		<% end %>
 	</thead>
-	<% @players.each do |p| %>
+	<% @stats.each do |s| %>
 		<tr class="phatass">
-			<td class="youruglymug"><%= link_to gravatar_for_with_default(p), user_path(p) %></td>
-			<td><%= p.played                                 %></td>
-			<td><%= p.won                                    %></td>
-			<td><%= p.lost                                   %></td>
-			<td><%= p.win_p.to_s + "%"                       %></td>
-			<td><%= p.longest_winning_streak                 %></td>
-			<td><%= p.longest_losing_streak                  %></td>
+			<td class="youruglymug"><%= link_to gravatar_for_with_default(s.user), user_path(s.user), :title => s.user.name %></td>
+			<td><%= s.played                                 %></td>
+			<td><%= s.won                                    %></td>
+			<td><%= s.lost                                   %></td>
+			<td><%= s.win_percent.to_s + "%"                 %></td>
+			<td><%= s.longest_winning_streak                 %></td>
+			<td><%= s.longest_losing_streak                  %></td>
 			<% if @equivalent_teams %>
-				<td><%= image_tag @equivalent_teams.shift[:flag] %></td>
+				<% team = @equivalent_teams.shift %>
+				<td><%= image_tag team[:flag], :title => team[:name] %></td>
 			<% end %>
 		</tr>
 	<% end %>

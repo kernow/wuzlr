@@ -17,4 +17,7 @@
 
 <h3 class="subsub">Recent match-ups</h3>
 
+<span class="newmatchup clear"><%= link_to 'Compare yourself with this dude', compare_user_path(@user) if signed_in? %></span>
+
+
 <%= render :partial => "match", :collection => @matches, :locals => {:user => @user} %>
