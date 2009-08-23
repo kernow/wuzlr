@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :match_players, :foreign_key => "player_id"
   has_many :matches, :through => :match_players
   
-  has_many :stats, :class => "UserStat"
+  has_many :stats, :class_name => "UserStat"
   has_many :match_stats
   has_many :league_stats
     
