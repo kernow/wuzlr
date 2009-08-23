@@ -12,6 +12,7 @@ class LeaguesController < ApplicationController
     @league    = League.find(params[:id])
     @subheader = "Current standings"
     @players   = @league.players.find(:all, :order => "users.win_loss_percentage DESC")
+    @stats     = @league.stats.find(:all, :order => "win_percent DESC", :include => :user)
     
     fifa_teams = FifaTeam.find(:all, :order => "goals_for DESC")
     @equivalent_teams = case @players.size
