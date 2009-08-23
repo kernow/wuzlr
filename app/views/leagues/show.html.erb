@@ -33,5 +33,9 @@
 </ul>
 
 <div class="charter clear">
+<%= remote_graph("Matches per Day",{ :route => league_graphs_path( :id => @league, :action => :matches_per_day ), :width => "500px", :height => "300px"}) %>
+</div>
+
+<div class="charter clear">
 <%= remote_graph("Table Bias",{ :route => league_graphs_path( :id => @league, :action => :table_bias ), :width => "500px", :height => "300px"}) %>
 </div>
