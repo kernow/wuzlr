@@ -1,3 +1,7 @@
+<span class="newmatchup clear"><%= link_to 'Start a new match', new_league_match_path(@league) %></span>
+<div class="slapmabitchup">
+<p>Here is where the description of the league will be when Jamie and Theo have time</p>
+</div>
 
 <table id="fuckingsweet">
 	<tr class="sickass">
@@ -11,7 +15,7 @@
 	</tr>
 	<% @players.each do |p| %>
 		<tr class="phatass">
-			<td class="youruglymug"><%= link_to gravatar_for(p), user_path(p) %></td>
+			<td class="youruglymug"><%= link_to gravatar_for_with_default(p), user_path(p) %></td>
 			<td><%= p.played                     %></td>
 			<td><%= p.won                        %></td>
 			<td><%= p.lost                       %></td>
@@ -21,8 +25,6 @@
 		</tr>
 	<% end %>
 </table>
-
-<span class="newmatchup"><%= link_to 'New match', new_league_match_path(@league) %></span>
 
 <ul class="doitlikebritney clear">
 <li><hr/></li>
