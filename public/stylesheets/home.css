@@ -76,4 +76,6 @@ body.homer {
 	-webkit-box-shadow:0 3px 8px #000;
 }
 
-
+#dedicated-graphs li div{
+  text-indent: -999em;
+}
