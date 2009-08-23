@@ -19,7 +19,7 @@
 </div>
 
 <% form_tag league_matches_path(@league), :id => 'players_form' do -%>
-	<%= @match.errors.full_messages   %>
+  <%= error_messages_for 'match' %>
 	<%= @match.match_players.map{|p| p.errors.full_messages}%>
   <%= hidden_field_tag 'red[1]' %>
   <%= hidden_field_tag 'red[2]' %>

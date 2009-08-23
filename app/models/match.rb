@@ -134,7 +134,7 @@ class Match < ActiveRecord::Base
 private
 
   def players_on_both_sides
-    errors.add_to_base "Need at lease one blue player" if blue_players.empty?
+    errors.add_to_base "Need at least one blue player" if blue_players.empty?
     errors.add_to_base "Need at least one red player"  if red_players.empty?
   end
   

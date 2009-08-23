@@ -1,8 +1,7 @@
 <% @header = "Enter score" %>
 
 <% form_for [@league, @match] do |f| %>
-  <%= @match.errors.full_messages %>
-  
+  <%= error_messages_for 'match' %>  
   <div id="pitch">
     <div id="top" class="results_top">
       <% @match.red_players.each do |player| %>
