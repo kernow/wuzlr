@@ -10,9 +10,7 @@ class User < ActiveRecord::Base
   
   validates_presence_of :name
   attr_accessible :name
-  
-  before_update :calculate_win_loss_percentage
-  
+    
   def win_p
     if played > 0
       ((won / played.to_f) * 100).to_i
@@ -33,6 +31,8 @@ class User < ActiveRecord::Base
     increment :played
     increment :won
     
+    calculate_win_loss_percentage
+    
     self.last_won_at    = time
     self.last_played_at = time
     
@@ -44,6 +44,8 @@ class User < ActiveRecord::Base
   def add_lost(time = Time.now)
     increment :played
     increment :lost
+    
+    calculate_win_loss_percentage
     
     self.last_lost_at   = time
     self.last_played_at = time
