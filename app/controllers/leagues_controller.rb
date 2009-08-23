@@ -46,6 +46,13 @@ class LeaguesController < ApplicationController
     respond_to do |format|
       if @league.save
         @league.add_player current_user
+        if !!params[:demo_users]
+          ["sayhello@petercolesdc.com", "jamie.dyer@jivatechnology.com", "theo.cushion@jivatechnology.com"].each {|e|
+            u = User.find_by_email(e)
+            puts u.inspect
+            @league.add_player u if u
+          }
+        end        
         flash[:notice] = 'League was successfully created.'
         format.html { redirect_to(@league) }
       else
