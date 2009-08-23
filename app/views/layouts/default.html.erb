@@ -52,6 +52,7 @@
             	<% if signed_in? %>
               	<ul id="nav">
               		<li class="account"><%= link_to 'Account', account_path %></li>
+              		<li class="profile"><%= link_to 'My profile', user_path(current_user) %></li>
                 	<li class="signout"><%= link_to 'Signout', sign_out_path %></li>
                 </ul>
               <% else %>
