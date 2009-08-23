@@ -1,4 +1,4 @@
-<div class="team <%= team %> <%= "winner" if team == match.winner %> <%= "loser" if team == match.loser %>">
+<div class="team <%= team %> <%= side %> <%= "winner" if team == match.winner %> <%= "loser" if team == match.loser %>">
 	<ul>
 		<% match.players_for(team).each do |p| %>
   		<li><%= link_to gravatar_for_with_default(p), user_path(p) %></li>

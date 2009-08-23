@@ -1,19 +1,17 @@
-<div class="match">
-	<div class="details">
-		<dl>
-			<dt>Kickoff</dt>
-			<dd><abbr class="kickoff" title="<%= match.started_at.iso8601 %>"><%= time_ago_in_words match.started_at %> ago</abbr></dd>
+<div class="matchups clear">
+	<%= render :partial => "team", :locals => {:side => "left",  :match => match, :team => match.team_with(@user)   } %>
+	<%= render :partial => "team", :locals => {:side => "right", :match => match, :team => match.team_without(@user)} %>
+		<span class="vs">VS</span>
+
+		<div class="details">
+			<span class="ko">K.O: 
+			<abbr class="kickoff" title="<%= match.started_at.iso8601 %>"><%= time_ago_in_words match.started_at %> ago</abbr>
+			</span>
 			
-			<dt>Duration</dt>
-			<dd>
+			<span class="du">Duration: 
 				<abbr class="duration" title="<%= "PT#{match.duration.min}M#{match.duration.sec}S" %>">
 					<%= distance_of_time_in_words match.started_at, match.finished_at %>
 				</abbr>
-			</dd>
-		</dl>
+			</span>
 	</div>
-
-	<%= render :partial => "team", :locals => {:match => match, :team => match.team_with(@user)   } %>
-	<span class="vs">VS</span>
-	<%= render :partial => "team", :locals => {:match => match, :team => match.team_without(@user)} %>
 </div>

@@ -15,8 +15,10 @@
 <div id="pitch">
   <div id="top" class="droppable"></div>
   <div id="bottom" class="droppable"></div>
-	<a href="javascript:;" class="play_game">Play game</a>
+  <a href="javascript:;" class="play_game">Play game</a>
 </div>
+
+<div id="lightmybox"></div>
 
 <% form_tag league_matches_path(@league), :id => 'players_form' do -%>
   <%= error_messages_for 'match' %>

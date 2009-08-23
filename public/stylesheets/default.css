@@ -204,32 +204,6 @@ Content + Bulk
 	color: #d25c3c;
 }
 
-#aside .listed  {
-	width:90%;
-	margin-top: 10px;
-}
-
-#aside .listed li {
-	background: none;
-}
-
-#aside .listed li span {
-	background: #dedede;
-	-moz-border-radius: 0;
-	-webkit-border-radius:0;
-	border: 0;
-	border-bottom: 1px solid #ccc;
-	border-top: 1px solid #eee;
-	margin-bottom: 0;
-	margin-top: 0;
-	display: block;
-}
-
-#aside .listed li span a {
-	font-size:12px;
-	background-image: url(../images/icons/leagues.png);
-}
-
 cite.newbie a {
 	background-image: none;
 	float: right;
@@ -384,8 +358,9 @@ Aside
 	margin-bottom: 20px;
 	padding: 8px;
 	-moz-border-radius:22px;
-	-webkit-border-radius:22px;
+	-webkit-border-radius:16px;
 	-moz-box-shadow: 0px 1px 1px #888;
+	-webkit-box-shadow: 0px 1px 1px #888;
 	text-shadow: 0 -1px 0 #333;
 }
 
@@ -419,6 +394,67 @@ Aside
 	color: #fff;
 	-moz-box-shadow:none;
 	-webkit-box-shadow:none;
+}
+
+#aside .mal {
+	width: 90%;
+	margin-top: 10px;
+	float: right;
+	clear: both;
+}
+
+#aside .mal span {
+	background: none;
+	display: block;
+	position: relative;
+}
+
+#aside .mal span a {
+	display: block;
+	background: url(../images/gradients/chrome.gif) #ddd repeat-x 0 0;
+	padding: 10px;
+	text-align: right;
+	border: 1px solid #fff;
+}
+
+#aside .mal cite {
+	display: block;
+	margin-bottom: 10px;
+	width: 75%;
+	float: right;
+	clear: both;
+	font-size: 14px;
+	padding-bottom: 10px;
+}
+
+#aside .mal cite a {
+	display: block;
+}
+
+cite.match {
+	background: url(../images/icons/whistle.png) transparent no-repeat 0 0;
+	display: block;
+	text-indent: 30px;
+	margin-top: 5px;
+	border-bottom: 1px solid #ddd;
+}
+
+cite.invite {
+	background: url(../images/icons/mail.png) transparent no-repeat 0 0;
+	display: block;
+	text-indent: 30px;
+}
+
+pre.icon {
+	background: url(../images/icons/leagues.png) transparent no-repeat 0 0;
+	display: block;
+	position: absolute;
+	height: 16px;
+	width: 16px;
+	text-indent: -999em;
+	top:14px;
+	z-index: 3;
+	margin-left: 8px;
 }
 
 
@@ -471,7 +507,11 @@ Roster
 	float: right;
 	display: block;
 	position: relative;
-	right:-5px;
+	height: 420px;
+	width: 140px;
+	overflow: scroll;
+	overflow-x: none;
+	right: -20px;
 }
 
 .display_roster li {
@@ -710,7 +750,8 @@ Tool Tips
  
 .tool-tip .tip-top {
 	padding: 8px 8px 4px;
-	background: url(../images/bubble.png) top left;
+	background: #333;
+	background: rgba(0,0,0,0.7);
 }
 
 .tool-tip .tip {
@@ -720,10 +761,114 @@ Tool Tips
   color: #9FD4FF;
   font-size: 11px;
   padding: 4px 8px 8px;
-  background: url(../images/bubble.png);
+  background: #333;
+  background: rgba(0,0,0,0.7);
 }
  
 .tool-tip .tip-bottom {
-	background: url(../images/bubble.png) bottom right;
+	background: #333;
+	background: rgba(0,0,0,0.7);
+}
+
+/***************************************
+Profile
+****************************************/
+
+.mabits {
+	margin-bottom: 30px;
+}
+
+h3.subsub {
+	margin-bottom: 20px;
+	margin-top: 20px;
+	clear: both;
+}
+
+.matchups {
+	clear: both;
+	margin-bottom: 50px;
+	position: relative;
+}
+
+.matchups .details {
+	clear: both;
+	color: #999;
+	font-style: italic;
+}
+
+.matchups .details span {
+	display: inline;
+	font-size: 11px;
+	text-transform: uppercase;
+}
+
+.matchups .team {
+	float: left;
+}
+
+.matchups .team.blue {
+	position: relative;
+	display: block;
+	background: url(../images/blu.png) transparent repeat 0 0;
+	width: 50%;
+}
+
+.matchups .team.red {
+	position: relative;
+	display: block;
+	background: url(../images/rouge.png) transparent repeat 0 0;
+	width: 50%;
+}
+
+.matchups .team img.gravatar{
+	position: relative;
+	margin-bottom: 20px;
+	display: block;
+	border: 1px solid #ddd;
+}
+
+.matchups .team.right img.gravatar {
+	clear: both;
+	left: 205px;
+	top:10px;
+}
+
+.matchups .team.left img.gravatar {
+	left: 10px;
+	top: 10px;
+}
+
+.matchups .score {
+	position: absolute;
+	top:25%;
+	display: block;
+	font-size: 28px;
+	color: #fff;
+	text-shadow: 0 -1px 0 #333;
+	font-weight: 800;
+}
+
+.matchups .left .score {
+	left:140px;
+
+}
+
+.matchups .right .score {
+	right:140px;
+
+}
+
+.vs {
+	position: absolute;
+	background: #333;
+	color: #eee;
+	text-shadow: 0 -1px 0 #333;
+	padding: 10px;
+	font-size: 12px;
+	left: 47%;
+	top: 20%;
+	z-index: 10;
+	-moz-border-radius:30px;
+	-webkit-border-radius:16px;
 }
 

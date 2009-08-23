@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
 	text-align: right;
 }
 
-h2.museo {
+h2.museo, h3.subsub {
 	color: #333;
 	font-size: 22px;
 	line-height: 20px;

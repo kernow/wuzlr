@@ -1,3 +1,17 @@
 <% @subheader = "Profile for #{@user.name}" %>
 
+<div class="clear mabits">
+	<div class="ava g8 m6">
+		<p>Not look like you? Head over to <a href="http://gravatar.com">gravatar</a> and get a piccy.</p>
+	</div>
+	
+	<div class="ava g3">
+
+	</div>
+</div>
+
+<hr/>
+
+<h3 class="subsub">Recent match-ups</h3>
+
 <%= render :partial => "match", :collection => @matches, :locals => {:user => @user} %>
