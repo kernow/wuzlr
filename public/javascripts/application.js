@@ -11,13 +11,13 @@ window.addEvent('domready', function() {
     $("play_game").addEvent('click', function(){
       SqueezeBox.initialize({
           size: { x: 350,
-                  y: 150, },
-          ajaxOptions: {  method: 'post',
-                          data: { authenticity_token: $('players_form').authenticity_token.value,
-                                  blue: {1: $('players_form').blue_1.value, 2: $('players_form').blue_2.value},
-                                  red: {1: $('players_form').red_1.value, 2: $('players_form').red_2.value}}
-      }});
-      SqueezeBox.open($('players_form').getProperty('action'));
+                  y: 150, }});
+                  
+      SqueezeBox.open(  $('players_form').getProperty('action'), {
+                        ajaxOptions: {  method: 'post',
+                                        data: { authenticity_token: $('players_form').authenticity_token.value,
+                                          blue: {1: $('players_form').blue_1.value, 2: $('players_form').blue_2.value},
+                                          red: {1: $('players_form').red_1.value, 2: $('players_form').red_2.value}}}});
     });
   }
   
@@ -45,7 +45,7 @@ window.addEvent('domready', function() {
     	  droppables: $$('.droppable'),
     	  onStart: function(elm){
     	    // console.log(elm);
-    	    elm.setStyle('z-index', '999999');
+    	    elm.setStyle('z-index', '9999');
     	  },
     	  onDrop: function(elm, droppable, event){
           if (!droppable){

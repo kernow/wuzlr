@@ -17,59 +17,62 @@
 
 <hr/>
 
-<% if @nemesis && @walkover && @dream_team && @useless %>
+<% if (@nemesis && @walkover) || (@dream_team && @useless) %>
 	<div class="clear comparisons">
 		<h3 class="subsub">Player roundup</h3>
-	
-		<div class="g8 nemesis">
-			<h2>Nemesis</h2>
-			<%= link_to gravatar_for_with_default( @nemesis[:user] ), user_path(@nemesis[:user]), :title => @nemesis[:user].name %>
-			<dl>
+	<% if @nemesis && @walkover %>
+			<div class="g8 nemesis">
+				<h2>Nemesis</h2>
+				<%= link_to gravatar_for_with_default( @nemesis[:user] ), user_path(@nemesis[:user]), :title => @nemesis[:user].name %>
+				<dl>
+					<dt>Matches Played: <%= @nemesis[:played] %></dt>
+				<dt>Matches Lost: <%= @nemesis[:lost] %></dt>
+				</dl>
+			</div>
+			<div class="g8 m1 walkover">
+				<h2>Walkover</h2>
+				<%= link_to gravatar_for_with_default( @walkover[:user] ), user_path(@walkover[:user]), :title => @walkover[:user].name %>
+				<dl>
 				<dt>Matches Played: <%= @walkover[:played] %></dt>
-			<dt>Matches Lost: <%= @walkover[:won] %></dt>
-			</dl>
-		</div>
-		<div class="g8 m1 walkover">
-			<h2>Walkover</h2>
-			<%= link_to gravatar_for_with_default( @walkover[:user] ), user_path(@walkover[:user]), :title => @walkover[:user].name %>
-			<dl>
-			<dt>Matches Played: <%= @walkover[:played] %></dt>
-			<dt>Matches Won: <%= @walkover[:won] %></dt>
-			</dl>
-		</div>
+				<dt>Matches Won: <%= @walkover[:won] %></dt>
+				</dl>
+			</div>
+	<% end %>
 	</div>
-	<div class="clear comparisons">
-		<div class="g8 dreamteam">
-			<h2>Dream Team</h2>
-			<%= link_to gravatar_for_with_default( @dream_team[:user] ), user_path(@dream_team[:user]), :title => @dream_team[:user].name %>
-			<dl>
-			<dt>Matches Played: <%= @walkover[:played] %></dt>
-			<dt>Matches Won: <%= @walkover[:won] %></dt>
-			</dl>
+	<% if @dream_team && @useless %>	
+		<div class="clear comparisons">
+			<div class="g8 dreamteam">
+				<h2>Dream Team</h2>
+				<%= link_to gravatar_for_with_default( @dream_team[:user] ), user_path(@dream_team[:user]), :title => @dream_team[:user].name %>
+				<dl>
+				<dt>Matches Played: <%= @dream_team[:played] %></dt>
+				<dt>Matches Won: <%= @dream_team[:won] %></dt>
+				</dl>
+			</div>
+			<div class="g8 m1 useless">
+				<h2>Useless</h2>
+				<%= link_to gravatar_for_with_default( @useless[:user] ), user_path(@useless[:user]), :title => @useless[:user].name %>
+				<dl>
+				<dt>Matches Played: <%= @useless[:played] %></dt>
+				<dt>Matches Lost: <%= @useless[:lost] %></dt>
+				</dl>
+			</div>
 		</div>
-		<div class="g8 m1 useless">
-			<h2>Useless</h2>
-			<%= link_to gravatar_for_with_default( @useless[:user] ), user_path(@useless[:user]), :title => @useless[:user].name %>
-			<dl>
-			<dt>Matches Played: <%= @walkover[:played] %></dt>
-			<dt>Matches Lost: <%= @walkover[:won] %></dt>
-			</dl>
-		</div>
-	</div>
+	<% end %>
 
-	<hr/>
-<% end %>
-
-<% if @matches.size > 0 %>
-	<div class="clear form">
-		<h3 class="subsub">Form</h3>
-		<div class="charter clear">
-			<%= remote_graph("Form",{ :route => user_graphs_path( :user_id => @user, :action => :form ), :width => "530px", :height => "300px"}) %>
-		</div>
-	</div>
 	<hr/>
 <% end %>
 
 <h3 class="subsub">Recent match-ups</h3>
 
 <%= render :partial => "match", :collection => @matches, :locals => {:user => @user} %>
+
+<% if @matches.size > 0 %>
+	<div class="clear form">
+		<h3 class="subsub">Your form over time</h3>
+		<div class="charter clear">
+			<%= remote_graph("Form",{ :route => user_graphs_path( :user_id => @user, :action => :form ), :width => "530px", :height => "300px"}) %>
+		</div>
+	</div>
+	<hr/>
+<% end %>

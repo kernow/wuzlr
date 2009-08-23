@@ -11,6 +11,13 @@
   <%= f.text_area :description %>
   </p>
   
+	<% unless params[:action] == "edit" %>
+	<p>
+	<%= label_tag :demo_users %>
+	<%= check_box_tag :demo_users, 'yes', true %>
+	</p>
+	<% end %>
+	
   <p>
     <%= f.submit button_label %>
   </p>

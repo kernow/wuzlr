@@ -46,7 +46,7 @@ class MatchesController < ApplicationController
         format.html { redirect_to league_match_path league, @match }
       else
         @match.destroy
-        format.html { render :action => "new" }
+        format.html { render :action => "error", :layout => false }
       end
     end
   end
