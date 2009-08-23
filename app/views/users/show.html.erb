@@ -17,14 +17,6 @@
 
 <hr/>
 
-<div class="clear form">
-	<h3 class="subsub">Form</h3>
-	<div class="charter clear">
-		<%= remote_graph("Form",{ :route => user_graphs_path( :user_id => @user, :action => :form ), :width => "530px", :height => "300px"}) %>
-	</div>
-</div>
-<hr/>
-
 <% if @nemesis && @walkover && @dream_team && @useless %>
 	<div class="clear comparisons">
 		<h3 class="subsub">Player roundup</h3>
@@ -34,7 +26,7 @@
 			<%= link_to gravatar_for_with_default( @nemesis[:user] ), user_path(@nemesis[:user]), :title => @nemesis[:user].name %>
 			<dl>
 				<dt>Matches Played: <%= @walkover[:played] %></dt>
-			<dt>Matches Won: <%= @walkover[:won] %></dt>
+			<dt>Matches Lost: <%= @walkover[:won] %></dt>
 			</dl>
 		</div>
 		<div class="g8 m1 walkover">
@@ -60,13 +52,24 @@
 			<%= link_to gravatar_for_with_default( @useless[:user] ), user_path(@useless[:user]), :title => @useless[:user].name %>
 			<dl>
 			<dt>Matches Played: <%= @walkover[:played] %></dt>
-			<dt>Matches Won: <%= @walkover[:won] %></dt>
+			<dt>Matches Lost: <%= @walkover[:won] %></dt>
 			</dl>
 		</div>
 	</div>
 
 	<hr/>
 <% end %>
+
+<% if @matches.size > 0 %>
+	<div class="clear form">
+		<h3 class="subsub">Form</h3>
+		<div class="charter clear">
+			<%= remote_graph("Form",{ :route => user_graphs_path( :user_id => @user, :action => :form ), :width => "530px", :height => "300px"}) %>
+		</div>
+	</div>
+	<hr/>
+<% end %>
+
 <h3 class="subsub">Recent match-ups</h3>
 
 <%= render :partial => "match", :collection => @matches, :locals => {:user => @user} %>
