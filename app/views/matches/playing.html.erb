@@ -1,5 +1,20 @@
-<% @header = "WARNING!! Match in progress" %>
+<div id="digital_clock"></div>
+<script>
+
+  var time = { counter: 0 };
+  var addCount = function(){
+    this.counter++;
+    $('digital_clock').innerHTML = pretty_time(this.counter);
+  };
+  addCount.periodical(1000, time);
+  
+  var pretty_time = function(seconds){
+    var mins = Math.floor(seconds/60);
+    var secs = seconds%60;
+    return mins.toString().pad(2, '0', 'left')+':'+secs.toString().pad(2, '0', 'left');
+  };
+</script>
 
 <% form_tag full_time_league_match_path(@league, @match), :method => :put do %>
-	<%= submit_tag "Full time" %>
+	<%= submit_tag "Full time", :class => 'rmv' %>
 <% end %>

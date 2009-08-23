@@ -31,6 +31,12 @@ class User < ActiveRecord::Base
     end
   end
   
+  def matches_per_day
+    format = "%Y %b %d"
+    results = matches.count(:group => "DATE_FORMAT(started_at, '#{format}')")
+    results.map{|k,v| [DateTime.strptime(k,format),v] }.sort_by{|e| e[0]}
+  end
+  
   def add_win(match)
     increment :played
     increment :won
@@ -81,7 +87,7 @@ class User < ActiveRecord::Base
   
   def time_playing
     time = 0
-    matches.collect {|m| time = time + m.duration_in_seconds }
+    matches.find(:all, :conditions => {:state => "recorded"}).collect {|m| time = time + m.duration_in_seconds }
     time
   end
   
@@ -95,6 +101,14 @@ class User < ActiveRecord::Base
   
   def self.wup_wup_playaz # AKA the players with the best win/loss percentage
     User.find :all, :limit => 5, :order => "win_loss_percentage DESC"
+  end
+  
+  def lost_per_day
+    match_stats.lost.count(:group => "DATE_FORMAT(matches.started_at, '%Y %b %d')", :joins => :match).to_a.map{|(k,v)| [DateTime.parse(k),v]}
+  end
+  
+  def won_per_day
+    match_stats.won.count(:group => "DATE_FORMAT(matches.started_at, '%Y %b %d')", :joins => :match).to_a.map{|(k,v)| [DateTime.parse(k),v]}
   end
   
   def number_matches_against(user)

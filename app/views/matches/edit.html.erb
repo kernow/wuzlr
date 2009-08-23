@@ -4,7 +4,7 @@
 	<p>In the fields opposite enter your score. </p>
 	<p>If you've been Beckham'esque &amp; given someone a royal thrashing, now might be a good time to rub-it-in. </p>
 </div>
-<% form_for [@league, @match] do |f| %>
+<% form_for [@league, @match], :html => {:id => 'edit_match'} do |f| %>
   <%= error_messages_for 'match' %>  
   <div id="pitch" class="pitchedit">
     <div id="top" class="results_top">
@@ -15,7 +15,7 @@
      	 </div>
     	<%= f.text_field :red_score, :size => 1, :maxlength => 2 %>
     </div>
-  	<a href="javascript:;" class="play_game">Submit Score</a>
+  	<a href="javascript:;" class="play_game" id="submit_score">Submit Score</a>
   	<div id="bottom" class="results_bottom">
   		<%= f.text_field :blue_score, :size => 1, :maxlength => 2 %>
   		<div class="wee">
