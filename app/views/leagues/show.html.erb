@@ -1,3 +1,4 @@
+<span class="newmatchup"><%= link_to 'Edit this league', edit_league_path(@league) if @league.owner?(current_user) %></span>
 <span class="newmatchup clear"><%= link_to 'Start a new match', new_league_match_path(@league) %></span>
 <div class="slapmabitchup">
 <p><%= @league.description %></p>

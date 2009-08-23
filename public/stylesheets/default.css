@@ -806,7 +806,8 @@ compare graph
 	position: absolute;
 	left:200px;
 	background: #eee;
-	opacity:0.2;
+	color: #000000;
+	opacity:0.3;
 }
 
 #compare-labels li {
@@ -822,6 +823,7 @@ compare graph
 	float: right;
 	clear: both;
 	text-align: left;
+	text-indent: -999em;
 	color: #eee;
 	text-shadow: 0 -1px 0 #333;
 	padding-left: 6px;
@@ -832,6 +834,8 @@ compare graph
 	margin-bottom: 3px;
 	float: left;
 	clear: both;
+	text-align: left;
+	text-indent: -999em;
 	color: #eee;
 	text-shadow: 0 -1px 0 #333;
 	padding-right: 6px;
