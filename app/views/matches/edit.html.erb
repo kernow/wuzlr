@@ -1,10 +1,22 @@
 <% @header = "Enter score" %>
 
 <% form_for [@league, @match] do |f| %>
-	<%= @match.errors.full_messages %>
-	<%= f.label :blue_score %>
-	<%= f.text_field :blue_score %>
-	<%= f.label :red_score %>
-	<%= f.text_field :red_score  %>
-	<%= f.submit "Save" %>
+  <%= @match.errors.full_messages %>
+  
+  <div id="pitch">
+    <div id="top" class="results_top">
+      <% @match.red_players.each do |player| %>
+        <a><%= gravatar_for_with_default player%></a>
+      <% end %>
+    	<%= f.text_field :red_score, :size => 1, :maxlength => 2 %>
+    </div>
+  	<a href="javascript:;" class="play_game">Submit Score</a>
+  	<div id="bottom" class="results_bottom">
+      <% @match.blue_players.each do |player| %>
+        <a><%= gravatar_for_with_default player%></a>
+      <% end %>
+      <%= f.text_field :blue_score, :size => 1, :maxlength => 2 %>
+    </div>
+  </div>
+
 <% end %>

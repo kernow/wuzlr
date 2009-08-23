@@ -58,9 +58,7 @@ window.addEvent('domready', function() {
 // fonts
 
 // window.addEvent('domready', function() {
-//  Cufon.replace('#bulk .headit h2, #aside h3, , .headit h4, .museo',{
-//     hover: true
-//  });
+//  Cufon.replace('#bulk .headit h2, #aside h3, , .headit h4, .museo',{ hover: true });
 // });
 
 
@@ -76,6 +74,21 @@ window.addEvent('domready', function() {
     e.stop();
   });
 });
+
+
+// sortable tables
+window.addEvent('domready', function() {
+  if($('fuckingsweet')) new SortingTable('fuckingsweet');
+});
+
+
+// match results
+
+window.addEvent('domready', function() {
+  if($$('.results_top')) set_player_positions($$('.results_top'));
+  if($$('.results_bottom')) set_player_positions($$('.results_bottom'));
+});
+
 
 function set_player_positions(elm){
   elms = elm.getElements('a');
