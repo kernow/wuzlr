@@ -16,7 +16,8 @@ ActionController::Routing::Routes.draw do |map|
     user.resources :leagues, :only => :index
   end
   
-  map.league_graphs "/leagues/:id/graphs/:action", :controller => :graphs
+  map.league_graphs "/leagues/:league_id/graphs/:action", :controller => :graphs
+  map.user_graphs   "/users/:user_id/graphs/:action",   :controller => :graphs
   
   map.sign_up  'sign_up',
     :controller => 'users',
