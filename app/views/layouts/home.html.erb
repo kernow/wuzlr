@@ -30,7 +30,7 @@
 	<div class="wrapper clear">
 	  <% unless signed_in? %>
 		  <div class="p">
-			  <span><%= link_to "Sign in", sign_in_path %> | <%= link_to "Sign up", sign_up_path %> | <%= link_to "Forgot password?", new_password_path %></span>
+			  <span><%= link_to "Sign in", sign_in_path %> | <%= link_to "Forgot password?", new_password_path %></span>
 		  </div>
 		<% end %>
 	</div>
@@ -65,7 +65,7 @@
 			</ul>
 		</div>
 		<div class="g10 m1">
-			<h3>Dedicated</h3>
+			<h3>Dedicated players</h3>
 			<ul id="dedicated-graphs">
 				<% @dedicated.each do |user| %>
 					<li><%= link_to "#{gravatar_for_with_default(user)} #{user.name}", user_path(user), :title => user.name %><div class='games'><%= user.played %></div></li>

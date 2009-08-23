@@ -5,8 +5,8 @@ class HomeController < ApplicationController
   def index
     
     @leagues = League.find(:all, :limit => 3, :order => "created_at DESC")
-    @users = User.find(:all, :limit => 5, :order => "created_at DESC")
-    @dedicated = User.find(:all, :limit => 5, :order => "played DESC")
+    @users = User.find(:all, :limit => 15, :order => "created_at DESC")
+    @dedicated = User.find(:all, :limit => 3, :order => "played DESC")
   end
   
 end
