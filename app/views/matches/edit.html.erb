@@ -1,20 +1,28 @@
 <% @header = "Enter score" %>
-
+<div class="gumph">
+	<h3>Enter your score</h3>
+	<p>In the fields opposite enter your score. </p>
+	<p>If you've been Beckham'esque &amp; given someone a royal thrashing, now might be a good time to rub-it-in. </p>
+</div>
 <% form_for [@league, @match] do |f| %>
   <%= error_messages_for 'match' %>  
-  <div id="pitch">
+  <div id="pitch" class="pitchedit">
     <div id="top" class="results_top">
+    	<div class="wee">
       <% @match.red_players.each do |player| %>
         <%= gravatar_for_with_default player%>
       <% end %>
+     	 </div>
     	<%= f.text_field :red_score, :size => 1, :maxlength => 2 %>
     </div>
   	<a href="javascript:;" class="play_game">Submit Score</a>
   	<div id="bottom" class="results_bottom">
+  		<%= f.text_field :blue_score, :size => 1, :maxlength => 2 %>
+  		<div class="wee">
       <% @match.blue_players.each do |player| %>
         <%= gravatar_for_with_default player%>
       <% end %>
-      <%= f.text_field :blue_score, :size => 1, :maxlength => 2 %>
+      	</div>
     </div>
   </div>
 
