@@ -1,5 +1,4 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+// LOADS of shonky JavaScript, I didn't write any of this, honest!
 
 var team_form = {};
 team_form["blue_number"]  = 1;
@@ -44,12 +43,10 @@ window.addEvent('domready', function() {
     	new Drag.Move(drag, {
     	  droppables: $$('.droppable'),
     	  onStart: function(elm){
-    	    // console.log(elm);
     	    elm.setStyle('z-index', '9999');
     	  },
     	  onDrop: function(elm, droppable, event){
           if (!droppable){
-            // console.log(elm, ' dropped on nothing');
             elm.setPosition({x: 0, y: 0});
           }
           else{
@@ -84,28 +81,6 @@ window.addEvent('domready', function() {
 });
 
 
-
-// fonts
-
-// window.addEvent('domready', function() {
-//  Cufon.replace('#bulk .headit h2, #aside h3, , .headit h4, .museo',{ hover: true });
-// });
-
-
-// navigation
-
-// window.addEvent('domready', function() {
-//   
-//   var mySlide = new Fx.Slide('nav');
-//   mySlide.hide();
-//   $('nav_toggler').addEvent('click', function(e){
-//     e = new Event(e);
-//     mySlide.toggle();
-//     e.stop();
-//   });
-// });
-
-
 // sortable tables
 window.addEvent('domready', function() {
   if($('fuckingsweet')){
@@ -120,29 +95,19 @@ window.addEvent('domready', function() {
 window.addEvent('domready', function() {
   if($('compare-you') && $('compare-them')){
     $('compare-you').getElements('li').each(function(you_elm){
-      // console.log(you_elm.innerHTML);
-      // console.log('PROPERTY: '+you_elm.className);
       var them_elm = $('compare-them').getElement('li.'+you_elm.className);
-      // console.log(them_elm);
-      // console.log('you: ' + you_elm.innerHTML.toInt() + ', them: ' + them_elm.innerHTML.toInt());
       if(you_elm.innerHTML.toInt() > them_elm.innerHTML.toInt()){
-        // console.log("you are winner");
         var win_elm = you_elm;
         var lose_elm = them_elm;
       }
       else{
-        // console.log("them are winner");
         var win_elm = them_elm;
         var lose_elm = you_elm;
       }
-      // console.log(win_elm.getProperty('rel'));
       if(win_elm.getProperty('rel') == 'percentize'){
         var p = get_percentages(win_elm.innerHTML.toInt(), lose_elm.innerHTML.toInt());
         var win_val = p[0];
         var lose_val = p[1];
-        
-        // console.log('win val: '+win_val);
-        // console.log('lose val: '+lose_val);
       }
       else{
         var win_val = win_elm.innerHTML;
@@ -160,20 +125,42 @@ window.addEvent('domready', function() {
   }
 });
 
+
+// home graphs
+
+window.addEvent('domready', function() {
+  if($('dedicated-graphs')){
+    var games = [];
+    var max = 0;
+    $$('#dedicated-graphs li .games').each(function(elm){
+      var num = elm.innerHTML.toInt();
+      games.push([elm, num]);
+      if(num > max){
+        max = num;
+      }
+    });
+    games.each(function(item){
+      item[0].setStyle('background', 'url(/images/blu.png)');
+      var meFx = new Fx.Tween(item[0], {unit: '%'});
+      meFx.start('width', '0', toPercent(item[1], max));
+    });
+  }
+});
+
+function toPercent(val, max){
+  return (val/max)*100;
+};
+
 function get_percentages(val1, val2){
-  // console.log('val 1: '+val1+", val 2: "+val2);
   if(val1 > val2){
     var p = (val2/val1)*100;
-    // console.log("(val1 > val2) p: "+p);
     return [100,p];
   }
   else if(val1 < val2){
     var p = (val2/val1)*100;
-    // console.log("(val1 < val2) p: "+p);
     return [p,100];
   }
   else{
-    // console.log("same!!");
     return [50,50];
   }
 };
