@@ -52,8 +52,6 @@
             	<% if signed_in? %>
               	<ul id="nav">
               		<li class="account"><%= link_to 'Account', account_path %></li>
-                  <li class="leagues"><%= link_to 'My leagues', user_leagues_path(current_user) %></li>
-                	<li class="create"><%= link_to 'Add a league', new_league_path %></li>
                 	<li class="signout"><%= link_to 'Signout', sign_out_path %></li>
                 </ul>
               <% else %>
