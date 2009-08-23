@@ -2,7 +2,7 @@
 module ApplicationHelper
   
   def win_loss_bar(user, options={})
-    content_tag :div, :class => options[:class], :style => "width:#{user.win_loss_percentage_i}px" do
+    content_tag :div, :class => options[:class], :style => "width:#{user.win_loss_percentage_i}%" do
       "#{user.win_loss_percentage_i}%"
     end
   end

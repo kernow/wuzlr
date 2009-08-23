@@ -86,7 +86,7 @@ class User < ActiveRecord::Base
 private
   
   def matches_since(time)
-    matches.find(:all, :conditions => "finished_at > '#{time}'").count
+    matches.find(:all, :conditions => "finished_at > '#{time}'").size
   end
   
 end
