@@ -3,6 +3,10 @@
 <p><%= @league.description %></p>
 </div>
 
+<% if @stats.empty? %>
+<h3 class='ohno'>Oh no! - No match data yet</h3>
+<p class='ohno'><%= link_to "Invite", new_league_invite_path(@league) %> some players, and <%= link_to "start", new_league_match_path(@league) %> a match</h3>
+<% else %>
 <table id="fuckingsweet">
 	<thead class="sickass">
 		<th class="nosort"></th>
@@ -33,6 +37,7 @@
 	<% end %>
 </table>
 <ul id="sort_table_pagination"></ul>
+<% end %>
 
 <% if @league.stats.size > 0 %>
 	<hr/>
