@@ -12,7 +12,7 @@ ActionController::Routing::Routes.draw do |map|
     league.resources :matches, :except => [:index, :destroy], :member => {:full_time => :put}
   end
   
-  map.resources :users, :only => [:new, :create] do |user|
+  map.resources :users, :only => [:new, :create], :member => {:compare => :get} do |user|
     user.resources :leagues, :only => :index
   end
   

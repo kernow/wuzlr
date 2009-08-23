@@ -55,6 +55,10 @@ class UsersController < Clearance::UsersController
     end
   end
   
+  def compare
+    
+  end
+  
 private
   def league
     @league ||= League.find params[:league]
