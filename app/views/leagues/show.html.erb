@@ -18,7 +18,7 @@
 	</thead>
 	<% @stats.each do |s| %>
 		<tr class="phatass">
-			<td class="youruglymug"><%= link_to gravatar_for_with_default(s.user), user_path(s.user) %></td>
+			<td class="youruglymug"><%= link_to gravatar_for_with_default(s.user), user_path(s.user), :title => s.user.name %></td>
 			<td><%= s.played                                 %></td>
 			<td><%= s.won                                    %></td>
 			<td><%= s.lost                                   %></td>
@@ -26,7 +26,8 @@
 			<td><%= s.longest_winning_streak                 %></td>
 			<td><%= s.longest_losing_streak                  %></td>
 			<% if @equivalent_teams %>
-				<td><%= image_tag @equivalent_teams.shift[:flag] %></td>
+				<% team = @equivalent_teams.shift %>
+				<td><%= image_tag team[:flag], :title => team[:name] %></td>
 			<% end %>
 		</tr>
 	<% end %>
