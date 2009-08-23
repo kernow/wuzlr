@@ -49,11 +49,13 @@ class Match < ActiveRecord::Base
     after_transition :finished => :recorded do |match, transition|
       match.winners.each {|w| 
         w.add_win  match.finished_at
-        match.stats.create(:user => w, :won => true,  :by => match.score_difference )
+        match.stats.create(:user_id => w, :won => true,  :by => match.score_difference )
+        match.league.add_win(w,match.finished_at)
       }
       match.losers.each {|w|
         w.add_lost match.finished_at
-        match.stats.create(:user => w, :won => false, :by => match.score_difference )
+        match.stats.create(:user_id => w, :won => false, :by => match.score_difference )
+        match.league.add_lost(w,match.finished_at)
       }
     end
         
