@@ -573,7 +573,7 @@ Flashes
 	text-shadow: none;
 }
 
-#flash_error, .errorExplanation {
+#flash_error, .errorExplanation, #flash_failure {
 	color: #eee;
 	padding: 5px;
 	background: #bb3406;
