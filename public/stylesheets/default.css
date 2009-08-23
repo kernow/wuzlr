@@ -477,7 +477,7 @@ Aside
 
 #aside .mal span a {
 	display: block;
-	background: url(../images/gradients/chrome.gif) #eee repeat-x bottom 0;
+	background: url(../images/gradients/chrome.gif) #eee repeat-x bottom left;
 	padding: 10px;
 	text-align: right;
 	border: 1px solid #fff;
