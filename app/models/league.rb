@@ -21,6 +21,12 @@ class League < ActiveRecord::Base
     self.players.include?(user)
   end
   
+  def matches_per_day
+    format = "%Y %b %d"
+    results = matches.count(:group => "DATE_FORMAT(started_at, '#{format}')")
+    results.map{|k,v| [DateTime.strptime(k,format),v] }.sort_by{|e| e[0]}
+  end
+  
   def table_bias
     red_score  = Array.new(10){|i| "Won by #{i+1}"}.map{|e| [e,0]}
     blue_score = Array.new(10){|i| "Won by #{i+1}"}.map{|e| [e,0]}

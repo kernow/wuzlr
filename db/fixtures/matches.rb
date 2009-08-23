@@ -13,7 +13,7 @@ max_game_time   = 15 * 60
 }
 
 matches.sort_by{|e| e[:game_start]}.each{|m|
-  league = League.find(:first, :order => 'random()')
+  league = League.find(:first, :order => 'rand()')
   match  = league.matches.create
   
   possible_players = league.players.dup

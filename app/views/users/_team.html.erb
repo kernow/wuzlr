@@ -1,7 +1,7 @@
 <div class="team <%= team %> <%= "winner" if team == match.winner %> <%= "loser" if team == match.loser %>">
 	<ul>
 		<% match.players_for(team).each do |p| %>
-  		<li><%= link_to p.name, user_path(p) %></li>
+  		<li><%= link_to gravatar_for_with_default(p), user_path(p) %></li>
 		<% end %>
 	</ul>
 	<span class="score"><%= match.score_for(team) %></span>

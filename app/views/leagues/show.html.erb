@@ -1,10 +1,10 @@
 <span class="newmatchup clear"><%= link_to 'Start a new match', new_league_match_path(@league) %></span>
 <div class="slapmabitchup">
-<p>Here is where the description of the league will be when Jamie and Theo have time</p>
+<p><%= @league.description %></p>
 </div>
 
 <table id="fuckingsweet">
-	<tr class="sickass">
+	<thead class="sickass">
 		<th></th>
 		<th>Pld</th>
 		<th>Won</th>
@@ -12,16 +12,22 @@
 		<th>Win %</th>
 		<th title="Winning Streak">Wsk</th>
 		<th title="Losing Streak">Lsk</th>
-	</tr>
+		<% if @equivalent_teams %>
+			<th title="Fifa Team">Ft</th>
+		<% end %>
+	</thead>
 	<% @players.each do |p| %>
 		<tr class="phatass">
 			<td class="youruglymug"><%= link_to gravatar_for_with_default(p), user_path(p) %></td>
-			<td><%= p.played                     %></td>
-			<td><%= p.won                        %></td>
-			<td><%= p.lost                       %></td>
-			<td><%= p.win_p.to_s + "%"           %></td>
-			<td><%= p.longest_winning_streak     %></td>
-			<td><%= p.longest_losing_streak      %></td>
+			<td><%= p.played                                 %></td>
+			<td><%= p.won                                    %></td>
+			<td><%= p.lost                                   %></td>
+			<td><%= p.win_p.to_s + "%"                       %></td>
+			<td><%= p.longest_winning_streak                 %></td>
+			<td><%= p.longest_losing_streak                  %></td>
+			<% if @equivalent_teams %>
+				<td><%= image_tag @equivalent_teams.shift[:flag] %></td>
+			<% end %>
 		</tr>
 	<% end %>
 </table>
@@ -31,6 +37,10 @@
 	<li><%= link_to 'Invite Players', new_league_invite_path(@league) if @league.member_of?(current_user) %></li>
 	<li><%= link_to 'Edit', edit_league_path(@league) if @league.owner?(current_user) %></li>
 </ul>
+
+<div class="charter clear">
+<%= remote_graph("Matches per Day",{ :route => league_graphs_path( :id => @league, :action => :matches_per_day ), :width => "500px", :height => "300px"}) %>
+</div>
 
 <div class="charter clear">
 <%= remote_graph("Table Bias",{ :route => league_graphs_path( :id => @league, :action => :table_bias ), :width => "500px", :height => "300px"}) %>

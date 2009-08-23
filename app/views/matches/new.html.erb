@@ -7,7 +7,7 @@
 <div class="contain clear">
 	<ul class="display_roster clear">
 	  <% @players.each do |p| %>
-		  <li><a href="javascript:;" class="draggable_player" id="player-<%= p.id%>"><%= gravatar_for p, :size => 48 %></a></li>
+		  <li><a href="javascript:;" class="draggable_player" id="player-<%= p.id%>"><%= gravatar_for_with_default p, :size => 48 %></a></li>
 		<% end %>
 	</ul>
 </div>
