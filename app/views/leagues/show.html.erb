@@ -12,16 +12,22 @@
 		<th>Win %</th>
 		<th title="Winning Streak">Wsk</th>
 		<th title="Losing Streak">Lsk</th>
+		<% if @equivalent_teams %>
+			<th title="Fifa Team">Ft</th>
+		<% end %>
 	</thead>
 	<% @players.each do |p| %>
 		<tr class="phatass">
 			<td class="youruglymug"><%= link_to gravatar_for_with_default(p), user_path(p) %></td>
-			<td><%= p.played                     %></td>
-			<td><%= p.won                        %></td>
-			<td><%= p.lost                       %></td>
-			<td><%= p.win_p.to_s + "%"           %></td>
-			<td><%= p.longest_winning_streak     %></td>
-			<td><%= p.longest_losing_streak      %></td>
+			<td><%= p.played                                 %></td>
+			<td><%= p.won                                    %></td>
+			<td><%= p.lost                                   %></td>
+			<td><%= p.win_p.to_s + "%"                       %></td>
+			<td><%= p.longest_winning_streak                 %></td>
+			<td><%= p.longest_losing_streak                  %></td>
+			<% if @equivalent_teams %>
+				<td><%= image_tag @equivalent_teams.shift[:flag] %></td>
+			<% end %>
 		</tr>
 	<% end %>
 </table>
