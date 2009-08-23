@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   has_many :match_players, :foreign_key => "player_id"
   has_many :matches, :through => :match_players
   
+  has_many :stats, :class => "UserStat"
+  has_many :match_stats
+  has_many :league_stats
+    
   validates_presence_of :name
   attr_accessible :name
     
