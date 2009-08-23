@@ -1,6 +1,8 @@
 <div id="digital_clock"></div>
 <script>
-
+  
+  SqueezeBox.setOptions({closable: false});
+  $('sbox-btn-close').dispose();
   var time = { counter: 0 };
   var addCount = function(){
     this.counter++;

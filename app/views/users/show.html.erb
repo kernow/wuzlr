@@ -63,16 +63,16 @@
 	<hr/>
 <% end %>
 
+<h3 class="subsub">Recent match-ups</h3>
+
+<%= render :partial => "match", :collection => @matches, :locals => {:user => @user} %>
+
 <% if @matches.size > 0 %>
 	<div class="clear form">
-		<h3 class="subsub">Form</h3>
+		<h3 class="subsub">Your form over time</h3>
 		<div class="charter clear">
 			<%= remote_graph("Form",{ :route => user_graphs_path( :user_id => @user, :action => :form ), :width => "530px", :height => "300px"}) %>
 		</div>
 	</div>
 	<hr/>
 <% end %>
-
-<h3 class="subsub">Recent match-ups</h3>
-
-<%= render :partial => "match", :collection => @matches, :locals => {:user => @user} %>
