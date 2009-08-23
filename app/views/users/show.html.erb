@@ -63,11 +63,11 @@
 	<hr/>
 <% end %>
 
-<h3 class="subsub">Recent match-ups</h3>
-
-<%= render :partial => "match", :collection => @matches, :locals => {:user => @user} %>
-
 <% if @matches.size > 0 %>
+	<h3 class="subsub">Recent match-ups</h3>
+
+	<%= render :partial => "match", :collection => @matches, :locals => {:user => @user} %>
+
 	<div class="clear form">
 		<h3 class="subsub">Your form over time</h3>
 		<div class="charter clear">
