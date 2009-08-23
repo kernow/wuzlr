@@ -1,7 +1,24 @@
 <% @header = "Certificate" %>
 
-<%= "Congrats #{@match.winners.map(&:email).join(', ')}" %>
+<div class="grats">
 
-<%= "Bad luck #{@match.losers.map(&:email).join(', ')}" %>
+<div class="massivewin">
+	<h2>Conratulations dude that was epic</h2>
+	<% @match.winners.each do |w| %>
+	<h3><%= link_to w.name, user_path(w) %></h3>
+	<% end %>
+	<p>Print and present <a href="/images/loser.jpg">this certificate</a> to the loser/s below</p>
+</div>
+
+<hr/>
+
+<div class="massivelose">
+	<h2>Dude, what happened?</h2>
+	<% @match.losers.each do |l| %>
+	<h4><%= link_to l.name, user_path(l) %></h4>
+	<% end %>
+	<p>Maybe some late night practice is in order</p>
+	</div>
+</div>
 
 <%= link_to "Back to the League", league_path(@league) %>
