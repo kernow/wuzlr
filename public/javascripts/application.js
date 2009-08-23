@@ -87,7 +87,11 @@ window.addEvent('domready', function() {
 
 // sortable tables
 window.addEvent('domready', function() {
-  if($('fuckingsweet')) new SortingTable('fuckingsweet');
+  if($('fuckingsweet')){
+    new SortingTable('fuckingsweet', {
+      dont_sort_class: 'nosort'
+    });
+  }
 });
 
 

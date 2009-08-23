@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090823101348) do
+ActiveRecord::Schema.define(:version => 20090823123606) do
 
   create_table "fifa_teams", :force => true do |t|
     t.string  "name"
@@ -34,6 +34,24 @@ ActiveRecord::Schema.define(:version => 20090823101348) do
     t.datetime "updated_at"
   end
 
+  create_table "league_stats", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "league_id"
+    t.integer  "played",                   :default => 0
+    t.integer  "won",                      :default => 0
+    t.integer  "lost",                     :default => 0
+    t.integer  "win_percent",              :default => 0
+    t.datetime "last_played_at"
+    t.datetime "last_won_at"
+    t.datetime "last_lost_at"
+    t.integer  "longest_winning_streak",   :default => 0
+    t.integer  "longest_losing_streak",    :default => 0
+    t.datetime "last_on_top_at"
+    t.datetime "last_on_bottom_at"
+    t.integer  "longest_on_top_streak",    :default => 0
+    t.integer  "longest_on_bottom_streak", :default => 0
+  end
+
   create_table "leagues", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -51,6 +69,13 @@ ActiveRecord::Schema.define(:version => 20090823101348) do
     t.datetime "updated_at"
   end
 
+  create_table "match_stats", :force => true do |t|
+    t.integer "user_id"
+    t.integer "match_id"
+    t.boolean "won"
+    t.integer "by"
+  end
+
   create_table "matches", :force => true do |t|
     t.datetime "started_at"
     t.datetime "finished_at"
@@ -60,6 +85,15 @@ ActiveRecord::Schema.define(:version => 20090823101348) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "state"
+  end
+
+  create_table "user_stats", :force => true do |t|
+    t.integer "user_id"
+    t.integer "other_user_id"
+    t.string  "relation"
+    t.integer "match"
+    t.boolean "won"
+    t.integer "by"
   end
 
   create_table "users", :force => true do |t|

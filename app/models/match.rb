@@ -8,6 +8,8 @@ class Match < ActiveRecord::Base
   has_many :red_players,  :through => :match_players, :conditions => 'match_players.team = "red"' , :source => :player
   has_many :blue_players, :through => :match_players, :conditions => 'match_players.team = "blue"', :source => :player
   
+  has_many :stats, :class_name => "MatchStat"
+  
   validates_presence_of :league
   
   state_machine :state, :initial => :planning do
@@ -45,8 +47,16 @@ class Match < ActiveRecord::Base
     end
     
     after_transition :finished => :recorded do |match, transition|
-      match.winners.each {|w| w.add_win  match.finished_at }
-      match.losers.each {|w| w.add_lost match.finished_at }
+      match.winners.each {|w| 
+        w.add_win  match.finished_at
+        match.stats.create(:user_id => w, :won => true,  :by => match.score_difference )
+        match.league.add_win(w,match.finished_at)
+      }
+      match.losers.each {|w|
+        w.add_lost match.finished_at
+        match.stats.create(:user_id => w, :won => false, :by => match.score_difference )
+        match.league.add_lost(w,match.finished_at)
+      }
     end
         
   end
