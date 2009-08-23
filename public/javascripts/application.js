@@ -17,42 +17,51 @@ window.addEvent('domready', function() {
     }
   });
   
-  $$("a.draggable_player").each(function(drag) {
+  add_tool_tips($$("li a.draggable_player"));
+  
+  $$("li a.draggable_player").each(function(drag) {
+
   	new Drag.Move(drag, {
   	  droppables: $$('.droppable'),
+  	  onStart: function(elm){
+  	    console.log(elm);
+  	    elm.setStyle('z-index', '999999');
+  	  },
   	  onDrop: function(elm, droppable, event){
-          if (!droppable){
-            // console.log(elm, ' dropped on nothing');
+        if (!droppable){
+          // console.log(elm, ' dropped on nothing');
+          elm.setPosition({x: 0, y: 0});
+        }
+        else{
+          player_id = elm.id;
+          player_id = player_id.substr(7, player_id.length);
+          
+          if(droppable.id == "top"){
+            team = "red";
+          }
+          else{
+            team = "blue";
+          }
+          
+          if(team_form[team+"_number"] > 2){
             elm.setPosition({x: 0, y: 0});
           }
           else{
-            // console.log(elm, 'dropped on', droppable, 'event', event);
-            player_id = elm.id;
-            player_id = player_id.substr(7, player_id.length);
-            
-            if(droppable.id == "top"){
-              team = "red";
-            }
-            else{
-              team = "blue";
-            }
-            
-            if(team_form[team+"_number"] > 2){
-              elm.setPosition({x: 0, y: 0});
-            }
-            else{
-              $(team + '_' + team_form[team+"_number"]).value = player_id;
-              team_form[team+"_number"] = team_form[team+"_number"] + 1;
-              // snap player to position
-              new_elm = elm.clone().inject(droppable);
-              set_player_positions(droppable);
-              elm.dispose();
-            }
+            $(team + '_' + team_form[team+"_number"]).value = player_id;
+            team_form[team+"_number"] = team_form[team+"_number"] + 1;
+            // snap player to position
+            new_elm = elm.clone().inject(droppable);
+            set_player_positions(droppable);
+            elm.dispose();
           }
+        }
+        // re-enable tool tips
+        add_tool_tips($$("li a.draggable_player"));
       }
   	});
   });
 });
+
 
 
 // fonts
@@ -82,12 +91,6 @@ window.addEvent('domready', function() {
 });
 
 
-// match results
-
-// window.addEvent('domready', function() {
-//   if($$('.results_top')) set_player_positions($$('.results_top'));
-//   if($$('.results_bottom')) set_player_positions($$('.results_bottom'));
-// });
 
 
 function set_player_positions(elm){
@@ -100,4 +103,22 @@ function set_player_positions(elm){
     elms[0].setPosition({x: 77, y: y_pos});
     elms[1].setPosition({x: 97, y: y_pos});
   }
+};
+
+function add_tool_tips(elms){
+  elms.each(function(elm) {
+    elm.tip = new Tips(elm.getElement('img'), {className: 'tool-tip'});
+  
+    elm.addEvent('mousedown', function(e){
+      e.target.parentNode.tip.hide();
+      remove_tool_tips($$("li a.draggable_player"));
+      e.stop();
+    });
+  });
+};
+
+function remove_tool_tips(elms){
+  elms.each(function(elm) {
+    elm.tip.detach(elm.getElement('img'));
+  });
 };
