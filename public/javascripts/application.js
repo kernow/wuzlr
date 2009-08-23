@@ -24,7 +24,7 @@ window.addEvent('domready', function() {
   	new Drag.Move(drag, {
   	  droppables: $$('.droppable'),
   	  onStart: function(elm){
-  	    console.log(elm);
+  	    // console.log(elm);
   	    elm.setStyle('z-index', '999999');
   	  },
   	  onDrop: function(elm, droppable, event){
@@ -100,7 +100,7 @@ window.addEvent('domready', function() {
   if($('compare-you') && $('compare-them')){
     $('compare-you').getElements('li').each(function(you_elm){
       // console.log(you_elm.innerHTML);
-      console.log('PROPERTY: '+you_elm.className);
+      // console.log('PROPERTY: '+you_elm.className);
       var them_elm = $('compare-them').getElement('li.'+you_elm.className);
       // console.log(them_elm);
       // console.log('you: ' + you_elm.innerHTML.toInt() + ', them: ' + them_elm.innerHTML.toInt());
@@ -120,8 +120,8 @@ window.addEvent('domready', function() {
         var win_val = p[0];
         var lose_val = p[1];
         
-        console.log('win val: '+win_val);
-        console.log('lose val: '+lose_val);
+        // console.log('win val: '+win_val);
+        // console.log('lose val: '+lose_val);
       }
       else{
         var win_val = win_elm.innerHTML;
@@ -141,19 +141,19 @@ window.addEvent('domready', function() {
 
 
 function get_percentages(val1, val2){
-  console.log('val 1: '+val1+", val 2: "+val2);
+  // console.log('val 1: '+val1+", val 2: "+val2);
   if(val1 > val2){
     var p = (val2/val1)*100;
-    console.log("(val1 > val2) p: "+p);
+    // console.log("(val1 > val2) p: "+p);
     return [100,p];
   }
   else if(val1 < val2){
     var p = (val2/val1)*100;
-    console.log("(val1 < val2) p: "+p);
+    // console.log("(val1 < val2) p: "+p);
     return [p,100];
   }
   else{
-    console.log("same!!");
+    // console.log("same!!");
     return [50,50];
   }
 };
