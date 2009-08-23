@@ -612,8 +612,17 @@ Fucking sweet table
 	width:100px;
 }
 
-#fuckingsweet td {
+#fuckingsweet th.forward_sort {
+	background: url(../images/icons/up-arrow.gif) 90% center no-repeat;
+}
 
+#fuckingsweet th.reverse_sort {
+	background: url(../images/icons/down-arrow.gif) 90% center no-repeat;
+}
+
+#fuckingsweet th.nosort {
+	width:100px;
+	background-image: none;
 }
 
 .sickass {
