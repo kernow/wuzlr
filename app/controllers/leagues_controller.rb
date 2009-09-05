@@ -9,10 +9,11 @@ class LeaguesController < ApplicationController
   
   # GET /leagues/1
   def show
-    @league    = League.find(params[:id])
-    @subheader = "Current standings"
-    @players   = @league.players.find(:all, :order => "users.win_loss_percentage DESC")
-    @stats     = @league.stats.find(:all, :order => "win_percent DESC", :include => :user)
+    @league     = League.find(params[:id])
+    @subheader  = "Current standings"
+    @players    = @league.players.find(:all, :order => "users.win_loss_percentage DESC")
+    @stats      = @league.stats.find(:all, :order => "win_percent DESC", :include => :user)
+    @matches    = @league.matches.find(:all, :conditions => {:state => "recorded"}, :limit => 3, :order => 'finished_at ASC')
     
     fifa_teams = FifaTeam.find(:all, :order => "goals_for DESC")
     @equivalent_teams = case @players.size

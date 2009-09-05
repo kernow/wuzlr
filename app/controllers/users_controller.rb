@@ -3,21 +3,21 @@ class UsersController < Clearance::UsersController
   before_filter :authenticate, :only => [:account, :update]
 
   def show
-    @user       = User.find(params[:id])
+    @user         = User.find(params[:id])
     @user_leagues = @user.leagues
-    @matches    = @user.matches.find(:all, :conditions => {:state => "recorded"}, :limit => 5)
+    @matches      = @user.matches.find(:all, :conditions => {:state => "recorded"}, :limit => 5, :order => 'finished_at ASC')
     
-    @nemesis    = @user.nemesis.first
-    @nemesis    = {:user => @nemesis.first, :lost => @nemesis.last, :played => @user.number_matches_against( @nemesis.first )} if @nemesis
+    @nemesis      = @user.nemesis.first
+    @nemesis      = {:user => @nemesis.first, :lost => @nemesis.last, :played => @user.number_matches_against( @nemesis.first )} if @nemesis
     
-    @dream_team = @user.dream_team.first
-    @dream_team = {:user => @dream_team.first, :won  => @dream_team.last, :played => @user.number_matches_with( @dream_team.first )} if @dream_team
+    @dream_team   = @user.dream_team.first
+    @dream_team   = {:user => @dream_team.first, :won  => @dream_team.last, :played => @user.number_matches_with( @dream_team.first )} if @dream_team
     
-    @walkover   = @user.walkovers.first
-    @walkover   = {:user => @walkover.first, :won  => @walkover.last, :played => @user.number_matches_against( @walkover.first )} if @walkover
+    @walkover     = @user.walkovers.first
+    @walkover     = {:user => @walkover.first, :won  => @walkover.last, :played => @user.number_matches_against( @walkover.first )} if @walkover
     
-    @useless    = @user.useless_team.first
-    @useless    = {:user => @useless.first, :lost  => @useless.last, :played => @user.number_matches_with( @useless.first )} if @useless
+    @useless      = @user.useless_team.first
+    @useless      = {:user => @useless.first, :lost  => @useless.last, :played => @user.number_matches_with( @useless.first )} if @useless
 
     respond_to do |format|
       format.html

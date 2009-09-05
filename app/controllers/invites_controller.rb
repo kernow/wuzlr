@@ -1,5 +1,7 @@
 class InvitesController < ApplicationController
   
+  before_filter :authenticate
+  
   def new
     league
   end

@@ -1,5 +1,7 @@
 class MatchesController < ApplicationController
-
+  
+  before_filter :authenticate
+  
   # GET /leagues/1/matches/1
   def show
     @match = league.matches.find(params[:id])
