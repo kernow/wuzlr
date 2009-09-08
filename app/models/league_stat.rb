@@ -5,6 +5,10 @@ class LeagueStat < ActiveRecord::Base
   
   validates_uniqueness_of :user_id, :scope => :league_id
   
+  def self.most_active_leagues(limit=3)
+    LeagueStat.find(:all, :order => 'played DESC', :select => 'DISTINCT league_id', :limit => limit).collect! { |ls| ls.league }
+  end
+  
   def winning_streak
     if last_played_at == last_won_at
       matches_since last_lost_at
