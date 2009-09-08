@@ -28,7 +28,22 @@ namespace :vlad do
     Rake::Task['vlad:install_gems'].invoke
   end
   
+  remote_task :git_revision do
+    set :current_sha, run("cd #{File.join(scm_path, 'repo')}; git rev-parse origin/master").strip
+  end
+  
+  task :git_user do
+    set :current_user, `git config --get user.name`.strip
+  end
+  
+  task :notify_hoptoad => [:git_user, :git_revision] do
+    notify_command = "rake hoptoad:deploy TO=#{rails_env} REVISION=#{current_sha} REPO=#{repository} USER='#{current_user}'"
+    puts "Notifying Hoptoad of Deploy (#{notify_command})"
+    `#{notify_command}`
+    puts "Hoptoad Notification Complete."
+  end
+  
   desc "Full deployment cycle"
-  task :deploy => [:update, :migrate, :start_app]
+  task :deploy => [:update, :migrate, :start_app, :notify_hoptoad]
 end
 
