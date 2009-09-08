@@ -2,8 +2,8 @@ set :application, "wuzlr"
 set :user,        "wuzlr"
 set :deploy_to,   "/home/#{user}/#{application}"
 set :revision,    "master"
-set :repository,  "git@github.com:railsrumble/rr09-team-102.git"
-set :domain,      "#{user}@wuzlr.com"
+set :repository,  "git@github.com:kernow/wuzlr.git"
+set :domain,      "#{user}@209.20.78.74"
 set :rails_env,   "production"
 
 namespace :vlad do
