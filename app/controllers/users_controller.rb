@@ -5,7 +5,7 @@ class UsersController < Clearance::UsersController
   def show
     @user         = User.find(params[:id])
     @user_leagues = @user.leagues
-    @matches      = @user.matches.find(:all, :conditions => {:state => "recorded"}, :limit => 5, :order => 'finished_at ASC')
+    @matches      = @user.matches.find(:all, :conditions => {:state => "recorded"}, :limit => 5, :order => 'finished_at DESC')
     
     @nemesis      = @user.nemesis.first
     @nemesis      = {:user => @nemesis.first, :lost => @nemesis.last, :played => @user.number_matches_against( @nemesis.first )} if @nemesis
