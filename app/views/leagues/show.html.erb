@@ -17,11 +17,9 @@
 		<th title="Percentage of Wins" class="reverse_sort">Win %</th>
 		<th title="Winning Streak">Wsk</th>
 		<th title="Losing Streak">Lsk</th>
-		<% if @equivalent_teams %>
-			<th title="Equivalent Fifa Team" class="nosort">Rank</th>
-		<% end %>
+		<th title="Equivalent Fifa Team" class="nosort">Rank</th>
 	</thead>
-	<% @stats.each do |s| %>
+	<% @stats.each_with_index do |s, i| %>
 		<tr class="phatass">
 			<td class="youruglymug"><%= link_to gravatar_for_with_default(s.user), user_path(s.user), :title => s.user.name %></td>
 			<td><%= s.played                                 %></td>
@@ -30,10 +28,7 @@
 			<td><%= s.win_percent.to_s + "%"                 %></td>
 			<td><%= s.longest_winning_streak                 %></td>
 			<td><%= s.longest_losing_streak                  %></td>
-			<% if @equivalent_teams %>
-				<% team = @equivalent_teams.shift %>
-				<td><%= image_tag team[:flag], :title => team[:name] %></td>
-			<% end %>
+			<td><%= team_flag_image_for s.user, i, @stats.size, @fifa_teams %></td>
 		</tr>
 	<% end %>
 </table>
