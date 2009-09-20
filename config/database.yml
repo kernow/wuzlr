@@ -19,9 +19,8 @@ test:
   timeout: 5000
 
 production:
-  adapter: mysql
-  database: wuzlr_production
+  adapter: postgresql
+  database: wuzlr
   username: wuzlr
-  password: BaftAtyip
+  encoding: utf8
   pool: 5
-  socket: /var/run/mysqld/mysqld.sock
