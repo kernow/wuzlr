@@ -6,7 +6,7 @@ class LeagueStat < ActiveRecord::Base
   validates_uniqueness_of :user_id, :scope => :league_id
   
   def self.most_active_leagues(limit=3)
-    LeagueStat.find(:all, :order => 'league_id DESC, played DESC', :select => 'DISTINCT ON (league_id)', :limit => limit).collect! { |ls| ls.league }
+    LeagueStat.find(:all, :order => 'played DESC', :select => 'DISTINCT league_id, played', :limit => limit).collect! { |ls| ls.league }
   end
   
   def winning_streak
